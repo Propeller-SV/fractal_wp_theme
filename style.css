@@ -1,0 +1,808 @@
+/*
+Theme name: Fractal Soft
+Theme URI:
+Author: Serhii Prokhorenko
+Author URI:
+Description:
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:
+Text domain: fractal
+*/
+
+/*
+*=======================================================================================================
+* GENERAL STYLES
+*=======================================================================================================
+*/
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin-bottom: 220px;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+a:focus {
+    outline: none !important;
+}
+.custom-active {
+    color: #ff7b00 !important; 
+}
+
+/*
+*=======================================================================================================
+* HEADER
+*=======================================================================================================
+*/
+
+/* --- brand ---*/
+
+.brand {
+    display: block;
+}
+.brand .center {
+    width: 109px;
+    margin: 0 auto;
+}
+.logo {
+    background-image: url(img/logo1.png);   /*psv edition*/
+    width: 109px;
+    height: 59px;
+    float: left;
+}
+.navbar-inverse .navbar-toggle {
+    border-color: #222;
+}
+
+/* --- navbar-1 ---*/
+
+#navbar-1 .nav > li > a:nth-child(-n+2) {
+    display: inline;
+}
+#navbar-1 .nav > li {                       /*psv edition (- :nth-child(-n+2))*/
+    display: inline;
+}
+#navbar-1 .nav a {
+    color: #fff;
+}
+#navbar-1 .navbar-right li {
+    margin: 10px 0;
+}
+#navbar-1 .navbar-right a:hover,
+#navbar-1 .navbar-right a:focus,
+#navbar-1 .dropdown-toggle:hover,
+#navbar-1 .dropdown-toggle:focus {
+    color: #ff7b00;
+    background-color: #222;
+}
+#navbar-1 .dropdown-menu a {
+    color: #000;
+}
+.navbar-header-custom .navbar-toggle {
+    margin-right: 0;
+}
+.navbar-header i {
+    font-size: 18px;
+    color: #fff;
+    margin-right: 0;
+}
+.colour {
+    padding: 10px 15px;
+}
+.colour li {
+    display: inline;
+    padding-right: 5px;
+}
+.colour a:hover {
+    border: 1px solid #ff7b00;
+}
+.colour img {                           /*psv edition*/
+    width: 24px;
+}
+
+/* --- search-form ---*/
+
+.search-form .input-group {
+    margin: 10px 0;
+}
+.search-form span {
+    background-color: #fff;
+    padding: 0 5px;
+
+}
+.search-form button {                     /*psv edition*/
+	border: none;
+	background-color: #fff;
+	color: #428bca;
+}
+.search-form input {
+    border-left: none;
+}
+.search-form .form-control {
+    padding: 6px;
+}
+
+
+/* --- navbar ---*/
+
+#navbar a {
+    color: #fff;
+}
+#navbar a:hover,
+#navbar a:focus {
+    color: #ff7b00;
+    background-color: #222;
+}
+
+#navbar li.current-menu-item a,             /*psv edition*/
+footer li.current-menu-item a{
+	color: #ff7b00;
+}
+
+/*
+*=======================================================================================================
+* CAROUSEL-SLIDES(home-page)
+*=======================================================================================================
+*/
+
+/* --- carousel-slides ---*/
+
+#carousel-slides {
+    margin-top: 61px;
+}
+#carousel-slides img {
+    margin: 0 auto;
+}
+
+/* --- carousel-caption ---*/
+
+.carousel-caption h1 {
+    font-size: 30px;
+}
+.carousel-caption p a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    padding: 2px 10px;
+    position: relative;
+}
+.carousel-caption p a:hover {
+    color: #ff7b00;
+    border: 2px solid #ff7b00;
+    border-radius: 3px;
+}
+
+/*
+*=======================================================================================================
+* FRAGMENT(home-page)
+*=======================================================================================================
+*/
+
+/* --- fragment ---*/
+
+.fragment {
+    background-color: #eee;
+    padding-bottom: 30px;
+}
+.fragment h1 {
+    padding-top: 30px;
+    font-size: 24px;
+}
+
+/* --- about ---*/
+
+.about {
+    background-color: #fff;
+    margin: 30px 0;
+}
+.about img {
+    width: 100%;
+}
+.about h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    color: #595858;
+    text-align: center;
+}
+.about p {
+    line-height: 20px;
+    font-size: 12px;
+    color: #151414;
+    padding:0  10px;
+}
+
+/* --- learn-more-link ---*/
+
+.about .learn-more-link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    text-align: right;
+    padding: 0 10px 40px;
+}
+.learn-more-link a {
+    text-decoration: none;
+    color: #b98d62;
+    padding: 5px 15px;
+    border: 1px solid #b98d62;
+    border-radius: 3px;
+    position: relative;
+}
+.learn-more-link a:hover {
+    color: #ff7b00;
+    border: 1px solid #ff7b00;
+    border-radius: 3px;
+}
+
+/*
+*=======================================================================================================
+* CONTENT(home-page)
+*=======================================================================================================
+*/
+
+/* --- content ---*/
+
+.content {
+    background-image: url('img/banner.png');    /*psv edition*/
+    display:block;
+    width: 100%;
+    min-height: 550px;
+    font-size: 24px;
+    color: #fff;
+}
+.content h2 {
+    font-size: 33px;
+    font-weight: normal;
+}
+.content h3 {
+    font-weight: normal;
+    padding-top: 30px;
+}
+.content p:last-child {
+    padding-top: 60px;
+}
+.content a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    border: 3px solid #fff;
+    border-radius: 6px;
+    padding: 7px 26px;
+    position: relative;
+}
+.content a:hover {
+    color: #ff7b00; 
+    border: 3px solid #ff7b00;
+    border-radius: 6px;
+} 
+
+/*
+*=======================================================================================================
+* CUSTOMER(home-page)
+*=======================================================================================================
+*/
+
+/* --- customer ---*/
+
+.customer .heading {
+    width: 100%;
+    height: 70px;
+    background-color: #eee;
+    margin-bottom: 30px;
+}
+.customer h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: #412e90;
+}
+.customer span {
+    font-size: 43px;
+    color: #eee;
+}
+
+
+
+/*
+*=======================================================================================================
+* BANNER(company-page, career-page)
+*=======================================================================================================
+*/
+
+.banner {
+    background-image: url('img/banner_top.png');    /*psv edition*/
+    display:block;
+    width: 100%;
+    min-height: 95px;
+    margin-top: 61px;
+}
+.breadcrumb {
+    background-color: #ccd2d2;
+    margin-top: 25px; 
+}
+.banner li {
+    list-style: none;
+    font-size: 18px;
+    color: #000;
+    letter-spacing: 2px;
+    padding-top: 30px;
+}
+
+/*
+*=======================================================================================================
+* ABOUT-US(company-page) 
+*=======================================================================================================
+*/
+
+/* --- about-us ---*/
+
+.about-us .row {
+    padding: 40px 0;
+}
+
+/* --- text-top ---*/
+
+.text-top {
+    padding: 30px 0;
+}
+.text-top p {
+    padding-top: 20px;
+}
+.text-top .list {
+    padding: 0;
+    margin: 0;
+}
+.text-top .list li {
+    list-style: none;
+    padding-top: 5px;
+}
+.text-top .list li i {
+    color: #f37907;
+}
+
+/* --- text-bottom ---*/
+
+.text-bottom {
+    padding-top: 40px;
+}
+.text-bottom .col-sm-12 {
+    display: block;
+    min-height: 20px;
+    border: 2px solid #eee;
+    border-top: 2px solid #f37907;
+    padding: 0px;
+    margin-bottom: 25px;
+}
+.text-bottom .col-sm-12 i {
+    padding: 12px 20px;
+}
+.text-bottom .col-sm-12 p {
+    padding-top: 9px;
+    padding-left: 10px;       
+}
+.company {
+    margin: 35px 0;
+}
+
+/* --- text-bottom-tabs ---*/
+
+.text-bottom-tabs {
+    width: 100%;
+    min-height: 200px;
+    border: 2px solid #eee;
+    padding: 20px;
+    padding-bottom: 10px;
+}
+.info p {
+    padding: 7px;
+    padding-left: 15px;
+}
+.info p:first-child {
+    padding-top: 35px;
+}
+.text-bottom-tabs p a {
+    color: #f86056;
+}
+.text-bottom-tabs .paragraph span {
+    color: #7a7979;
+}
+
+/*
+*=======================================================================================================
+* TEAM(company-page) 
+*=======================================================================================================
+*/
+
+/* --- team ---*/
+
+.team {
+    background-color: #eee;
+}
+.team h1 {
+    color: #414040;
+    text-transform: uppercase;
+    padding-top: 40px;
+}
+.team h2 {
+    font-family: Segoe script, sans-serif;
+    color: #2e2d2d;
+}
+
+/* --- post ---*/
+
+.post {
+    display: table;
+    margin: 40px 0;
+}
+.center {
+    width: 250px;
+    margin: 0 auto;
+}
+.resume {
+    background-color: #fff;
+    border: 1px solid #f37907;
+    border-bottom: 3px solid #f37907;
+    padding: 10px;
+}
+
+/*
+*=======================================================================================================
+* CAREER-GROWTH(career-page)
+*=======================================================================================================
+*/
+
+/* --- career ---*/
+
+.career {
+    display: block;
+    width: 100%;
+    background-color: #f4f4f4;
+    padding-top: 25px;
+    min-height: 300px;
+    margin: 45px 0;
+}
+.banner-background-top {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    min-height: 31px;
+}
+
+/* --- blurb ---*/
+
+.blurb {
+    display: block;
+    font-size: 12px;
+    line-height: 2;
+    padding-bottom: 20px;
+}
+.blurb-text {
+    width: 180px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+.career-growth .center {
+    width: 30px;
+    height: 30px;
+    color: #f37907; 
+    border: 2px solid #f37907;
+    border-radius: 15px;
+    padding: 2px;
+    padding-left: 7px;
+    margin: 15px auto;
+}
+
+/* --- photofit ---*/
+
+.photofit img {
+    width: 100%;
+    min-height: 330px;
+}
+
+/*
+*=======================================================================================================
+* CONTACT
+*=======================================================================================================
+*/
+
+/* --- contact ---*/
+
+.contact {
+    background-image: url('img/contact.png');       /*psv edition*/
+    display:block;
+    width: 100%;
+    height: 679px;
+}
+.contact input,
+.contact textarea {
+    border: none;
+}
+.contact {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+}
+.contact-form input {
+    color: #010101;
+    border: 3px solid #b98d62;
+    border-radius: 8px;
+    margin: 20px 0; 
+}
+.contact-form input:hover,
+.contact-form input:focus{
+    border: 3px solid #ff7b00;
+}
+
+/* --- comments ---*/
+
+.comments textarea {
+    height: 200px;
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.33;
+    padding: 10px 16px;
+    color: #010101;
+    border: 3px solid #b98d62;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+.comments textarea:hover,
+.comments textarea:focus {
+    border: 3px solid #ff7b00;
+}
+
+/* --- pin ---*/
+
+.pin p {
+    margin-top: 15px;
+}
+.pin input {                                /*psv edition a > input*/
+    text-decoration: none;
+    background-color: #fff;
+    color: #b98d62;
+    font-size: 24px;
+    letter-spacing: 2px;
+    border: 3px solid #b98d62;
+    border-radius: 5px;
+    padding: 10px 45px;
+    position: relative;
+}
+.pin input:hover {                          /*psv edition a > input*/
+    color: #f37907;
+    border: 3px solid #f37907;
+    border-radius: 5px; 
+}
+
+/*
+*=======================================================================================================
+* FOOTER
+*=======================================================================================================
+*/
+
+/* --- footer ---*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 220px;
+    background-color: #222;
+}
+footer p {
+    font-size: 15px;
+    color: #fff;
+    border-top: 1px solid #fff;
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* --- footer-navigation ---*/
+
+.footer-navigation ul {
+    padding: 10px 0;
+    margin: 0;
+}
+.footer-navigation li a:first-child {
+    padding-left: 0;
+} 
+.footer-navigation a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+}
+.footer-navigation a:hover,
+.footer-navigation a:focus {
+    color: #ff7b00;
+    background-color: #222 !important;
+}
+
+/* --- menu ---*/
+
+.menu {
+    margin-top: 2px;
+}
+.menu h3 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    padding-top: 2px;
+}
+.menu .nav-pills {
+    display: table;
+    margin: 0 auto;
+}
+.menu .nav-pills ul {
+    float: right;
+}
+.menu .nav-pills .textwidget li {       /*psv edition (.textwidget)*/
+    display: table-cell;
+    padding: 20px 5px;
+}
+.menu .nav-pills .textwidget a {        /*psv edition (.textwidget*/
+    padding: 0;
+}
+
+/*
+*=======================================================================================================
+* MEDIA
+*=======================================================================================================
+*/
+
+/* Medium Devices, Desktops */
+
+@media (min-width: 992px) {
+
+    .carousel-caption {
+    margin-bottom: 210px;
+    }
+}
+
+/* Small Devices, Tablets */
+
+@media (min-width: 768px) {
+
+     body {
+    margin-bottom: 150px;
+    }
+    .navbar-fixed-top {
+    position: absolute;
+    }
+    .logo {
+    background-image: url(img/logo.png);    /*psv edition*/
+    margin-top: 15px;
+    }
+    .navbar-header-custom {
+    background-color: #fff;
+    border-top: 15px solid #eee;
+    }
+    #navbar-1 .nav {
+    padding-top: 5px;
+    padding-bottom: 0;
+    }
+    #navbar-1 .navbar-right a {
+    color: #428bca;
+    padding: 5px;
+    }
+    #navbar-1 .navbar-right a:hover,
+    #navbar-1 .navbar-right a:focus,
+    #navbar-1 .dropdown-toggle:hover,
+    #navbar-1 .dropdown-toggle:focus {
+    color: #ff7b00;
+    background-color: #fff;
+    }
+    #navbar-1 .navbar-right .dropdown-menu a {
+        padding-left: 15px;
+    } 
+    .search-form .input-group {
+    width: 230px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    float: right;
+    }
+    .search-form input:hover,
+    .search-form input:focus {
+    border: 1px solid #ff7b00;
+    box-shadow: none;    
+    }
+    .header-line {
+    background-color: #222;
+    margin-top: 5px;
+    }
+    .navbar-main {
+    display: table;
+    margin: 0 auto;
+    }
+    .navbar-main li {
+    display: table-cell;
+    }
+    #carousel-slides {
+    margin-top: 145px;
+    }
+    .carousel-caption {
+    font-size:30px;
+    padding-bottom: 60px;
+    }
+    .carousel-caption h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px;
+    }
+    .carousel-caption p:last-child {
+    padding-top: 70px;
+    }
+    .carousel-caption p a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    border: 3px solid #fff;
+    border-radius: 6px;
+    padding: 7px 26px;
+    }
+    .carousel-caption p a:hover {
+    color: #ff7b00;
+    border: 3px solid #ff7b00;
+    border-radius: 6px;
+    }
+    .content h3 {
+    padding-top: 100px;
+    }
+    .banner {
+    margin-top: 145px;
+    }
+    .contact {
+    padding-top: 100px;
+    padding-bottom: 30px;
+    }
+    .menu .nav-pills {
+    display: block;
+    float: right;
+    }
+    .menu h3 {
+    text-align: right;
+    margin-left: -10px;
+    }
+    .menu .nav-pills .textwidget li {                     /*psv edition .textwidget, display: block*/
+    display: inline-block;
+    padding: 15px 4px;
+    }
+    .menu .nav-pills .textwidget li:first-child {         /*psv edition .textwidget*/
+    padding-left: 0;
+    }
+    .menu .nav-pills .textwidget li:last-child {          /*psv edition .textwidget*/
+    padding-right: 0;
+    }
+     footer {
+    height: auto;
+    }
+    footer .col-sm-7 {
+    padding-left: 0;
+    }
+    footer .col-md-6,
+    footer .col-sm-8 {
+    padding-right: 0;
+    }
+    footer p{
+    text-align: left;
+    }
+}
+
+/*
+*=======================================================================================================
+* psv edition
+*=======================================================================================================
+*/
+.lang-item {
+    list-style: none;
+    display: inline;
+}
