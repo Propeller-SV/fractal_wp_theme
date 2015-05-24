@@ -8,7 +8,7 @@
  * Define constants.
  * ----------------------------------------------------------------------------------------
  */
-define( 'THEMEROOT', get_stylesheet_directory_uri() );
+define( 'THEMEROOT', get_stylesheet_directory() );
 define( 'IMAGES', THEMEROOT . '/img' );
 define( 'SCRIPTS', THEMEROOT . '/js' );
 define( 'THEMEADMIN', TEMPLATEPATH . '/admin' );
@@ -26,7 +26,8 @@ require_once(THEMEFUNC . '/menus/menus.php');
  * Include the TGM_Plugin_Activation class.
  * ----------------------------------------------------------------------------------------
  */
-require_once dirname( __FILE__ ) . '/admin/dependencies.php';
+// require_once dirname( __FILE__ ) . '/admin/dependencies.php';
+require_once dirname( __FILE__ ) . '/admin/install-plugins.php';
 
 /**
  * ----------------------------------------------------------------------------------------
@@ -52,9 +53,9 @@ if ( ! function_exists( 'fractalsoft_theme_setup' ) ) :
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 */
-		// $lang_dir = THEMEROOT . '/languages/';
-		// load_theme_textdomain( 'fractal', $lang_dir );
-		load_theme_textdomain( 'fractal', get_template_directory() . '/languages' );
+		$lang_dir = THEMEROOT . '/languages/';
+		load_theme_textdomain( 'fractal', $lang_dir );
+		// load_theme_textdomain( 'fractal', get_template_directory() . '/languages' );
 
 		/*
 		 *Enable support for Post Thumbnails on posts and pages.
