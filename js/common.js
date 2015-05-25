@@ -20,7 +20,7 @@ function initialize() {
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
-    
+
     var companyImage = new google.maps.MarkerImage(WPURLS.templateUrl + '/img/marker.png',
         new google.maps.Size(50,73),
         new google.maps.Point(0,0),
@@ -40,12 +40,13 @@ function initialize() {
         shadow: companyShadow,
         title:"Yasna, 5 St.",
         zIndex: 3});
-    
+
     google.maps.event.addListener(companyMarker, 'click', function() {
         infowindow.open(map,companyMarker);
     });
 }
 
+// Add icons to mobile menu
 $(function() {
     var aTags = document.getElementById('navbar').getElementsByTagName('a');
     var searchText = ["home", "software engineering", "company", "career"];

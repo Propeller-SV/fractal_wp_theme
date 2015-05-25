@@ -55,6 +55,7 @@ function my_theme_register_required_plugins() {
         array(
             'name'              => 'Polylang', // The plugin name.
             'slug'              => 'polylang', // The plugin slug (typically the folder name).
+            'source'            => get_stylesheet_directory() . '/lib/plugins/polylang.zip', // The plugin source.
             'required'          => true, // If false, the plugin is only 'recommended' instead of required.
             'force_activation'  => false,
         ),
@@ -62,6 +63,7 @@ function my_theme_register_required_plugins() {
         array(
             'name'      => 'Display Widgets',
             'slug'      => 'display-widgets',
+            'source'    => get_stylesheet_directory() . '/lib/plugins/display-widgets.zip', // The plugin source.
             'required'  => false,
         ),
 
