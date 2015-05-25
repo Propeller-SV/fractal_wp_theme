@@ -8,7 +8,7 @@
  * Define constants.
  * ----------------------------------------------------------------------------------------
  */
-define( 'THEMEROOT', get_stylesheet_directory() );
+define( 'THEMEROOT', get_stylesheet_directory_uri() );
 define( 'IMAGES', THEMEROOT . '/img' );
 define( 'SCRIPTS', THEMEROOT . '/js' );
 define( 'THEMEADMIN', TEMPLATEPATH . '/admin' );
@@ -27,7 +27,7 @@ require_once(THEMEFUNC . '/menus/menus.php');
  * ----------------------------------------------------------------------------------------
  */
 // require_once dirname( __FILE__ ) . '/admin/dependencies.php';
-require_once dirname( __FILE__ ) . '/admin/install-plugins.php';
+require_once dirname( __FILE__ ) . '/admin/psv-install-plugins.php';
 
 /**
  * ----------------------------------------------------------------------------------------
@@ -53,9 +53,9 @@ if ( ! function_exists( 'fractalsoft_theme_setup' ) ) :
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 */
-		$lang_dir = THEMEROOT . '/languages/';
-		load_theme_textdomain( 'fractal', $lang_dir );
-		// load_theme_textdomain( 'fractal', get_template_directory() . '/languages' );
+		// $lang_dir = THEMEROOT . '/languages/';
+		// load_theme_textdomain( 'fractal', $lang_dir );
+		load_theme_textdomain( 'fractal', get_template_directory() . '/languages' );
 
 		/*
 		 *Enable support for Post Thumbnails on posts and pages.
@@ -337,5 +337,36 @@ function addThisPage() {
 }
 
 add_action( 'after_setup_theme', 'addThisPage' );
+
+// deliver mail
+function deliver_mail() {
+
+    // if the submit button is clicked, send the email
+    if ( isset( $_POST['cf-submitted'] ) ) {
+
+        // sanitize form values
+        $name    = sanitize_text_field( $_POST["cf-name"] );
+        $email   = sanitize_email( $_POST["cf-email"] );
+        $phone	 = sanitize_text_field( $_POST["cf-phone"] );
+        $subject = 'Fractal Soft response';
+        $message = esc_textarea( $_POST["cf-message"] );
+
+        // get the blog administrator's email address
+        $to = get_option( 'admin_email' );
+
+        $headers = "From: $name <$email>, $phone" . "\r\n";
+
+        // If email has been process for sending, display a success message
+        if ( wp_mail( $to, $subject, $message, $headers ) ) {
+
+            echo "<script type='text/javascript'>alert('Thanks for contacting us, expect a response soon.')</script>";
+
+        } else {
+            echo "<script type='text/javascript'>alert('An unexpected error occurred.')</script>";
+        }
+    }
+}
+
+add_action( 'after_setup_theme', 'deliver_mail' );
 
 ?>
