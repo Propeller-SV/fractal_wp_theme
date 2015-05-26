@@ -23,11 +23,11 @@ require_once(THEMEFUNC . '/menus/menus.php');
 
 /**
  * ----------------------------------------------------------------------------------------
- * Include the TGM_Plugin_Activation class.
+ * Include the Plugin Activation function.
  * ----------------------------------------------------------------------------------------
  */
 // require_once dirname( __FILE__ ) . '/admin/dependencies.php';
-require_once dirname( __FILE__ ) . '/admin/psv-install-plugins.php';
+require_once THEMEFUNC . '/psv-install-plugins.php';
 
 /**
  * ----------------------------------------------------------------------------------------
