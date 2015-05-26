@@ -338,7 +338,11 @@ function addThisPage() {
 
 add_action( 'after_setup_theme', 'addThisPage' );
 
-// deliver mail
+/**
+ * ----------------------------------------------------------------------------------------
+ * Contact form
+ * ----------------------------------------------------------------------------------------
+ */
 function deliver_mail() {
 
     // if the submit button is clicked, send the email
