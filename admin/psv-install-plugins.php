@@ -46,7 +46,7 @@ $plugins = array(
 
 );
 
-if (!is_plugin_active( 'display-widgets/display-widgets.php') && !is_plugin_active( 'polylang/polylang.php' )) {
+if (!is_plugin_active( 'display-widgets/display-widgets.php') || !is_plugin_active( 'polylang/polylang.php' )) {
     mm_get_plugins($plugins);
 }
 ?>
