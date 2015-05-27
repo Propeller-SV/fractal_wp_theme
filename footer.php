@@ -11,7 +11,7 @@
             <nav class="hidden-xs footer-navigation col-sm-7">
                 <?php
                 $currentlang = get_bloginfo('language');
-                if ($currentlang == "en-GB" || $currentlang == "en-US") :
+                if ($currentlang !== "de-DE") :
                     // Check if the menu exists
                     $menu_exists = wp_get_nav_menu_object( 'Footer fractal menu' );
 
