@@ -86,24 +86,26 @@
                             //    'menu_class'     => 'nav navbar-nav navbar-right',
                             //    'fallback_cb'    => 'default_top_nav'
                             // )); ?>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="<?php echo esc_url( home_url( '/get-help/' ) ); ?>">Get Help</a></li>
-                                <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog</a></li>
-                                <li class="hidden-xs">
-                                    <ul>
-                                        <?php
-                                            include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-                                            // check for plugin using plugin name
-                                            if ( is_plugin_active( 'polylang/polylang.php' ) ) {
-                                              //plugin is activated
-                                              pll_the_languages(array('show_flags'=>1,'show_names'=>1, 'hide_current'=>1));
-                                            } else {
-                                                echo "<a href='" . home_url() . "/wp-admin/plugins.php'>{Activate Polylang Plugin}</a>";
-                                            }
-                                        ?>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <div class="col-sm-12">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="<?php echo esc_url( home_url( '/get-help/' ) ); ?>">Get Help</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog</a></li>
+                                    <li class="hidden-xs">
+                                        <ul>
+                                            <?php
+                                                include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+                                                // check for plugin using plugin name
+                                                if ( is_plugin_active( 'polylang/polylang.php' ) ) {
+                                                  //plugin is activated
+                                                  pll_the_languages(array('show_flags'=>1,'show_names'=>1, 'hide_current'=>1));
+                                                } else {
+                                                    echo "<a href='" . home_url() . "/wp-admin/plugins.php'>{Activate Polylang Plugin}</a>";
+                                                }
+                                            ?>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                             <?php get_search_form(); ?>
                         </div><!-- end of navbar-collapse -->
                     </div><!-- end of col-xs-12 -->
