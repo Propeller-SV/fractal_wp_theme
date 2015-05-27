@@ -31,6 +31,13 @@ require_once THEMEFUNC . '/psv-install-plugins.php';
 
 /**
  * ----------------------------------------------------------------------------------------
+ * Include the function to add languges to Polylang plugin.
+ * ----------------------------------------------------------------------------------------
+ */
+require_once THEMEFUNC . '/add-languages-polylang.php';
+
+/**
+ * ----------------------------------------------------------------------------------------
  * Set the content width based on the theme's design and stylesheet.
  * ----------------------------------------------------------------------------------------
  */
