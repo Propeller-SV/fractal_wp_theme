@@ -13,8 +13,16 @@ if ( !function_exists('add_languages_polylang') ) {
 			$language_installed = pll_is_language_installed($language['slug']);
 			if (!$language_installed) {
 				$model->add_language($language);
+				// redirect the language page to the homepage
 				$options['redirect_lang'] = 1;
 				update_option('polylang', $options);
+				// fills existing posts & terms with default language
+				$nolang = $model->get_objects_with_no_lang();
+				// echo "<script type='text/javascript'>console.log('" . print_r($nolang['posts']) . "')</script>";
+				if (!empty($nolang['posts']))
+					$model->set_language_in_mass('post', $nolang['posts'], $options['default_lang']);
+				if (!empty($nolang['terms']))
+					$model->set_language_in_mass('term', $nolang['terms'], $options['default_lang']);
 			}
 		}
 	}
