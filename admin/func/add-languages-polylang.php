@@ -13,6 +13,8 @@ if ( !function_exists('add_languages_polylang') ) {
 			$language_installed = pll_is_language_installed($language['slug']);
 			if (!$language_installed) {
 				$model->add_language($language);
+				$options['redirect_lang'] = 1;
+				update_option('polylang', $options);
 			}
 		}
 	}
