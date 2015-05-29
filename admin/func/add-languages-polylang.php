@@ -15,10 +15,11 @@ if ( !function_exists('add_languages_polylang') ) {
 				$model->add_language($language);
 				// redirect the language page to the homepage
 				$options['redirect_lang'] = 1;
+				// remove URL language information for default language
+				$options['hide_default'] = 1;
 				update_option('polylang', $options);
 				// fills existing posts & terms with default language
 				$nolang = $model->get_objects_with_no_lang();
-				// echo "<script type='text/javascript'>console.log('" . print_r($nolang['posts']) . "')</script>";
 				if (!empty($nolang['posts']))
 					$model->set_language_in_mass('post', $nolang['posts'], $options['default_lang']);
 				if (!empty($nolang['terms']))
