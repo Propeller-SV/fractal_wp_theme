@@ -89,7 +89,7 @@
                             <div class="col-sm-12">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a href="<?php echo esc_url( home_url( '/get-help/' ) ); ?>">Get Help</a></li>
-                                    <li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>">Blog</a></li>
+                                    <li><a href="<?php echo get_permalink( get_option('page_for_posts' ) ); ?>">Blog</a></li>
                                     <li class="hidden-xs">
                                         <ul>
                                             <?php
