@@ -90,7 +90,7 @@
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a href="<?php echo esc_url( home_url( '/get-help/' ) ); ?>">Get Help</a></li>
                                     <li><a href="<?php
-                                        if( get_option( 'show_on_front' ) == 'page' )
+                                        if ( get_option('page_for_posts') )
                                         echo get_permalink( get_option('page_for_posts' ) );
                                         else echo bloginfo('url');
                                     ?>">Blog</a></li>
