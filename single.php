@@ -16,7 +16,7 @@
 					$blog_page_id = get_option('page_for_posts');
 					echo '<a href="' . get_permalink( $blog_page_id ) . '">' . get_page($blog_page_id)->post_title . '</a>';
 				} else {
-					echo '<a href=' . get_bloginfo( 'url' ) . '>BLOG</a>';
+					echo '<a href="' . get_bloginfo( 'url' ) . '">BLOG</a>';
 				}
 				?></li>
 			</ul>
