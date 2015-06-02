@@ -47,7 +47,7 @@
 							<ul class="list-top">
 								<li><a href="<?php echo get_author_posts_url( get_the_author_meta('ID') ); ?>"><img src="<?php echo IMAGES; ?>/icon-user.png" /> <?php the_author(); ?> /</a></li>
 								<li><a href="#"><img src="<?php echo IMAGES; ?>/icon-clock.png" /><?php the_time( ' F d.m.Y /' ); ?></a></li>
-								<li><img src="<?php echo IMAGES; ?>/icon-folder.png" /> <?php echo get_the_category_list( ', ' ); ?></li>
+								<li style="color:#aaa; font-size:10px"><img src="<?php echo IMAGES; ?>/icon-folder.png" /> <?php echo get_the_category_list( ', ' ); ?></li>
 							</ul>
 
 							<?php the_excerpt(); ?>
@@ -71,10 +71,38 @@
 							</ul>
 						</div>
 					<?php endwhile; ?>
+					<div class="list-pagination">
+					    <ul class="pagination pagination-lg">
+					        <li><a href="#">&laquo;</a></li>
+					        <li><a href="#">1</a></li>
+					        <li><a href="#">2</a></li>
+					        <li><a href="#">3</a></li>
+					        <li><a href="#">&raquo;</a></li>
+					    </ul>
+					</div><!-- end of list-pagination -->
 					<?php endif; ?>
-				</div>
-			</div>
-		</div>
+				</div><!-- end of col-sm-9 -->
+				<div class="col-xs-12 col-sm-3">
+					<div class="fragment-human">
+					     <div class="heading-post">
+					        <h3><span>R</span>ecent <span>P</span>osts</h3>
+					    </div>
+						<?php
+							$args = array( 'numberposts' => '3' );
+							$recent_posts = wp_get_recent_posts( $args );
+							foreach( $recent_posts as $recent ) {
+								echo '<div class="popular-post"><a href="' . get_permalink( $recent["ID"] ) 
+								. '"><h4 class="text-center">' . $recent["post_title"] 
+								. '</h4></a><p class="text-center"><i>' 
+								. get_the_time( 'F d, Y', $recent['ID'] ) . '</i></p>' 
+								. get_the_post_thumbnail( $recent["ID"], array(130,130), array('class' => 'human-img') ) 
+								. '</div>';
+							}
+						?>
+					</div>
+				</div><!-- end of col-xs-12 col-sm-3 -->
+			</div><!-- end of row -->
+		</div><!-- end of container -->
 	</section>
 
 <?php get_footer();?>
