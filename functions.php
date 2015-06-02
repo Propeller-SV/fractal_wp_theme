@@ -380,4 +380,10 @@ function deliver_mail() {
 
 add_action( 'after_setup_theme', 'deliver_mail' );
 
+// Remove […] string for post excerpts
+function new_excerpt_more( $more ) {
+	return '';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
 ?>
