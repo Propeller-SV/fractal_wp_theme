@@ -626,8 +626,7 @@ footer li.current-menu-item a{
 }
 
 .fragment-human .list-top {
-    width: 500px;                              /*psv edition 200px*/
-    text-align: center;                        /*psv edition + */
+    width: 200px;
     padding-top: 10px;
     margin: 10px auto;
 }
