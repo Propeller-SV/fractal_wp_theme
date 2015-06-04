@@ -66,7 +66,7 @@
 						<div class="about">
 							<?php
 							$softEngin = new WP_Query('pagename=software-engineering');
-                            if ($softEngin->have_posts()) : while ($softEngin->have_posts()) : $softEngin->the_post();?>
+							if ($softEngin->have_posts()) : while ($softEngin->have_posts()) : $softEngin->the_post();?>
 								<?php the_post_thumbnail(); ?>
 								<h2><?php the_title(); ?></h2>
 								<p><?php the_excerpt(); ?></p>
@@ -81,7 +81,7 @@
 						<div class="about">
 							<?php
 							$company = new WP_Query('pagename=company');
-                            if ($company->have_posts()) : while ($company->have_posts()) : $company->the_post();?>
+							if ($company->have_posts()) : while ($company->have_posts()) : $company->the_post();?>
 								<?php the_post_thumbnail(); ?>
 								<h2><?php the_title(); ?></h2>
 								<p><?php the_excerpt(); ?></p>
@@ -96,7 +96,7 @@
 						<div class="about">
 							<?php
 							$career = new WP_Query('pagename=career');
-                            if ($career->have_posts()) : while ($career->have_posts()) : $career->the_post();?>
+							if ($career->have_posts()) : while ($career->have_posts()) : $career->the_post();?>
 								<?php the_post_thumbnail(); ?>
 								<h2><?php the_title(); ?></h2>
 								<p><?php the_excerpt(); ?></p>
@@ -124,7 +124,23 @@
 			</div><!-- end of container -->
 		</section><!-- end of content -->
 
-		<?php get_sidebar( 'customers' ); ?>
+		<section class="customer">
+			<div class="heading">
+				<div class="container">
+					<h2 class="text-center">CUSTOMERS<br><span>&#9830;</span></h2>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<ul class="list-unstyled">
+						<?php
+						$meta = get_post_meta(get_the_id());
+						?>
+						<li class="col-sm-6 col-md-3 text-center"><a href="<?php echo $meta['fractal_customers_link'][0]; ?>"><img src="<?php echo IMAGES . '/layer-1.png' ?>"></a></li>
+					</ul>
+				</div><!-- end of row -->
+			</div><!-- end of container -->
+		</section><!-- end of content -->
 
 		<?php get_template_part( 'contactform' ); ?>
 <?php get_footer();?>
