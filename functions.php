@@ -185,37 +185,29 @@ function addThisPage() {
 		if( $insert_home_id ) {
 			update_post_meta( $insert_home_id, '_wp_page_template', 'home-tepmlate.php' );
 
-			// upload and set up the post thumbnail
-			$image_url = IMAGES . '/foto.png';
-			$upload_dir = wp_upload_dir();
-			$image_data = file_get_contents($image_url);
-			$filename = basename($image_url);
-			if(wp_mkdir_p($upload_dir['path']))
-			    $file = $upload_dir['path'] . '/' . $filename;
-			else
-			    $file = $upload_dir['basedir'] . '/' . $filename;
-			file_put_contents($file, $image_data);
-
-			$wp_filetype = wp_check_filetype($filename, null );
-			$attachment = array(
-			    'post_mime_type' => $wp_filetype['type'],
-			    'post_title' => sanitize_file_name($filename),
-			    'post_content' => '',
-			    'post_status' => 'inherit'
-			);
-			$attach_id = wp_insert_attachment( $attachment, $file, $insert_home_id );
-			require_once(ABSPATH . 'wp-admin/includes/image.php');
-			$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
-			wp_update_attachment_metadata( $attach_id, $attach_data );
-
-			set_post_thumbnail( $insert_home_id, $attach_id );
-
-
 			// Set "static page" as the option
 			update_option( 'show_on_front', 'page' );
 
 			// Set the front page ID
 			update_option( 'page_on_front', $insert_home_id );
+		}
+	}
+
+	// add blog page
+	$page_blog = array(
+		'post_title'	=> 'Blog',
+		'post_status'	=> 'publish',
+		'post_type'		=> 'page',
+		'post_content'	=> ''
+		);
+	$page_blog_exists = get_page_by_title( $page_blog['post_title'] );
+
+	if( ! $page_blog_exists) {
+		$insert_blog_id = wp_insert_post( $page_blog );
+		if( $insert_blog_id ) {
+
+			// Set the front page ID
+			update_option( 'page_for_posts', $insert_blog_id );
 		}
 	}
 
