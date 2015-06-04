@@ -40,7 +40,7 @@
 								<img src="<?php echo $url; ?>" class="human-img" />
 								<?php endif; ?>
 								<h1 class="text-center"><?php the_title(); ?></h1>
-								<ul class="list-top">
+								<ul class="list-top text-center">
 									<li><img src="<?php echo IMAGES; ?>/icon-user.png" /> <?php the_author(); ?> /</li>
 									<li><img src="<?php echo IMAGES; ?>/icon-clock.png" /><?php the_time( ' F d.m.Y /' ); ?></li>
 									<li><img src="<?php echo IMAGES; ?>/icon-folder.png" /> <?php echo get_the_category_list( ', ' ); ?></li>
