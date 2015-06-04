@@ -136,7 +136,6 @@ a:focus {
     padding: 6px;
 }
 
-
 /* --- navbar ---*/
 
 #navbar a {
@@ -173,7 +172,6 @@ footer li.current-menu-item a{
 .carousel-caption {
     padding-bottom: 30px;
 }
-
 .carousel-caption h1 {
     font-size: 30px;
 }
@@ -204,6 +202,7 @@ footer li.current-menu-item a{
     background-color: #eee;
     padding-bottom: 30px;
 }
+
 .fragment h1 {
     padding-top: 30px;
     font-size: 24px;
@@ -346,7 +345,6 @@ footer li.current-menu-item a{
     min-height: 95px;
     margin-top: 61px;
 }
-
 .banner li {
     list-style: none;
     padding-top: 30px;
@@ -507,7 +505,6 @@ footer li.current-menu-item a{
     line-height: 2;
     padding-bottom: 20px;
 }
-
 .career-growth .center {
     width: 30px;
     height: 30px;
@@ -624,9 +621,11 @@ footer li.current-menu-item a{
     border: 1px solid #aaa;
     margin: 20px 0;
 }
-
+.fragment-human .heading h3 {
+    margin-top: 21px;
+}
 .fragment-human .list-top {
-    width: 200px;
+    width: 300px;
     padding-top: 10px;
     margin: 10px auto;
 }
@@ -643,7 +642,7 @@ footer li.current-menu-item a{
     display: inline;
 }
 .fragment-human .list-bottom .dropdown .dropdown-menu {
-    min-width: 115px;
+    min-width: 120px;
     padding: 0;
 }
 .fragment-human .list-bottom .dropdown .dropdown-menu li a {
@@ -675,9 +674,6 @@ footer li.current-menu-item a{
 
 /* --- heading ---*/
 
-.heading {
-    margin-top: 21px;
-}
 .heading-post h3,
 .heading-subscrible h3,
 .subscrible h3,
@@ -703,7 +699,7 @@ footer li.current-menu-item a{
 }
 .heading-post h3 span,
 .heading-subscrible span,
-.heading span,
+.fragment-human .heading span,
 .subscrible span {
     font-size: 20px;
 }
