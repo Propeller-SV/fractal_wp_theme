@@ -378,4 +378,30 @@ function new_excerpt_more( $more ) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
+// add meta box for Customers
+function metaboxes() {
+		add_action( 'add_meta_boxes', function() {
+			add_meta_box( 'fractal_customers_link', 'Customers', 'customers', 'page' );
+		});
+
+		function customers($post) {
+			$customer = get_post_meta( $post->ID, 'fractal_customers_link', true );
+			?>
+			<p>
+				<!-- <label for="fractal_customer_logo">Logo: </label>
+				<input name="fractal_customer_logo" type="file"/> <br> -->
+				<label for="fractal_customers_link">Link: </label>
+				<input type="text" class="widefat" name="fractal_customers_link" id="fractal_customers_link" value="<?php echo esc_attr( $customer ); ?>">
+			</p>
+			<?php
+		}
+
+		add_action('save_post', function($id) {
+			if ( isset($_POST['fractal_customers_link']) ) {
+				update_post_meta( $id, 'fractal_customers_link', strip_tags($_POST['fractal_customers_link']) );
+			}
+		});
+	}
+add_action( 'init', 'metaboxes' );
+
 ?>
