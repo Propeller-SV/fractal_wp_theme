@@ -675,8 +675,8 @@ footer li.current-menu-item a{
 /* --- heading ---*/
 
 .heading-post h3,
-.heading-subscrible h3,
-.subscrible h3,
+.heading-subscribe h3,
+.subscribe h3,
 .heading h3 {
     width: 75px;
     font-size: 14px;
@@ -687,27 +687,27 @@ footer li.current-menu-item a{
     padding-bottom: 10px;
     margin: 0 auto;
 }
-.heading-subscrible h3 {
+.heading-subscribe h3 {
     width: 120px;
     padding-top: 20px;
 }
-.subscrible h3 {
+.subscribe h3 {
     width: 140px;
     line-height: 30px;
     border-bottom: none;
     margin-top: 30px;
 }
 .heading-post h3 span,
-.heading-subscrible span,
+.heading-subscribe span,
 .fragment-human .heading span,
-.subscrible span {
+.subscribe span {
     font-size: 20px;
 }
 .heading-post h3 {
     width: 140px;
     margin: 20px auto;
 }
-.subscrible .paper-plane h3 {
+.subscribe .paper-plane h3 {
     line-height: 20px;
     border-bottom: none;
     padding: 15px;
@@ -883,11 +883,13 @@ footer p {
 .menu .nav-pills ul {
     float: right;
 }
-.menu .nav-pills .textwidget li {       /*psv edition (.textwidget)*/
+.menu .nav-pills .textwidget li,        /*psv edition (.textwidget)*/
+.menu .nav-pills li {
     display: table-cell;
     padding: 20px 5px;
 }
-.menu .nav-pills .textwidget a {        /*psv edition (.textwidget*/
+.menu .nav-pills .textwidget a,         /*psv edition (.textwidget*/
+.menu .nav-pills a {
     padding: 0;
 }
 
@@ -1007,14 +1009,17 @@ footer p {
     text-align: right;
     margin-left: -10px;
     }
-    .menu .nav-pills .textwidget li {                     /*psv edition .textwidget, display: block*/
+    .menu .nav-pills .textwidget li,                       /*psv edition .textwidget, display: block*/
+    .menu .nav-pills li {
     display: inline-block;
     padding: 15px 4px;
     }
-    .menu .nav-pills .textwidget li:first-child {         /*psv edition .textwidget*/
+    .menu .nav-pills .textwidget li:first-child,         /*psv edition .textwidget*/
+    .menu .nav-pills li:first-child {
     padding-left: 0;
     }
-    .menu .nav-pills .textwidget li:last-child {          /*psv edition .textwidget*/
+    .menu .nav-pills .textwidget li:last-child,          /*psv edition .textwidget*/
+    .menu .nav-pills li:last-child {
     padding-right: 0;
     }
     footer {
