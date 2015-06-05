@@ -67,7 +67,17 @@
                 endif; ?>
             </nav>
             <div class="menu col-sm-5">
-                <?php get_sidebar( 'footer-social' ); ?>
+                <div class="col-sm-4 col-md-6">
+                    <h3>Follow us:</h3>
+                </div>
+                <div class="col-sm-8 col-md-6">
+                    <ul class="nav nav-pills">
+                        <li><a href="#"><img src="<?php echo IMAGES; ?>/facebook.png"></a></li>
+                        <li><a href="#"><img src="<?php echo IMAGES; ?>/twitter.png"></a></li>
+                        <li><a href="#"><img src="<?php echo IMAGES; ?>/linkedin.png"></a></li>
+                        <li><a href="#"><img src="<?php echo IMAGES; ?>/google.png"></a></li>
+                    </ul>
+                </div>
             </div>
         </div><!-- end of row -->
         <div class="row">
