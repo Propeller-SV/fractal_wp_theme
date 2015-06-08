@@ -7,54 +7,54 @@
 <?php get_header(); ?>
 
 	<section id="carousel-slides">
-			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
-				<!-- Indicators -->
-				<ol class="carousel-indicators">
-					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-				</ol>
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			</ol>
 
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner" role="listbox">
-					<div class="item active">
-						<img class="img-responsive" src="<?php bloginfo( 'template_url' ); ?>/img/slide-1.png" alt="...">
-						<div class="carousel-caption">
-							<h1 class="text-left">How Well Do<br>Know Your Partner?</h1>
-							<p class="text-left">JUST ONE CLICKAWAY</p>
-							<p><a href="#" role="button" class="pull-left">Check</a></p>
-						</div>
-					</div>
-					<div class="item">
-						<img class="img-responsive" src="<?php bloginfo( 'template_url' ); ?>/img/slide-2.png" alt="...">
-						<div class="carousel-caption">
-							<h1 class="text-left">How Well Do<br>Know Your Partner?</h1>
-							<p class="text-left">JUST ONE CLICKAWAY</p>
-							<p><a href="#" role="button" class="pull-left">Check</a></p>
-						</div>
-					</div>
-					<div class="item">
-						<img class="img-responsive" src="<?php bloginfo( 'template_url' ); ?>/img/slide-3.png" alt="...">
-						<div class="carousel-caption">
-							<h1 class="text-left">How Well Do<br>Know Your Partner?</h1>
-							<p class="text-left">JUST ONE CLICKAWAY</p>
-							<p><a href="#" role="button" class="pull-left">Check</a></p>
-						</div>
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<img class="img-responsive" src="<?php bloginfo( 'template_url' ); ?>/img/slide-1.png" alt="...">
+					<div class="carousel-caption">
+						<h1 class="text-left">How Well Do<br>Know Your Partner?</h1>
+						<p class="text-left">JUST ONE CLICKAWAY</p>
+						<p><a href="#" role="button" class="pull-left">Check</a></p>
 					</div>
 				</div>
+				<div class="item">
+					<img class="img-responsive" src="<?php bloginfo( 'template_url' ); ?>/img/slide-2.png" alt="...">
+					<div class="carousel-caption">
+						<h1 class="text-left">How Well Do<br>Know Your Partner?</h1>
+						<p class="text-left">JUST ONE CLICKAWAY</p>
+						<p><a href="#" role="button" class="pull-left">Check</a></p>
+					</div>
+				</div>
+				<div class="item">
+					<img class="img-responsive" src="<?php bloginfo( 'template_url' ); ?>/img/slide-3.png" alt="...">
+					<div class="carousel-caption">
+						<h1 class="text-left">How Well Do<br>Know Your Partner?</h1>
+						<p class="text-left">JUST ONE CLICKAWAY</p>
+						<p><a href="#" role="button" class="pull-left">Check</a></p>
+					</div>
+				</div>
+			</div>
 
-				<!-- Controls -->
-				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
+			<!-- Controls -->
+			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
 
-			</div><!-- end of carousel-example-generic -->
+		</div><!-- end of carousel-example-generic -->
 		</section><!-- end of carousel-slides -->
 		<section class="fragment">
 			<div class="container">
@@ -123,24 +123,31 @@
 				<p><a href="" role="button">View</a></p>
 			</div><!-- end of container -->
 		</section><!-- end of content -->
-
-		<section class="customer">
-			<div class="heading">
-				<div class="container">
-					<h2 class="text-center">CUSTOMERS<br><span>&#9830;</span></h2>
+		<?php
+		// insert "customer" section if exists
+		$meta = get_post_meta(get_the_id());
+		if ( isset($meta['gallery_data'])) :
+			$foo = unserialize($meta['gallery_data'][0]);
+			$count = count($foo['image_url']);
+		?>
+			<section class="customer">
+				<div class="heading">
+					<div class="container">
+						<h2 class="text-center">CUSTOMERS<br><span>&#9830;</span></h2>
+					</div>
 				</div>
-			</div>
-			<div class="container">
-				<div class="row">
-					<ul class="list-unstyled">
-						<?php
-						$meta = get_post_meta(get_the_id());
-						?>
-						<li class="col-sm-6 col-md-3 text-center"><a href="<?php echo $meta['fractal_customers_link'][0]; ?>"><img src="<?php echo IMAGES . '/layer-1.png' ?>"></a></li>
-					</ul>
-				</div><!-- end of row -->
-			</div><!-- end of container -->
-		</section><!-- end of content -->
-
+				<div class="container">
+					<div class="row">
+						<ul class="list-unstyled">
+							<?php
+							for ($i = 0; $i < $count; $i++) {
+								echo "<li class='col-sm-6 col-md-" . 12/$count . " text-center'><a href='" . $foo['image_desc'][$i] . "'><img src='" . $foo['image_url'][$i] . "' alt='Customer'></a></li>";
+							}
+							?>
+						</ul>
+					</div><!-- end of row -->
+				</div><!-- end of container -->
+			</section><!-- end of content -->
+		<?php endif; ?>
 		<?php get_template_part( 'contactform' ); ?>
 <?php get_footer();?>
