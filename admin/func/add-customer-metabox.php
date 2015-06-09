@@ -30,7 +30,7 @@ function fractal_customers_options()
   $gallery_data = get_post_meta( $post->ID, 'gallery_data', true );
 
   // Use nonce for verification
-  wp_nonce_field( plugin_basename( __FILE__ ), 'fractal_nonce' );
+  wp_nonce_field( plugin_basename( __FILE__ ), 'fractal_customers_nonce' );
 ?>
 
 <div id="dynamic_form">
@@ -202,7 +202,7 @@ function update_post_gallery( $post_id, $post_object )
     return;
 
   // Verify authenticity
-  if ( !wp_verify_nonce( $_POST['fractal_nonce'], plugin_basename( __FILE__ ) ) )
+  if ( !wp_verify_nonce( $_POST['fractal_customers_nonce'], plugin_basename( __FILE__ ) ) )
     return;
 
   // Correct post type
