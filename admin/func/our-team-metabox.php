@@ -78,7 +78,7 @@ function fractal_employee_options()
       </div>
 
       <div class="field_right">
-      <input class="button" type="button" value="Choose File" onclick="add_image(this)" /><br />
+      <input class="button" type="button" value="Choose File" onclick="add_employee_image(this)" /><br />
       <input class="button" type="button" value="Remove" onclick="remove_employee_field(this)" />
       </div>
 
@@ -113,7 +113,7 @@ function fractal_employee_options()
       <div class="field_right image_wrap">
       </div>
       <div class="field_right">
-        <input type="button" class="button" value="Choose File" onclick="add_image(this)" />
+        <input type="button" class="button" value="Choose File" onclick="add_employee_image(this)" />
         <br />
         <input class="button" type="button" value="Remove" onclick="remove_employee_field(this)" />
       </div>
@@ -174,7 +174,7 @@ function print_scripts_team()
   </style>
 
   <script type="text/javascript">
-    function add_image(obj) {
+    function add_employee_image(obj) {
       var parent=jQuery(obj).parent().parent('div.field_row');
       var inputField = jQuery(parent).find("input.meta_employee_image");
 
