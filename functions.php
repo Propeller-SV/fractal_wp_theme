@@ -35,12 +35,26 @@ require_once THEMEFUNC . '/psv-install-plugins.php';
  * ----------------------------------------------------------------------------------------
  */
 require_once THEMEFUNC . '/add-languages-polylang.php';
+
 /**
  * ----------------------------------------------------------------------------------------
  * Include the function to add Customers metabox.
  * ----------------------------------------------------------------------------------------
  */
 require_once THEMEFUNC . '/add-customer-metabox.php';
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Include the function to add Employee metabox.
+ * ----------------------------------------------------------------------------------------
+ */
+require_once THEMEFUNC . '/our-team-metabox.php';
+/**
+ * ----------------------------------------------------------------------------------------
+ * Include the function to add 'Why Fractal' metabox.
+ * ----------------------------------------------------------------------------------------
+ */
+require_once THEMEFUNC . '/why-fractal-metabox.php';
 
 /**
  * ----------------------------------------------------------------------------------------
@@ -189,7 +203,7 @@ function addThisPage() {
 	if( ! $page_home_exists) {
 		$insert_home_id = wp_insert_post( $page_home );
 		if( $insert_home_id ) {
-			update_post_meta( $insert_home_id, '_wp_page_template', 'home-tepmlate.php' );
+			update_post_meta( $insert_home_id, '_wp_page_template', 'home-template.php' );
 
 			// Set "static page" as the option
 			update_option( 'show_on_front', 'page' );
@@ -229,7 +243,7 @@ function addThisPage() {
 	if( ! $page_softEngin_exists) {
 		$insert_softEngin_id = wp_insert_post( $page_softEngin );
 		if( $insert_softEngin_id ) {
-			update_post_meta( $insert_softEngin_id, '_wp_page_template', 'softEngin-tepmlate.php' );
+			update_post_meta( $insert_softEngin_id, '_wp_page_template', 'softEngin-template.php' );
 
 			// upload and set up the post thumbnail
 			$image_url = IMAGES . '/software.png';
@@ -270,7 +284,7 @@ function addThisPage() {
 	if( ! $page_company_exists) {
 		$insert_company_id = wp_insert_post( $page_company );
 		if( $insert_company_id ) {
-			update_post_meta( $insert_company_id, '_wp_page_template', 'company-tepmlate.php' );
+			update_post_meta( $insert_company_id, '_wp_page_template', 'company-template.php' );
 
 			// upload and set up the post thumbnail
 			$image_url = IMAGES . '/company.png';
@@ -311,7 +325,7 @@ function addThisPage() {
 	if( ! $page_career_exists) {
 		$insert_career_id = wp_insert_post( $page_career );
 		if( $insert_career_id ) {
-			update_post_meta( $insert_career_id, '_wp_page_template', 'career-tepmlate.php' );
+			update_post_meta( $insert_career_id, '_wp_page_template', 'career-template.php' );
 
 			// upload and set up the post thumbnail
 			$image_url = IMAGES . '/career.png';
