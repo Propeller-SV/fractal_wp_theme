@@ -361,15 +361,15 @@ msgstr "Кар'єра зона віджетів"
 msgid "Some information"
 msgstr "Деяка інформація"
 
-#: home-tepmlate.php:62
+#: home-template.php:62
 msgid "About Us"
 msgstr "Про нас"
 
-#: home-tepmlate.php:73 home-tepmlate.php:88 home-tepmlate.php:103
+#: home-template.php:73 home-template.php:88 home-template.php:103
 msgid "Learn More"
 msgstr "Дізнатися більше."
 
-#: home-tepmlate.php:75 home-tepmlate.php:90 home-tepmlate.php:105 page.php:21
+#: home-template.php:75 home-template.php:90 home-template.php:105 page.php:21
 msgid "Sorry, this page does not exist."
 msgstr "На жаль, ця сторінка не існує."
 

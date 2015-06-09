@@ -480,15 +480,15 @@ msgstr "Karriere-Widget-Bereich"
 msgid "Some information"
 msgstr "Einige Informationen"
 
-#: home-tepmlate.php:62
+#: home-template.php:62
 msgid "About Us"
 msgstr "Über uns"
 
-#: home-tepmlate.php:73 home-tepmlate.php:88 home-tepmlate.php:103
+#: home-template.php:73 home-template.php:88 home-template.php:103
 msgid "Learn More"
 msgstr "Mehr Erfahren"
 
-#: home-tepmlate.php:75 home-tepmlate.php:90 home-tepmlate.php:105
+#: home-template.php:75 home-template.php:90 home-template.php:105
 msgid "Sorry, this page does not exist."
 msgstr "Sorry, diese Seite ist nicht vorhanden."
 
