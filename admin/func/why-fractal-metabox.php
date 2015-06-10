@@ -111,6 +111,7 @@ function why_fractal_options()
 
   <div id="add_why_fractal_row">
     <input class="button" type="button" value="Add Field" onclick="add_why_fractal_row();" />
+    <input class="button" type="button" value="Remove Field" onclick="remove_why_fractal_row();" />
   </div>
 
 </div>
@@ -169,13 +170,18 @@ function print_scripts_why_fractal()
     }
 
     function add_point_row() {
-      var row = jQuery('#point_row').html();
-      jQuery(row).appendTo('#point_wrap');
+      var point = jQuery('#point_row').html();
+      jQuery(point).appendTo('#point_wrap');
     }
 
     function add_why_fractal_row() {
       var row = jQuery('#why_fractal_row').html();
       jQuery(row).appendTo('#why_fractal_wrap');
+    }
+
+    function remove_why_fractal_row() {
+      var row = jQuery('#why_fractal_wrap').children(":last");
+      row.remove();
     }
   </script>
   <?php
