@@ -49,13 +49,20 @@ require_once THEMEFUNC . '/add-customer-metabox.php';
  * ----------------------------------------------------------------------------------------
  */
 require_once THEMEFUNC . '/our-team-metabox.php';
+
 /**
  * ----------------------------------------------------------------------------------------
  * Include the function to add 'Why Fractal' metabox.
  * ----------------------------------------------------------------------------------------
  */
 require_once THEMEFUNC . '/why-fractal-metabox.php';
-require_once THEMEFUNC . '/company-main-metabox.php';
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Include the function to add Company and Career main points metabox.
+ * ----------------------------------------------------------------------------------------
+ */
+require_once THEMEFUNC . '/company-career-main-metabox.php';
 
 /**
  * ----------------------------------------------------------------------------------------
