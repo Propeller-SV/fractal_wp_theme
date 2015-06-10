@@ -4,7 +4,7 @@
  * Add metabox for Our Team
  * ----------------------------------------------------------------------------------------
  */
-add_action( 'admin_init', 'add_fractal_employee' );
+add_action( 'add_meta_boxes', 'add_fractal_employee' );
 add_action( 'admin_head-post.php', 'print_scripts_team' );
 add_action( 'admin_head-post-new.php', 'print_scripts_team' );
 add_action( 'save_post', 'update_post_team', 10, 2 );

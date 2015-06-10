@@ -4,7 +4,7 @@
  * Add metabox for customers
  * ----------------------------------------------------------------------------------------
  */
-add_action( 'admin_init', 'add_fractal_customer' );
+add_action( 'add_meta_boxes', 'add_fractal_customer' );
 add_action( 'admin_head-post.php', 'print_scripts' );
 add_action( 'admin_head-post-new.php', 'print_scripts' );
 add_action( 'save_post', 'update_post_gallery', 10, 2 );

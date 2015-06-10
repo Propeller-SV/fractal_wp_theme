@@ -4,7 +4,7 @@
  * Add metabox for "Why Fractal" section
  * ----------------------------------------------------------------------------------------
  */
-add_action( 'admin_init', 'add_why_fractal' );
+add_action( 'add_meta_boxes', 'add_why_fractal' );
 add_action( 'admin_head-post.php', 'print_scripts_why_fractal' );
 add_action( 'admin_head-post-new.php', 'print_scripts_why_fractal' );
 add_action( 'save_post', 'update_post_why_fractal', 10, 2 );
