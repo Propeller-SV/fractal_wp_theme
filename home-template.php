@@ -141,7 +141,7 @@
 						<ul class="list-unstyled">
 							<?php
 							for ($i = 0; $i < $count; $i++) {
-								echo "<li class='col-sm-6 col-md-" . 12/$count . " text-center'><a href='" . $foo['image_desc'][$i] . "'><img src='" . $foo['image_url'][$i] . "' alt='Customer'></a></li>";
+								echo "<li class='col-sm-6 col-md-" . 12/$count . " text-center'><a href='" . esc_url($foo['image_desc'][$i]) . "'><img src='" . esc_url($foo['image_url'][$i]) . "' alt='Customer'></a></li>";
 							}
 							?>
 						</ul>
