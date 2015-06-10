@@ -30,30 +30,114 @@
                     </div><!-- end of text-top -->
                 </div><!-- end of col-sm-8 -->
 
-                <div class="col-sm-4">
-                    <div class="text-top">
-                        <h3 class="text-center"><?php
-                        $bar = (unserialize(get_post_meta(get_the_id())['why_fractal_data'][0]));
-                        echo(strtoupper($bar['heading'][0]));
-                        ?></h3>
-                        <p>
-                            <?php echo($bar['reason'][0]); ?>
-                        </p>
-                        <ul class="list">
-                            <?php
-                            if (isset($bar['point'])) {
-                                for ($i=0; $i<count($bar['point']); $i++) {
-                                echo "<li><i class='glyphicon glyphicon-ok-sign'></i> " . $bar['point'][$i] . "</li>" ;
+                <?php
+                $why_fractal_data = get_post_meta(get_the_id(), 'why_fractal_data', true);
+                if (isset($why_fractal_data)) {
+                    $bar = $why_fractal_data;
+                }
+                if ($bar['heading'][0]) {
+                    ?>
+                    <div class="col-sm-4">
+                        <div class="text-top">
+                            <h3 class="text-center"><?php
+                            echo(strtoupper($bar['heading'][0]));
+                            ?></h3>
+                            <p>
+                                <?php echo($bar['reason'][0]); ?>
+                            </p>
+                            <ul class="list">
+                                <?php
+                                if (isset($bar['point'])) {
+                                    for ($i=0; $i<count($bar['point']); $i++) {
+                                    echo "<li><i class='glyphicon glyphicon-ok-sign'></i> " . $bar['point'][$i] . "</li>" ;
+                                    }
                                 }
-                            }
-                            ?>
-                        </ul>
-                    </div><!-- end of text-top -->
-                </div><!-- end of col-sm-4 -->
+                                ?>
+                            </ul>
+                        </div><!-- end of text-top -->
+                    </div><!-- end of col-sm-4 -->
+                <?php } else { ?>
+                    <div class="col-sm-4">
+                        <div class="text-top">
+                            <h3 class="text-center">WHY FRACTAL SOFT?</h3>
+                            <p>
+                                In today's tutorial I'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of
+                                Source and recently released in the form of version 1.0.Avocode is an application which allows you:
+                            </p>
+                            <ul class="list">
+                                <li><i class="glyphicon glyphicon-ok-sign"></i> Psd and .sketch files</li>
+                                <li><i class="glyphicon glyphicon-ok-sign"></i> Wthout even opening Photoshop or Sketch</li>
+                                <li><i class="glyphicon glyphicon-ok-sign"></i> Developed by the "eleven brave</li>
+                                <li><i class="glyphicon glyphicon-ok-sign"></i> Going to introduce you to Avocode</li>
+                                <li><i class="glyphicon glyphicon-ok-sign"></i> Allows yoy to work with</li>
+                               <li><i class="glyphicon glyphicon-ok-sign"></i> Loday's tutorial I'm going to</li>
+                            </ul>
+                        </div><!-- end of text-top -->
+                    </div><!-- end of col-sm-4 -->
+                <?php } ?>
 
-                <div class="text-bottom col-sm-8 pull-left">
-                    <?php get_sidebar( 'company' ); ?>
-                </div> <!-- end of text-bottom -->
+                <div class="text-bottom col-sm-8">
+                    <div class="col-sm-12">
+                        <div class="col-sm-1">
+                            <i class="fa fa-briefcase"></i>
+                        </div>
+                        <div class="col-sm-11">
+                            <p>
+                                <?php if (isset (get_post_meta(get_the_id())['main_company_points_data'])) {
+                                    $main_point = (unserialize(get_post_meta(get_the_id())['main_company_points_data'][0]));
+                                }
+                                if (isset($main_point['point'][0])) {
+                                    echo($main_point['point'][0]);
+                                } else {
+                                    echo "In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.";
+                                }
+                                ?>
+                            </p>
+                        </div>
+                    </div><!-- end of col-xs-12 -->
+                    <div class="company col-sm-12">
+                        <div class="col-sm-1">
+                            <i class="fa fa-th-large"></i>
+                        </div>
+                        <div class="col-sm-11">
+                            <p>
+                                <?php if (isset($main_point['point'][1])) {
+                                    echo($main_point['point'][1]);
+                                } else {
+                                    echo "In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.";
+                                } ?>
+                            </p>
+                        </div>
+                    </div><!-- end of col-xs-12 -->
+                    <div class="company col-sm-12">
+                        <div class="col-sm-1">
+                            <i class="fa fa-truck"></i>
+                        </div>
+                        <div class="col-sm-11">
+                            <p>
+                                <?php if (isset($main_point['point'][2])) {
+                                    echo($main_point['point'][2]);
+                                } else {
+                                    echo "In today's tutorial I'am going to introduce you to Avocode, developed.";
+                                } ?>
+                            </p>
+                        </div>
+                    </div><!-- end of col-xs-12 -->
+                    <div class="company col-sm-12">
+                        <div class="col-sm-1">
+                            <i class="fa fa-trophy"></i>
+                        </div>
+                        <div class="col-sm-11">
+                            <p>
+                                <?php if (isset($main_point['point'][3])) {
+                                    echo($main_point['point'][3]);
+                                } else {
+                                    echo "In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.";
+                                } ?>
+                            </p>
+                        </div>
+                    </div><!-- end of col-xs-12 -->
+                </div><!-- end of text-bottom -->
 
                 <div class="text-bottom col-sm-4 pull-right">
                     <div class="text-bottom-tabs">
@@ -82,7 +166,7 @@
     <?php
     // insert "team" section if exists
     $meta = get_post_meta(get_the_id());
-    if ( isset($meta['employee_data'])) :
+    if ( isset($meta['employee_data'])) {
         $foo = unserialize($meta['employee_data'][0]);
         $count = count($foo['employee_image']);
     ?>
@@ -116,7 +200,34 @@
                 </div><!-- end of row -->
             </div><!-- end of container -->
         </section><!-- end of team -->
-    <?php endif; ?>
+    <?php } else { ?>
+        <section class="team">
+            <div class="container">
+                <div class="row">
+                    <h1 class="text-center">Our team</h1>
+                </div>
+                <div class="row">
+                    <?php for ($i=1; $i<5; $i++) {
+                        ?>
+                        <div class="post col-sm-6 col-md-6 col-lg-3">
+                            <div class="center">
+                                <img src="<?php echo IMAGES; ?>/foto.png"/>
+                            </div>
+                            <h2 class="text-center">Sem Con</h2>
+                            <p class="text-center">Director</p>
+                            <div class="resume">
+                                <p>
+                                    Ently released in the form of version 1.0. Avocode is an application which allows you to  Photoshop or Sketch.
+                                </p>
+                            </div>
+                        </div><!-- end of post -->
+                        <?php
+                    } ?>
+                </div><!-- end of row -->
+            </div><!-- end of container -->
+        </section><!-- end of team -->
+    <?php } ?>
+
     <?php get_template_part( 'contactform' ); ?>
 
 <?php get_footer();?>
