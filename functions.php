@@ -55,6 +55,7 @@ require_once THEMEFUNC . '/our-team-metabox.php';
  * ----------------------------------------------------------------------------------------
  */
 require_once THEMEFUNC . '/why-fractal-metabox.php';
+require_once THEMEFUNC . '/company-main-metabox.php';
 
 /**
  * ----------------------------------------------------------------------------------------
