@@ -126,7 +126,7 @@
 		<?php
 		// insert "customer" section if exists
 		$meta = get_post_meta(get_the_id());
-		if ( isset($meta['gallery_data'])) :
+		if ( isset($meta['gallery_data'])) {
 			$foo = unserialize($meta['gallery_data'][0]);
 			$count = count($foo['image_url']);
 		?>
@@ -148,6 +148,23 @@
 					</div><!-- end of row -->
 				</div><!-- end of container -->
 			</section><!-- end of content -->
-		<?php endif; ?>
+		<?php } else { ?>
+			<section class="customer">
+			    <div class="heading">
+			        <div class="container">
+			            <h2 class="text-center">CUSTOMERS<br><span>&#9830;</span></h2>
+			        </div>
+			    </div>
+			    <div class="container">
+			        <div class="row">
+			            <ul class="list-unstyled">
+							<?php for ($i=1; $i<5; $i++) {
+							echo "<li class='col-sm-6 col-md-3 text-center'><a href='#'><img src='" . IMAGES . "/layer-" . $i . ".png'></a></li>";
+							} ?>
+			            </ul>
+			        </div><!-- end of row -->
+			    </div><!-- end of container -->
+			</section><!-- end of content -->
+		<?php } ?>
 		<?php get_template_part( 'contactform' ); ?>
 <?php get_footer();?>
