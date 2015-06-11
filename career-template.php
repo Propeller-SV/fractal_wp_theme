@@ -27,7 +27,7 @@
                                 <?php
                                 $points_data = get_post_meta(get_the_id(), 'main_company_points_data', true);
                                 if (isset ($points_data)) {
-                                    $main_point = (get_post_meta(get_the_id(), 'main_company_points_data', true));
+                                    $main_point = ($points_data);
                                 }
                                 if (isset($main_point['point'][0])) {
                                     echo($main_point['point'][0]);
