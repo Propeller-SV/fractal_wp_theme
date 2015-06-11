@@ -35,7 +35,7 @@
                 if (isset($why_fractal_data)) {
                     $bar = $why_fractal_data;
                 }
-                if ($bar['heading'][0]) {
+                if (isset($bar['heading'][0])) {
                     ?>
                     <div class="col-sm-4">
                         <div class="text-top">
