@@ -230,12 +230,53 @@ function addThisPage() {
 		);
 	$page_blog_exists = get_page_by_title( $page_blog['post_title'] );
 
-	if( ! $page_blog_exists) {
+	if( !$page_blog_exists ) {
 		$insert_blog_id = wp_insert_post( $page_blog );
 		if( $insert_blog_id ) {
 
 			// Set the front page ID
 			update_option( 'page_for_posts', $insert_blog_id );
+		}
+	}
+
+	// add blog post 1
+	$post_1 = array(
+		'post_title'	=> 'Where\'s The Human',
+		'post_status'	=> 'publish',
+		'post_type'		=> 'post',
+		'post_content'	=> '<p> The Great White Whale when it comes to forming new habits, for most people, is exercise. Along with eating your vegetables, meditation, getting good sleep and quitting smoking, exercise is probably the most important habit change anyone can make. And yet, most people struggle with creating a lasting exercise habit. The solution is to replace... The Great White Whale when it comes to forming new habits, for most people, is exercise. Along with eating your vegetables, meditation, getting good sleep and quitting smoking, exercise is probably the most important habit change anyone can make. And yet, most people struggle with creating a lasting exercise habit. The solution is to replace... The Great White Whale when it comes to forming new habits, for most people, is exercise. Along with eating your vegetables, meditation, getting good sleep and quitting smoking, exercise is probably the most important habit change anyone can make. And yet, most people struggle with creating a lasting exercise habit. The solution is to replace... The Great White Whale when it comes to forming new habits, for most people, is exercise. Along with eating your vegetables, meditation, getting good sleep and quitting smoking, exercise is probably the most important habit change anyone can make. And yet, most people struggle with creating a lasting exercise habit. The solution is to replace...</p>
+							<p>The Great White Whale when it comes to forming new habits, for most people, is exercise. Along with eating your vegetables, meditation, getting good sleep and quitting smoking, exercise is probably the most important habit change anyone can make. And yet, most people struggle with creating a lasting exercise habit. The solution is to replace...</p>'
+		);
+	$posts_exists = get_page_by_title( $post_1['post_title'], '', 'post' );
+	if( !$posts_exists ) {
+		for ( $i=3; $i>0; $i-- ) {
+			$post_id = wp_insert_post( $post_1 );
+			if ($post_id) {
+				// upload and set up the post thumbnail
+				$image_url = IMAGES . '/human-' . $i . '.png';
+				$upload_dir = wp_upload_dir();
+				$image_data = file_get_contents($image_url);
+				$filename = basename($image_url);
+				if(wp_mkdir_p($upload_dir['path']))
+				    $file = $upload_dir['path'] . '/' . $filename;
+				else
+				    $file = $upload_dir['basedir'] . '/' . $filename;
+				file_put_contents($file, $image_data);
+
+				$wp_filetype = wp_check_filetype($filename, null );
+				$attachment = array(
+				    'post_mime_type' => $wp_filetype['type'],
+				    'post_title' => sanitize_file_name($filename),
+				    'post_content' => '',
+				    'post_status' => 'inherit'
+				);
+				$attach_id = wp_insert_attachment( $attachment, $file, $post_id );
+				require_once(ABSPATH . 'wp-admin/includes/image.php');
+				$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
+				wp_update_attachment_metadata( $attach_id, $attach_data );
+
+				set_post_thumbnail( $post_id, $attach_id );
+			}
 		}
 	}
 
@@ -248,7 +289,7 @@ function addThisPage() {
 		);
 	$page_softEngin_exists = get_page_by_title( $page_softEngin['post_title'] );
 
-	if( ! $page_softEngin_exists) {
+	if( !$page_softEngin_exists ) {
 		$insert_softEngin_id = wp_insert_post( $page_softEngin );
 		if( $insert_softEngin_id ) {
 			update_post_meta( $insert_softEngin_id, '_wp_page_template', 'softEngin-template.php' );
@@ -298,7 +339,7 @@ function addThisPage() {
 		);
 	$page_company_exists = get_page_by_title( $page_company['post_title'] );
 
-	if( ! $page_company_exists) {
+	if( !$page_company_exists ) {
 		$insert_company_id = wp_insert_post( $page_company );
 		if( $insert_company_id ) {
 			update_post_meta( $insert_company_id, '_wp_page_template', 'company-template.php' );
@@ -339,7 +380,7 @@ function addThisPage() {
 		);
 	$page_career_exists = get_page_by_title( $page_career['post_title'] );
 
-	if( ! $page_career_exists) {
+	if( !$page_career_exists ) {
 		$insert_career_id = wp_insert_post( $page_career );
 		if( $insert_career_id ) {
 			update_post_meta( $insert_career_id, '_wp_page_template', 'career-template.php' );
