@@ -83,8 +83,10 @@
                         </div>
                         <div class="col-sm-11">
                             <p>
-                                <?php if (isset (get_post_meta(get_the_id())['main_company_points_data'])) {
-                                    $main_point = (unserialize(get_post_meta(get_the_id())['main_company_points_data'][0]));
+                                <?php
+                                $main_points_data = get_post_meta( get_the_id(), 'main_company_points_data', true );
+                                if (isset ($main_points_data)) {
+                                    $main_point = ($main_points_data);
                                 }
                                 if (isset($main_point['point'][0])) {
                                     echo($main_point['point'][0]);
@@ -165,9 +167,9 @@
 
     <?php
     // insert "team" section if exists
-    $meta = get_post_meta(get_the_id());
-    if ( isset($meta['employee_data'])) {
-        $foo = unserialize($meta['employee_data'][0]);
+    $employee_data = get_post_meta(get_the_id(), 'employee_data', true);
+    if ( isset($employee_data) ) {
+        $foo = $employee_data;
         $count = count($foo['employee_image']);
     ?>
         <section class="team">
