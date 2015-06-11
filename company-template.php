@@ -6,7 +6,7 @@
 
 <?php get_header(); ?>
 
-	<section class="banner">
+    <section class="banner">
         <div class="container text-uppercase">
             <ol>
               <li><?php the_title(); ?></li>
@@ -32,24 +32,22 @@
 
                 <?php
                 $why_fractal_data = get_post_meta(get_the_id(), 'why_fractal_data', true);
-                if (isset($why_fractal_data)) {
-                    $bar = $why_fractal_data;
-                }
-                if (isset($bar['heading'][0])) {
+                if (isset($why_fractal_data['heading'][0])) {
                     ?>
                     <div class="col-sm-4">
                         <div class="text-top">
                             <h3 class="text-center"><?php
-                            echo(strtoupper($bar['heading'][0]));
+                            echo(strtoupper($why_fractal_data['heading'][0]));
                             ?></h3>
                             <p>
-                                <?php echo($bar['reason'][0]); ?>
+                                <?php if (isset($why_fractal_data['reason'][0]))
+                                    echo($why_fractal_data['reason'][0]); ?>
                             </p>
                             <ul class="list">
                                 <?php
-                                if (isset($bar['point'])) {
-                                    for ($i=0; $i<count($bar['point']); $i++) {
-                                    echo "<li><i class='glyphicon glyphicon-ok-sign'></i> " . $bar['point'][$i] . "</li>" ;
+                                if (isset($why_fractal_data['point'])) {
+                                    for ($i=0; $i<count($why_fractal_data['point']); $i++) {
+                                    echo "<li><i class='glyphicon glyphicon-ok-sign'></i> " . $why_fractal_data['point'][$i] . "</li>" ;
                                     }
                                 }
                                 ?>
@@ -168,9 +166,8 @@
     <?php
     // insert "team" section if exists
     $employee_data = get_post_meta(get_the_id(), 'employee_data', true);
-    if ( isset($employee_data) ) {
-        $foo = $employee_data;
-        $count = count($foo['employee_image']);
+    if ( $employee_data['employee_image'] ) {
+        $count = count($employee_data['employee_image']);
     ?>
         <section class="team">
             <div class="container">
@@ -185,14 +182,14 @@
                                 for ($i = 0; $i < $count; $i++) { ?>
                                     <div class="post col-sm-6 col-md-6 col-lg-3">
                                         <div class="center">
-                                            <img src="<?php echo $foo['employee_image'][$i]; ?>"/>
+                                            <img src="<?php echo $employee_data['employee_image'][$i]; ?>"/>
                                         </div>
-                                        <h2 class="text-center"><?php echo $foo['employee_name'][$i]; ?></h2>
-                                        <p class="text-center"><?php echo $foo['employee_position'][$i]; ?></p>
-                                        <div class="resume">
-                                            <p>
-                                                <?php echo $foo['employee_about'][$i]; ?>
-                                            </p>
+                                        <?php if ($employee_data['employee_name'][$i])
+                                            echo "<h2 class='text-center'>" . $employee_data['employee_name'][$i] . "</h2>" ; ?>
+                                        <?php if ($employee_data['employee_position'][$i])
+                                            echo "<p class='text-center'>" . $employee_data['employee_position'][$i] ."</p>" ; ?>
+                                        <?php if ($employee_data['employee_about'][$i])
+                                            echo "<div class='resume'><p>" . $employee_data['employee_about'][$i] . "</p>" ; ?>
                                         </div>
                                     </div><!-- end of post -->
                                 <?php } ?>
