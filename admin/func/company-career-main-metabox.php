@@ -188,7 +188,7 @@ function update_post_main_company_points( $post_id, $post_object )
     {
       if ( '' != $_POST['main_company_points']['point'][ $i ] )
       {
-      $main_company_points_data['point'][] = $_POST['main_company_points']['point'][ $i ];
+      $main_company_points_data['point'][] = sanitize_text_field($_POST['main_company_points']['point'][ $i ]);
       }
     }
 

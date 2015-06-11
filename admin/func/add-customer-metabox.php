@@ -217,8 +217,8 @@ function update_post_gallery( $post_id, $post_object )
     {
       if ( '' != $_POST['gallery']['image_url'][ $i ] )
       {
-        $gallery_data['image_url'][]  = $_POST['gallery']['image_url'][ $i ];
-        $gallery_data['image_desc'][] = $_POST['gallery']['image_desc'][ $i ];
+        $gallery_data['image_url'][]  = esc_url($_POST['gallery']['image_url'][ $i ]);
+        $gallery_data['image_desc'][] = esc_url($_POST['gallery']['image_desc'][ $i ]);
       }
     }
 

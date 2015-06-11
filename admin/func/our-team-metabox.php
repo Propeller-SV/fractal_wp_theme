@@ -237,10 +237,10 @@ function update_post_team( $post_id, $post_object )
     {
       if ( '' != $_POST['team']['employee_image'][ $i ] )
       {
-        $employee_data['employee_image'][]  = $_POST['team']['employee_image'][ $i ];
-        $employee_data['employee_name'][] = $_POST['team']['employee_name'][ $i ];
-        $employee_data['employee_position'][] = $_POST['team']['employee_position'][ $i ];
-        $employee_data['employee_about'][] = $_POST['team']['employee_about'][ $i ];
+        $employee_data['employee_image'][]  = esc_url($_POST['team']['employee_image'][ $i ]);
+        $employee_data['employee_name'][] = sanitize_text_field($_POST['team']['employee_name'][ $i ]);
+        $employee_data['employee_position'][] = sanitize_text_field($_POST['team']['employee_position'][ $i ]);
+        $employee_data['employee_about'][] = sanitize_text_field($_POST['team']['employee_about'][ $i ]);
       }
     }
 

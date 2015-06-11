@@ -212,13 +212,13 @@ function update_post_why_fractal( $post_id, $post_object )
   {
     // Build array for saving post meta
     $why_fractal_data = array();
-        $why_fractal_data['heading'][]  = $_POST['why_fractal']['heading'][0];
-        $why_fractal_data['reason'][] = $_POST['why_fractal']['reason'][0];
+        $why_fractal_data['heading'][]  = sanitize_text_field($_POST['why_fractal']['heading'][0]);
+        $why_fractal_data['reason'][] = sanitize_text_field($_POST['why_fractal']['reason'][0]);
         for ($i = 0; $i < count( $_POST['why_fractal']['point'] ); $i++ )
         {
           if ( '' != $_POST['why_fractal']['point'][ $i ] )
           {
-        $why_fractal_data['point'][] = $_POST['why_fractal']['point'][ $i ];
+        $why_fractal_data['point'][] = sanitize_text_field($_POST['why_fractal']['point'][ $i ]);
       }
     }
 
