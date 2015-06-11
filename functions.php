@@ -285,7 +285,16 @@ function addThisPage() {
 		'post_title'	=> 'Company',
 		'post_status'	=> 'publish',
 		'post_type'		=> 'page',
-		'post_content'	=> 'Some default content'
+		'post_content'	=> '<h4 class="text-center">
+                                In today\'s tutorial I\'am going to introduce you to Avocode, developed by the<br>
+                                "eleven brave men and onebrave woman".
+                            </h4>
+                            <p>
+                                In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
+                            </p>
+                            <p>
+                                In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
+                            </p>'
 		);
 	$page_company_exists = get_page_by_title( $page_company['post_title'] );
 
