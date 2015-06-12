@@ -26,11 +26,8 @@
                             <p class="text-center">
                                 <?php
                                 $points_data = get_post_meta(get_the_id(), 'main_company_points_data', true);
-                                if (isset ($points_data)) {
-                                    $main_point = ($points_data);
-                                }
-                                if (isset($main_point['point'][0])) {
-                                    echo($main_point['point'][0]);
+                                if (isset($points_data['point'][0])) {
+                                    echo($points_data['point'][0]);
                                 } else {
                                     echo "Print this page to PDF for the complete set of vectors.  Or to use on the desktop, install FontAwesome.otf, set it as the font in your application, and copy and paste the icons (notthe unicode) directly from this page into your designs.";
                                 }
@@ -44,8 +41,8 @@
                                 <i class="glyphicon glyphicon-bullhorn"></i>
                             </div>
                             <p class="text-center">
-                                <?php if (isset($main_point['point'][1])) {
-                                    echo($main_point['point'][1]);
+                                <?php if (isset($points_data['point'][1])) {
+                                    echo($points_data['point'][1]);
                                 } else {
                                     echo "Print this page to PDF for the complete set of vectors.  Or to use on the desktop, install FontAwesome.otf, set it as the font in your application, and copy and paste the icons (notthe unicode) directly from this page into your designs.";
                                 } ?>
@@ -58,8 +55,8 @@
                                 <i class="fa fa-gavel"></i>
                             </div>
                             <p class="text-center">
-                                <?php if (isset($main_point['point'][2])) {
-                                    echo($main_point['point'][2]);
+                                <?php if (isset($points_data['point'][2])) {
+                                    echo($points_data['point'][2]);
                                 } else {
                                     echo "Print this page to PDF for the complete set of vectors.  Or to use on the desktop, install FontAwesome.otf, set it as the font in your application, and copy and paste the icons (notthe unicode) directly from this page into your designs.";
                                 } ?>
