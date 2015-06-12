@@ -23,6 +23,13 @@ require_once(THEMEFUNC . '/menus/menus.php');
 
 /**
  * ----------------------------------------------------------------------------------------
+ * Load custom menu locations
+ * ----------------------------------------------------------------------------------------
+ */
+require_once(THEMEFUNC . '/default_posts_and_pages.php');
+
+/**
+ * ----------------------------------------------------------------------------------------
  * Include the Plugin Activation function.
  * ----------------------------------------------------------------------------------------
  */
@@ -38,30 +45,12 @@ require_once THEMEFUNC . '/add-languages-polylang.php';
 
 /**
  * ----------------------------------------------------------------------------------------
- * Include the function to add Customers metabox.
+ * Include the functions for metaboxes.
  * ----------------------------------------------------------------------------------------
  */
 require_once THEMEFUNC . '/add-customer-metabox.php';
-
-/**
- * ----------------------------------------------------------------------------------------
- * Include the function to add Employee metabox.
- * ----------------------------------------------------------------------------------------
- */
 require_once THEMEFUNC . '/our-team-metabox.php';
-
-/**
- * ----------------------------------------------------------------------------------------
- * Include the function to add 'Why Fractal' metabox.
- * ----------------------------------------------------------------------------------------
- */
 require_once THEMEFUNC . '/why-fractal-metabox.php';
-
-/**
- * ----------------------------------------------------------------------------------------
- * Include the function to add Company and Career main points metabox.
- * ----------------------------------------------------------------------------------------
- */
 require_once THEMEFUNC . '/company-career-main-metabox.php';
 
 /**
@@ -118,55 +107,55 @@ if ( ! function_exists( 'fractal_widgets_init' ) ) {
 			'after_title'   => '</h3>',
 			) );
 
-		register_sidebar( array(
-			'name' 			=> __( 'Footer Social Widget Area', 'fractal' ),
-			'id' 			=> 'sidebar-2',
-			'description' 	=> __( 'Add the list of social links to appear on the footer.', 'fractal' ),
-			'before_widget' => '<div class="col-sm-4 col-md-6">',
-			'after_widget' 	=> '</ul></div>',
-			'before_title' 	=> '<h3>',
-			'after_title' 	=> '</h3></div><div class="col-sm-8 col-md-6"><ul class="nav nav-pills">',
-			) );
+		// register_sidebar( array(
+		// 	'name' 			=> __( 'Footer Social Widget Area', 'fractal' ),
+		// 	'id' 			=> 'sidebar-2',
+		// 	'description' 	=> __( 'Add the list of social links to appear on the footer.', 'fractal' ),
+		// 	'before_widget' => '<div class="col-sm-4 col-md-6">',
+		// 	'after_widget' 	=> '</ul></div>',
+		// 	'before_title' 	=> '<h3>',
+		// 	'after_title' 	=> '</h3></div><div class="col-sm-8 col-md-6"><ul class="nav nav-pills">',
+		// 	) );
 
-		register_sidebar( array(
-			'name' 			=> __( 'Customers Widget Area', 'fractal' ),
-			'id' 			=> 'sidebar-3',
-			'description' 	=> __( 'List of customers', 'fractal' ),
-			'before_widget' => '<section class="customer"><div class="heading"><div class="container">',
-			'after_widget' 	=> '</ul></div><!-- end of row --></div><!-- end of container --></section>',
-			'before_title' 	=> '<h2 class="text-center text-uppercase">',
-			'after_title' 	=> '<br><span>&#9830;</span></h2></div></div><div class="container"><div class="row"><ul class="list-unstyled">',
-			) );
+		// register_sidebar( array(
+		// 	'name' 			=> __( 'Customers Widget Area', 'fractal' ),
+		// 	'id' 			=> 'sidebar-3',
+		// 	'description' 	=> __( 'List of customers', 'fractal' ),
+		// 	'before_widget' => '<section class="customer"><div class="heading"><div class="container">',
+		// 	'after_widget' 	=> '</ul></div><!-- end of row --></div><!-- end of container --></section>',
+		// 	'before_title' 	=> '<h2 class="text-center text-uppercase">',
+		// 	'after_title' 	=> '<br><span>&#9830;</span></h2></div></div><div class="container"><div class="row"><ul class="list-unstyled">',
+		// 	) );
 
-		register_sidebar( array(
-			'name' 			=> __( 'Company Main Widget Area', 'fractal' ),
-			'id' 			=> 'sidebar-4',
-			'description' 	=> __( 'List of articles', 'fractal' ),
-			'before_widget' => '',
-			'after_widget' 	=> '',
-			'before_title'  => '<h3 class="text-center text-uppercase">',
-			'after_title'   => '</h3>'
-			) );
+		// register_sidebar( array(
+		// 	'name' 			=> __( 'Company Main Widget Area', 'fractal' ),
+		// 	'id' 			=> 'sidebar-4',
+		// 	'description' 	=> __( 'List of articles', 'fractal' ),
+		// 	'before_widget' => '',
+		// 	'after_widget' 	=> '',
+		// 	'before_title'  => '<h3 class="text-center text-uppercase">',
+		// 	'after_title'   => '</h3>'
+		// 	) );
 
-		register_sidebar( array(
-			'name' 			=> __( 'Company Team Widget Area', 'fractal' ),
-			'id' 			=> 'sidebar-5',
-			'description' 	=> __( 'List of employees', 'fractal' ),
-			'before_widget' => '',
-			'after_widget' 	=> '',
-			'before_title' 	=> '<h1 class="text-center">',
-			'after_title' 	=> '</h1>',
-			) );
+		// register_sidebar( array(
+		// 	'name' 			=> __( 'Company Team Widget Area', 'fractal' ),
+		// 	'id' 			=> 'sidebar-5',
+		// 	'description' 	=> __( 'List of employees', 'fractal' ),
+		// 	'before_widget' => '',
+		// 	'after_widget' 	=> '',
+		// 	'before_title' 	=> '<h1 class="text-center">',
+		// 	'after_title' 	=> '</h1>',
+		// 	) );
 
-		register_sidebar( array(
-			'name' 			=> __( 'Career Widget Area', 'fractal' ),
-			'id' 			=> 'sidebar-6',
-			'description' 	=> __( 'Some information', 'fractal' ),
-			'before_widget' => '',
-			'after_widget' 	=> '',
-			'before_title'  => '<h3 class="text-center text-uppercase">',
-			'after_title'   => '</h3>'
-			) );
+		// register_sidebar( array(
+		// 	'name' 			=> __( 'Career Widget Area', 'fractal' ),
+		// 	'id' 			=> 'sidebar-6',
+		// 	'description' 	=> __( 'Some information', 'fractal' ),
+		// 	'before_widget' => '',
+		// 	'after_widget' 	=> '',
+		// 	'before_title'  => '<h3 class="text-center text-uppercase">',
+		// 	'after_title'   => '</h3>'
+		// 	) );
 	}
 	add_action( 'widgets_init', 'fractal_widgets_init' );
 }
@@ -191,229 +180,6 @@ function current_theme_resources()
 }
 
 add_action( 'wp_enqueue_scripts', 'current_theme_resources' );
-
-/**
- * ----------------------------------------------------------------------------------------
- * Create pages and insert into database
- * ----------------------------------------------------------------------------------------
- */
-function addThisPage() {
-
-	// add home page
-	$page_home = array(
-		'post_title'	=> 'Home',
-		'post_status'	=> 'publish',
-		'post_type'		=> 'page',
-		'post_content'	=> 'Some default content'
-		);
-	$page_home_exists = get_page_by_title( $page_home['post_title'] );
-
-	if( ! $page_home_exists) {
-		$insert_home_id = wp_insert_post( $page_home );
-		if( $insert_home_id ) {
-			update_post_meta( $insert_home_id, '_wp_page_template', 'home-template.php' );
-
-			// Set "static page" as the option
-			update_option( 'show_on_front', 'page' );
-
-			// Set the front page ID
-			update_option( 'page_on_front', $insert_home_id );
-		}
-	}
-
-	// add blog page
-	$page_blog = array(
-		'post_title'	=> 'Blog',
-		'post_status'	=> 'publish',
-		'post_type'		=> 'page',
-		'post_content'	=> ''
-		);
-	$page_blog_exists = get_page_by_title( $page_blog['post_title'] );
-
-	if( !$page_blog_exists ) {
-		$insert_blog_id = wp_insert_post( $page_blog );
-		if( $insert_blog_id ) {
-
-			// Set the front page ID
-			update_option( 'page_for_posts', $insert_blog_id );
-		}
-	}
-
-	// add blog post 1
-	$post_1 = array(
-		'post_title'	=> 'Where\'s The Human',
-		'post_status'	=> 'publish',
-		'post_type'		=> 'post',
-		'post_content'	=> '<p> The Great White Whale when it comes to forming new habits, for most people, is exercise. Along with eating your vegetables, meditation, getting good sleep and quitting smoking, exercise is probably the most important habit change anyone can make. And yet, most people struggle with creating a lasting exercise habit. The solution is to replace... The Great White Whale when it comes to forming new habits, for most people, is exercise. Along with eating your vegetables, meditation, getting good sleep and quitting smoking, exercise is probably the most important habit change anyone can make. And yet, most people struggle with creating a lasting exercise habit. The solution is to replace... The Great White Whale when it comes to forming new habits, for most people, is exercise. Along with eating your vegetables, meditation, getting good sleep and quitting smoking, exercise is probably the most important habit change anyone can make. And yet, most people struggle with creating a lasting exercise habit. The solution is to replace... The Great White Whale when it comes to forming new habits, for most people, is exercise. Along with eating your vegetables, meditation, getting good sleep and quitting smoking, exercise is probably the most important habit change anyone can make. And yet, most people struggle with creating a lasting exercise habit. The solution is to replace...</p>
-							<p>The Great White Whale when it comes to forming new habits, for most people, is exercise. Along with eating your vegetables, meditation, getting good sleep and quitting smoking, exercise is probably the most important habit change anyone can make. And yet, most people struggle with creating a lasting exercise habit. The solution is to replace...</p>'
-		);
-	$posts_exists = get_page_by_title( $post_1['post_title'], '', 'post' );
-	if( !$posts_exists ) {
-		for ( $i=3; $i>0; $i-- ) {
-			$post_id = wp_insert_post( $post_1 );
-			if ($post_id) {
-				// upload and set up the post thumbnail
-				$image_url = IMAGES . '/human-' . $i . '.png';
-				$upload_dir = wp_upload_dir();
-				$image_data = file_get_contents($image_url);
-				$filename = basename($image_url);
-				if(wp_mkdir_p($upload_dir['path']))
-				    $file = $upload_dir['path'] . '/' . $filename;
-				else
-				    $file = $upload_dir['basedir'] . '/' . $filename;
-				file_put_contents($file, $image_data);
-
-				$wp_filetype = wp_check_filetype($filename, null );
-				$attachment = array(
-				    'post_mime_type' => $wp_filetype['type'],
-				    'post_title' => sanitize_file_name($filename),
-				    'post_content' => '',
-				    'post_status' => 'inherit'
-				);
-				$attach_id = wp_insert_attachment( $attachment, $file, $post_id );
-				require_once(ABSPATH . 'wp-admin/includes/image.php');
-				$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
-				wp_update_attachment_metadata( $attach_id, $attach_data );
-
-				set_post_thumbnail( $post_id, $attach_id );
-			}
-		}
-	}
-
-	// add software egineering page
-	$page_softEngin = array(
-		'post_title'	=> 'Software Engineering',
-		'post_status'	=> 'publish',
-		'post_type'		=> 'page',
-		'post_content'	=> 'Some default content'
-		);
-	$page_softEngin_exists = get_page_by_title( $page_softEngin['post_title'] );
-
-	if( !$page_softEngin_exists ) {
-		$insert_softEngin_id = wp_insert_post( $page_softEngin );
-		if( $insert_softEngin_id ) {
-			update_post_meta( $insert_softEngin_id, '_wp_page_template', 'softEngin-template.php' );
-
-			// upload and set up the post thumbnail
-			$image_url = IMAGES . '/software.png';
-			$upload_dir = wp_upload_dir();
-			$image_data = file_get_contents($image_url);
-			$filename = basename($image_url);
-			if(wp_mkdir_p($upload_dir['path']))
-			    $file = $upload_dir['path'] . '/' . $filename;
-			else
-			    $file = $upload_dir['basedir'] . '/' . $filename;
-			file_put_contents($file, $image_data);
-
-			$wp_filetype = wp_check_filetype($filename, null );
-			$attachment = array(
-			    'post_mime_type' => $wp_filetype['type'],
-			    'post_title' => sanitize_file_name($filename),
-			    'post_content' => '',
-			    'post_status' => 'inherit'
-			);
-			$attach_id = wp_insert_attachment( $attachment, $file, $insert_softEngin_id );
-			require_once(ABSPATH . 'wp-admin/includes/image.php');
-			$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
-			wp_update_attachment_metadata( $attach_id, $attach_data );
-
-			set_post_thumbnail( $insert_softEngin_id, $attach_id );
-		}
-	}
-
-	// add company page
-	$page_company = array(
-		'post_title'	=> 'Company',
-		'post_status'	=> 'publish',
-		'post_type'		=> 'page',
-		'post_content'	=> '<h4 class="text-center">
-                                In today\'s tutorial I\'am going to introduce you to Avocode, developed by the<br>
-                                "eleven brave men and onebrave woman".
-                            </h4>
-                            <p>
-                                In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
-                            </p>
-                            <p>
-                                In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
-                            </p>'
-		);
-	$page_company_exists = get_page_by_title( $page_company['post_title'] );
-
-	if( !$page_company_exists ) {
-		$insert_company_id = wp_insert_post( $page_company );
-		if( $insert_company_id ) {
-			update_post_meta( $insert_company_id, '_wp_page_template', 'company-template.php' );
-
-			// upload and set up the post thumbnail
-			$image_url = IMAGES . '/company.png';
-			$upload_dir = wp_upload_dir();
-			$image_data = file_get_contents($image_url);
-			$filename = basename($image_url);
-			if(wp_mkdir_p($upload_dir['path']))
-			    $file = $upload_dir['path'] . '/' . $filename;
-			else
-			    $file = $upload_dir['basedir'] . '/' . $filename;
-			file_put_contents($file, $image_data);
-
-			$wp_filetype = wp_check_filetype($filename, null );
-			$attachment = array(
-			    'post_mime_type' => $wp_filetype['type'],
-			    'post_title' => sanitize_file_name($filename),
-			    'post_content' => '',
-			    'post_status' => 'inherit'
-			);
-			$attach_id = wp_insert_attachment( $attachment, $file, $insert_company_id );
-			require_once(ABSPATH . 'wp-admin/includes/image.php');
-			$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
-			wp_update_attachment_metadata( $attach_id, $attach_data );
-
-			set_post_thumbnail( $insert_company_id, $attach_id );
-		}
-	}
-
-	// add career page
-	$page_career = array(
-		'post_title'	=> 'Career',
-		'post_status'	=> 'publish',
-		'post_type'		=> 'page',
-		'post_content'	=> 'Some default content'
-		);
-	$page_career_exists = get_page_by_title( $page_career['post_title'] );
-
-	if( !$page_career_exists ) {
-		$insert_career_id = wp_insert_post( $page_career );
-		if( $insert_career_id ) {
-			update_post_meta( $insert_career_id, '_wp_page_template', 'career-template.php' );
-
-			// upload and set up the post thumbnail
-			$image_url = IMAGES . '/career.png';
-			$upload_dir = wp_upload_dir();
-			$image_data = file_get_contents($image_url);
-			$filename = basename($image_url);
-			if(wp_mkdir_p($upload_dir['path']))
-			    $file = $upload_dir['path'] . '/' . $filename;
-			else
-			    $file = $upload_dir['basedir'] . '/' . $filename;
-			file_put_contents($file, $image_data);
-
-			$wp_filetype = wp_check_filetype($filename, null );
-			$attachment = array(
-			    'post_mime_type' => $wp_filetype['type'],
-			    'post_title' => sanitize_file_name($filename),
-			    'post_content' => '',
-			    'post_status' => 'inherit'
-			);
-			$attach_id = wp_insert_attachment( $attachment, $file, $insert_career_id );
-			require_once(ABSPATH . 'wp-admin/includes/image.php');
-			$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
-			wp_update_attachment_metadata( $attach_id, $attach_data );
-
-			set_post_thumbnail( $insert_career_id, $attach_id );
-		}
-	}
-}
-
-add_action( 'after_setup_theme', 'addThisPage' );
 
 /**
  * ----------------------------------------------------------------------------------------
