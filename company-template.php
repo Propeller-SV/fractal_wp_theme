@@ -32,7 +32,7 @@
 
                 <?php
                 $why_fractal_data = get_post_meta(get_the_id(), 'why_fractal_data', true);
-                if (isset($why_fractal_data['heading'][0])) {
+                if ($why_fractal_data['heading'][0]) {
                     ?>
                     <div class="col-sm-4">
                         <div class="text-top">
@@ -82,12 +82,9 @@
                         <div class="col-sm-11">
                             <p>
                                 <?php
-                                $main_points_data = get_post_meta( get_the_id(), 'main_company_points_data', true );
-                                if (isset ($main_points_data)) {
-                                    $main_point = ($main_points_data);
-                                }
-                                if (isset($main_point['point'][0])) {
-                                    echo($main_point['point'][0]);
+                                $main_points_data = get_post_meta( get_the_id(), 'main_points_data', true );
+                                if (isset($main_points_data['point'][0])) {
+                                    echo($main_points_data['point'][0]);
                                 } else {
                                     echo "In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.";
                                 }
@@ -101,8 +98,8 @@
                         </div>
                         <div class="col-sm-11">
                             <p>
-                                <?php if (isset($main_point['point'][1])) {
-                                    echo($main_point['point'][1]);
+                                <?php if (isset($main_points_data['point'][1])) {
+                                    echo($main_points_data['point'][1]);
                                 } else {
                                     echo "In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.";
                                 } ?>
@@ -115,8 +112,8 @@
                         </div>
                         <div class="col-sm-11">
                             <p>
-                                <?php if (isset($main_point['point'][2])) {
-                                    echo($main_point['point'][2]);
+                                <?php if (isset($main_points_data['point'][2])) {
+                                    echo($main_points_data['point'][2]);
                                 } else {
                                     echo "In today's tutorial I'am going to introduce you to Avocode, developed.";
                                 } ?>
@@ -129,8 +126,8 @@
                         </div>
                         <div class="col-sm-11">
                             <p>
-                                <?php if (isset($main_point['point'][3])) {
-                                    echo($main_point['point'][3]);
+                                <?php if (isset($main_points_data['point'][3])) {
+                                    echo($main_points_data['point'][3]);
                                 } else {
                                     echo "In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.";
                                 } ?>
