@@ -11,14 +11,21 @@ add_action( 'save_post', 'update_post_why_fractal', 10, 2 );
 
 function add_why_fractal()
 {
-  add_meta_box(
-    'why_fractal',
-    'Why Fractal Soft',
-    'why_fractal_options',
-    'page',
-    'normal',
-    'core'
-  );
+  // Verify page template
+  global $post;
+  if (!empty($post)) {
+    $pageTemplate = get_post_meta( $post->ID, '_wp_page_template', true );
+    if ($pageTemplate == 'company-template.php') {
+      add_meta_box(
+        'why_fractal',
+        'Why Fractal Soft',
+        'why_fractal_options',
+        'page',
+        'normal',
+        'core'
+      );
+    }
+  }
 }
 
 /**
@@ -199,6 +206,15 @@ function update_post_why_fractal( $post_id, $post_object )
   // Doing revision, exit earlier
   if ( 'revision' == $post_object->post_type )
     return;
+
+  // Verify page template
+  global $post;
+  if (!empty($post)) {
+    $pageTemplate = get_post_meta( $post->ID, '_wp_page_template', true );
+    if ($pageTemplate !== 'company-template.php') {
+      return;
+    }
+  }
 
   // Verify authenticity
   if ( !wp_verify_nonce( $_POST['why_fractal_nonce'], plugin_basename( __FILE__ ) ) )

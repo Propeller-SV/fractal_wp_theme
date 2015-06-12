@@ -11,14 +11,21 @@ add_action( 'save_post', 'update_post_gallery', 10, 2 );
 
 function add_fractal_customer()
 {
-  add_meta_box(
-    'fractal_customer',
-    'Our Customers',
-    'fractal_customers_options',
-    'page',
-    'normal',
-    'core'
-  );
+  // Verify page template
+  global $post;
+  if (!empty($post)) {
+    $pageTemplate = get_post_meta( $post->ID, '_wp_page_template', true );
+    if ($pageTemplate == 'home-template.php') {
+      add_meta_box(
+        'fractal_customer',
+        'Our Customers',
+        'fractal_customers_options',
+        'page',
+        'normal',
+        'core'
+      );
+    }
+  }
 }
 
 /**
@@ -200,6 +207,15 @@ function update_post_gallery( $post_id, $post_object )
   // Doing revision, exit earlier
   if ( 'revision' == $post_object->post_type )
     return;
+
+  // Verify page template
+  global $post;
+  if (!empty($post)) {
+    $pageTemplate = get_post_meta( $post->ID, '_wp_page_template', true );
+    if ($pageTemplate !== 'home-template.php') {
+      return;
+    }
+  }
 
   // Verify authenticity
   if ( !wp_verify_nonce( $_POST['fractal_customers_nonce'], plugin_basename( __FILE__ ) ) )

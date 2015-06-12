@@ -11,14 +11,21 @@ add_action( 'save_post', 'update_post_main_company_points', 10, 2 );
 
 function add_main_company_points()
 {
-  add_meta_box(
-    'main_company_points',
-    'Main Company & Career Points',
-    'main_company_points_options',
-    'page',
-    'normal',
-    'core'
-  );
+  // Verify page template
+  global $post;
+  if (!empty($post)) {
+    $pageTemplate = get_post_meta( $post->ID, '_wp_page_template', true );
+    if ($pageTemplate == 'company-template.php' || $pageTemplate == 'career-template.php' ) {
+      add_meta_box(
+        'main_company_points',
+        'Main Company & Career Points',
+        'main_company_points_options',
+        'page',
+        'normal',
+        'core'
+      );
+    }
+  }
 }
 
 /**
@@ -171,6 +178,15 @@ function update_post_main_company_points( $post_id, $post_object )
   // Doing revision, exit earlier
   if ( 'revision' == $post_object->post_type )
     return;
+
+  // Verify page template
+  global $post;
+  if (!empty($post)) {
+    $pageTemplate = get_post_meta( $post->ID, '_wp_page_template', true );
+    if ($pageTemplate !== 'company-template.php' && $pageTemplate !== 'career-template.php' ) {
+      return;
+    }
+  }
 
   // Verify authenticity
   if ( !wp_verify_nonce( $_POST['main_company_points_nonce'], plugin_basename( __FILE__ ) ) )
