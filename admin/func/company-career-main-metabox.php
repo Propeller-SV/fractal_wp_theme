@@ -44,7 +44,7 @@ function main_company_points_options()
   if (isset($main_points_data['point'])) {
     for( $i = 0; $i < count( $main_points_data['point'] ); $i++ )
       { ?>
-      <div>
+      <div class="main_point">
         <label>Point <?php echo $i+1; ?></label>
         <textarea name="main_points[point][]" cols="80" rows="2"><?php esc_html_e( $main_points_data['point'][$i] ); ?></textarea>
         <input class="button" type="button" value="Remove Point" onclick="jQuery(this).closest('div').remove();" />
@@ -53,7 +53,7 @@ function main_company_points_options()
   } ?>
   </div>
 
-  <div id="points_row" style="clear:both; display:none">
+  <div id="main_points_row" style="clear:both; display:none">
       <div>
         <label>Point</label>
         <textarea name="main_points[point][]" cols="80" rows="2"></textarea>
@@ -63,7 +63,7 @@ function main_company_points_options()
   </div>
 
   <div>
-    <input class="button" type="button" value="Add Point" onclick="jQuery('#main_points').append(jQuery('#points_row').html());" />
+    <input class="button" type="button" value="Add Point" onclick="jQuery('#main_points').append(jQuery('#main_points_row').html());" />
   </div>
 
 </div>
