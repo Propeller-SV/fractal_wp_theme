@@ -33,15 +33,14 @@ require_once(THEMEFUNC . '/default_posts_and_pages.php');
  * Include the Plugin Activation function.
  * ----------------------------------------------------------------------------------------
  */
-// require_once dirname( __FILE__ ) . '/admin/dependencies.php';
-// require_once THEMEFUNC . '/psv-install-plugins.php';
+require_once THEMEFUNC . '/psv-install-plugins.php';
 
 /**
  * ----------------------------------------------------------------------------------------
  * Include the function to add languges to Polylang plugin.
  * ----------------------------------------------------------------------------------------
  */
-// require_once THEMEFUNC . '/add-languages-polylang.php';
+require_once THEMEFUNC . '/add-languages-polylang.php';
 
 /**
  * ----------------------------------------------------------------------------------------
@@ -256,11 +255,15 @@ function numeric_posts_nav() {
 		$links[] = $paged + 1;
 	}
 
-	echo '<div class="list-pagination text-center"><ul class="pagination pagination-lg">' . "\n";
+	// echo '<div class="list-pagination text-center"><ul class="pagination pagination-lg">' . "\n";
 
 	/**	Previous Post Link */
-	if ( get_previous_posts_link() )
-		printf( '<li>%s</li>' . "\n", get_previous_posts_link( '&laquo;' ) );
+	// if ( get_previous_posts_link() )
+	// 	printf( '<li>%s</li>' . "\n", get_previous_posts_link( '&laquo;' ) );
+	?>
+	<li><?php if (get_previous_posts_link()) echo previous_posts_link('&laquo;'); else echo '<a href="' . esc_url( get_pagenum_link( $max ) ) . '">&laquo;</a>' ?>
+	</li>
+	<?php
 
 	/**	Link to first page, plus ellipses if necessary */
 	if ( ! in_array( 1, $links ) ) {
@@ -269,7 +272,7 @@ function numeric_posts_nav() {
 		printf( '<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url( get_pagenum_link( 1 ) ), '1' );
 
 		if ( ! in_array( 2, $links ) )
-			echo '<li>…</li>';
+			echo '<li>…</li>' . "\n";
 	}
 
 	/**	Link to current page, plus 2 pages in either direction if necessary */
@@ -289,10 +292,21 @@ function numeric_posts_nav() {
 	}
 
 	/**	Next Post Link */
-	if ( get_next_posts_link() )
-		printf( '<li>%s</li>' . "\n", get_next_posts_link( '&raquo;' ) );
+	// if ( get_next_posts_link() )
+	// 	printf( '<li>%s</li>' . "\n", get_next_posts_link( '&raquo;' ) );
+	?>
+	<li><?php if (get_next_posts_link()) echo next_posts_link('&raquo;'); else echo '<a href="' . esc_url( get_pagenum_link( 1 ) ) . '">&raquo;</a>' ?>
+	</li>
+	<?php
 
-	echo '</ul></div>' . "\n";
+	// echo '</ul></div>' . "\n";
 
+}
+
+// detect the blog page
+function is_blog () {
+	global  $post;
+	$posttype = get_post_type($post);
+	return ( ((is_archive()) || (is_author()) || (is_category()) || (is_home()) || (is_single()) || (is_tag())) && ( $posttype == 'post')  ) ? true : false ;
 }
 ?>
