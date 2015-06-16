@@ -59,7 +59,6 @@ function main_company_points_options()
         <textarea name="main_points[point][]" cols="80" rows="2"></textarea>
         <input class="button" type="button" value="Remove Point" onclick="jQuery(this).closest('div').remove();" />
       </div>
-    <div></div>
   </div>
 
   <div>
