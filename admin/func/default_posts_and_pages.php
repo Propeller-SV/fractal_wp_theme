@@ -221,5 +221,5 @@ function addThisPage() {
 	}
 }
 
-add_action( 'after_setup_theme', 'addThisPage' );
+add_action( 'after_switch_theme', 'addThisPage' );
 ?>
