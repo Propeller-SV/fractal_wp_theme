@@ -71,15 +71,18 @@
 							</ul>
 						</div>
 					<?php endwhile; ?>
-					<!-- <div class="list-pagination">
-					    <ul class="pagination pagination-lg">
-					        <li><a href="#">&laquo;</a></li>
-					        <li><a href="#">1</a></li>
-					        <li><a href="#">2</a></li>
-					        <li><a href="#">3</a></li>
-					        <li><a href="#">&raquo;</a></li>
-					    </ul>
-					</div> --><!-- end of list-pagination -->
+					<div class="list-pagination">
+						<!-- <ul class="pagination pagination-lg">
+							<li><a href="<?php get_previous_posts_link( ); ?>">&laquo;</a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><?php echo next_posts_link( '&raquo;' ); ?></li>
+						</ul> -->
+					</div><!-- end of list-pagination -->
+					<?php numeric_posts_nav(); ?><!-- list-pagination -->
+					<?php else : ?>
+					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 					<?php endif; ?>
 				</div><!-- end of col-sm-9 -->
 				<div class="col-xs-12 col-sm-3">
