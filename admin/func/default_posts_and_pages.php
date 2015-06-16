@@ -43,6 +43,7 @@ function addThisPage() {
 
 			// Set the front page ID
 			update_option( 'page_for_posts', $insert_blog_id );
+			update_option( 'posts_per_page', 3 );
 		}
 	}
 
