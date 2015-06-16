@@ -31,7 +31,9 @@
                 </div><!-- end of col-sm-8 -->
 
                 <?php
-                $why_fractal_data = get_post_meta(get_the_id(), 'why_fractal_data', true);
+                if (get_post_meta(get_the_id(), 'why_fractal_data', true)) {
+                    $why_fractal_data = get_post_meta(get_the_id(), 'why_fractal_data', true);
+                }
                 if ($why_fractal_data['heading'][0]) {
                     ?>
                     <div class="col-sm-4">
@@ -162,7 +164,9 @@
 
     <?php
     // insert "team" section if exists
-    $employee_data = get_post_meta(get_the_id(), 'employee_data', true);
+    if (get_post_meta(get_the_id(), 'employee_data', true)) {
+        $employee_data = get_post_meta(get_the_id(), 'employee_data', true);
+    }
     if ( $employee_data['employee_image'] ) {
         $count = count($employee_data['employee_image']);
     ?>
@@ -178,7 +182,7 @@
                                 <?php
                                 for ($i = 0; $i < $count; $i++) { ?>
                                     <div class="post col-sm-6 col-md-6 col-lg-3">
-                                        <div class="center">
+                                        <div class="text-center">
                                             <img src="<?php echo $employee_data['employee_image'][$i]; ?>"/>
                                         </div>
                                         <?php if ($employee_data['employee_name'][$i])
@@ -186,7 +190,7 @@
                                         <?php if ($employee_data['employee_position'][$i])
                                             echo "<p class='text-center'>" . $employee_data['employee_position'][$i] ."</p>" ; ?>
                                         <?php if ($employee_data['employee_about'][$i])
-                                            echo "<div class='resume'><p>" . $employee_data['employee_about'][$i] . "</p>" ; ?>
+                                            echo "<div class='text-center resume'><p>" . $employee_data['employee_about'][$i] . "</p>" ; ?>
                                         </div>
                                     </div><!-- end of post -->
                                 <?php } ?>
