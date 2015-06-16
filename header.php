@@ -93,7 +93,9 @@
                                         if ( get_option('page_for_posts') )
                                         echo get_permalink( get_option('page_for_posts' ) );
                                         else echo bloginfo('url');
-                                    ?>">Blog</a></li>
+                                    ?>"
+                                    <?php if (is_blog()) echo 'class="custom-active"'; ?>
+                                    >Blog</a></li>
                                     <li class="hidden-xs">
                                         <ul>
                                             <?php
