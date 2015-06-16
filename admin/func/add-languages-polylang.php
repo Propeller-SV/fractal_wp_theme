@@ -40,5 +40,5 @@ function pll_is_language_installed($language_code) {
 	return false;
 }
 
-add_action( 'after_setup_theme', 'add_languages_polylang' );
+add_action( 'after_switch_theme', 'add_languages_polylang' );
 ?>

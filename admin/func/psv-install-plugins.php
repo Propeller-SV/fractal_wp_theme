@@ -2,8 +2,14 @@
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 if (!function_exists('mm_get_plugins')) {
-    function mm_get_plugins($plugins)
+
+    function mm_get_plugins()
     {
+        $plugins = array(
+            array('name' => 'polylang', 'install' => 'polylang/polylang.php'),
+            // array('name' => 'display-widgets', 'install' => 'display-widgets/display-widgets.php'),
+        );
+
         $args = array(
                 'path'          => ABSPATH . 'wp-content/plugins/',
                 'preserve_zip'  => true
@@ -41,14 +47,5 @@ if (!function_exists('mm_get_plugins')) {
     }
 }
 
-
-$plugins = array(
-    array('name' => 'polylang', 'install' => 'polylang/polylang.php'),
-    array('name' => 'display-widgets', 'install' => 'display-widgets/display-widgets.php'),
-
-);
-
-if (!is_plugin_active( 'display-widgets/display-widgets.php') || !is_plugin_active( 'polylang/polylang.php' )) {
-    mm_get_plugins($plugins);
-}
+add_action( 'after_switch_theme', 'mm_get_plugins' );
 ?>
