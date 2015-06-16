@@ -1047,3 +1047,16 @@ footer p {
     list-style: none;
     display: inline;
 }
+
+.pagination>.active>a,
+.pagination .current {
+    color: #fff;
+    background-color: #ff7b00;
+    border-color: #ff7b00;
+}
+.pagination .dots {
+    color: #ff7b00;
+}
+.list-pagination {
+    width: 420px;
+}
