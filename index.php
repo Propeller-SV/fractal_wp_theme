@@ -80,7 +80,34 @@
 							<li><?php echo next_posts_link( '&raquo;' ); ?></li>
 						</ul> -->
 					</div><!-- end of list-pagination -->
-					<?php numeric_posts_nav(); ?><!-- list-pagination -->
+					<div class="list-pagination text-center">
+						<ul class="pagination pagination-lg">
+						<?php numeric_posts_nav(); ?>
+						</ul>
+					</div>
+					<!-- <div class="text-center" style="font-size:200%"> --> <!-- default WP pagination -->
+						<!-- the_posts_pagination( array( -->
+							<!-- 'mid_size'			=> '2',
+							'prev_text' 		=> '&larr;',
+							'next_text' 		=> '&rarr;',
+							'screen_reader_text'=> ' ' -->
+						<!-- ) ); -->
+					<!-- </div> -->
+					<div class="list-pagination text-center" style="font-size:200%">
+						<ul class="pagination pagination-lg">
+							<?php
+							$args = array(
+								'prev_text'	=> '&laquo;',
+								'next_text'	=> '&raquo;',
+								'type'		=> 'array',
+								'mid_size'	=> '1'
+								);
+							for ($i=0; $i<count(paginate_links($args)); $i++) {
+								echo '<li>' . paginate_links( $args )[$i] . '</li>';
+							}
+							?>
+						</ul>
+					</div>
 					<?php else : ?>
 					<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 					<?php endif; ?>
