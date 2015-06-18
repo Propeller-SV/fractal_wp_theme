@@ -96,20 +96,47 @@
                                     ?>"
                                     <?php if (is_blog()) echo 'class="custom-active"'; ?>
                                     >Blog</a></li>
-                                    <li class="hidden-xs">
+                                    <!-- <li class="hidden-xs dropdown">
                                         <ul>
                                             <?php
-                                                include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+                                                // include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
                                                 // check for plugin using plugin name
-                                                if ( is_plugin_active( 'polylang/polylang.php' ) ) {
+                                                // if ( is_plugin_active( 'polylang/polylang.php' ) ) {
                                                   //plugin is activated
-                                                  pll_the_languages(array('show_flags'=>1,'show_names'=>1, 'hide_current'=>1));
-                                                } else {
-                                                    echo "<a href='" . home_url() . "/wp-admin/plugins.php'>{Activate Polylang Plugin}</a>";
-                                                }
+                                                  // pll_the_languages(array('show_flags'=>1,'show_names'=>1, 'hide_current'=>1));
+                                                // } else {
+                                                    // echo "<a href='" . home_url() . "/wp-admin/plugins.php'>{Activate Polylang Plugin}</a>";
+                                                // }
                                             ?>
                                         </ul>
+                                    </li> -->
+                                    <?php
+                                    // check for plugin using plugin name
+                                    if ( is_plugin_active( 'polylang/polylang.php' ) ) { ?>
+                                    <li class="hidden-xs dropdown">
+                                        <?php $switcher = pll_the_languages(array('raw'=>1));
+                                            $lang = [];
+                                            for ($i=0; $i<count($switcher); $i++) {
+                                                $lang[]=$switcher[$i]['classes'];
+                                                if (in_array('current-lang', $lang[$i])) { ?>
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                        <img src="<?php echo $switcher[$i]['flag']; ?>"/>
+                                                        <span><?php echo $switcher[$i]['name']; ?></span><b class="caret"></b>
+                                                    </a>
+                                                <?php }
+                                            };
+                                        ?>
+                                        <ul class="dropdown-menu">
+                                            <?php for ($i=0; $i<count($switcher); $i++) { ?>
+                                            <li>
+                                                <a href="<?php echo $switcher[$i]['url']; ?>" <?php if (in_array('current-lang', $lang[$i])) echo('class="custom-active"'); ?>>
+                                                    <img src="<?php echo $switcher[$i]['flag']; ?>"/> <?php echo $switcher[$i]['name']; ?>
+                                                </a>
+                                            </li>
+                                            <?php } ?>
+                                        </ul>
                                     </li>
+                                    <?php } ?>
                                 </ul>
                             </div>
                             <?php get_search_form(); ?>
