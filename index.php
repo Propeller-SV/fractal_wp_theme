@@ -103,7 +103,8 @@
 								'mid_size'	=> '1'
 								);
 							for ($i=0; $i<count(paginate_links($args)); $i++) {
-								echo '<li>' . paginate_links( $args )[$i] . '</li>';
+								$blog_page = paginate_links( $args );
+								echo '<li>' . $blog_page[$i] . '</li>';
 							}
 							?>
 						</ul>
