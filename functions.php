@@ -258,11 +258,9 @@ function numeric_posts_nav() {
 	// echo '<div class="list-pagination text-center"><ul class="pagination pagination-lg">' . "\n";
 
 	/**	Previous Post Link */
-	// if ( get_previous_posts_link() )
-	// 	printf( '<li>%s</li>' . "\n", get_previous_posts_link( '&laquo;' ) );
-	?>
-	<li><?php if (get_previous_posts_link()) echo previous_posts_link('&laquo;'); else echo '<a href="' . esc_url( get_pagenum_link( $max ) ) . '">&laquo;</a>' ?>
-	</li>
+	if ( get_previous_posts_link() )
+		printf( '<li>%s</li>' . "\n", get_previous_posts_link( '&laquo;' ) );
+		else echo '<li><a href="' . esc_url( get_pagenum_link( $max ) ) . '">&laquo;</a></li>' ?>
 	<?php
 
 	/**	Link to first page, plus ellipses if necessary */
@@ -292,11 +290,9 @@ function numeric_posts_nav() {
 	}
 
 	/**	Next Post Link */
-	// if ( get_next_posts_link() )
-	// 	printf( '<li>%s</li>' . "\n", get_next_posts_link( '&raquo;' ) );
-	?>
-	<li><?php if (get_next_posts_link()) echo next_posts_link('&raquo;'); else echo '<a href="' . esc_url( get_pagenum_link( 1 ) ) . '">&raquo;</a>' ?>
-	</li>
+	if ( get_next_posts_link() )
+		printf( '<li>%s</li>' . "\n", get_next_posts_link( '&raquo;' ) );
+		else echo '<li><a href="' . esc_url( get_pagenum_link( 1 ) ) . '">&raquo;</a></li>' ?>
 	<?php
 
 	// echo '</ul></div>' . "\n";
