@@ -718,13 +718,16 @@ footer li.current-menu-item a{
 .human .archives p {
     width: 157px;
     font-size: 15px;
-    color: #c2973c;
+    /*color: #c2973c;*/                          /*psv edition*/
+    color: #000;
     line-height: 30px;
     padding-top: 30px;
     margin: 0 auto;
 }
-.human .archives p span {
-    color: #000;
+/*.human .archives p span {*/
+.human .archives a {
+    /*color: #000;*/                            /*psv edition*/
+    color: #c2973c;
 }
 
 /* --- popular-post ---*/
