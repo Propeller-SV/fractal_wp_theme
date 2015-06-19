@@ -115,18 +115,37 @@
 				</div><!-- end of col-sm-9 -->
 				<div class="col-xs-12 col-sm-3">
 					<div class="fragment-human">
-					    <div class="heading-post">
-					        <h3 class="text-center"><span>R</span>ecent <span>P</span>osts</h3>
-					    </div>
+						<div class="heading">
+							<h3 class="text-center"><span>A</span>rchives</h3>
+						</div>
+						<div class="archives">
+							<p>
+							<?php wp_get_archives( array(
+								'type'            => 'monthly',
+								'limit'           => '',
+								'format'          => 'custom',
+								'before'          => '',
+								'after'           => '<br>',
+								'show_post_count' => true,
+								'echo'            => 1,
+								'order'           => 'DESC'
+							)); ?>
+							</p>
+						</div>
+					</div><!-- end of fragment-human -->
+					<div class="fragment-human">
+						<div class="heading-post">
+							<h3 class="text-center"><span>R</span>ecent <span>P</span>osts</h3>
+						</div>
 						<?php
 							$args = array( 'numberposts' => '3' );
 							$recent_posts = wp_get_recent_posts( $args );
 							foreach( $recent_posts as $recent ) {
-								echo '<div class="popular-post"><a href="' . get_permalink( $recent["ID"] ) 
-								. '"><h4 class="text-center">' . $recent["post_title"] 
-								. '</h4></a><p class="text-center"><i>' 
-								. get_the_time( 'F d, Y', $recent['ID'] ) . '</i></p>' 
-								. get_the_post_thumbnail( $recent["ID"], array(130,130), array('class' => 'human-img') ) 
+								echo '<div class="popular-post"><a href="' . get_permalink( $recent["ID"] )
+								. '"><h4 class="text-center">' . $recent["post_title"]
+								. '</h4></a><p class="text-center"><i>'
+								. get_the_time( 'F d, Y', $recent['ID'] ) . '</i></p>'
+								. get_the_post_thumbnail( $recent["ID"], array(130,130), array('class' => 'human-img') )
 								. '</div>';
 							}
 						?>
@@ -148,16 +167,20 @@
 					        <h3 class="text-center"><span>P</span>opular <span>P</span>osts</h3>
 					    </div>
 						<?php
-							query_posts('meta_key=post_views_count&orderby=meta_value_num&order=DESC');
-							if (have_posts()) : while (have_posts()) : the_post(); ?>
+		                    $most_viewed_posts = new WP_Query( array('v_sortby' => 'views', 'v_orderby' => 'DESC', 'showposts' => 3) );
+							if ($most_viewed_posts->have_posts()) : while ($most_viewed_posts->have_posts()) : $most_viewed_posts->the_post();
+							$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array(130,130) );
+							$url = $thumb['0']; ?>
 							<div class="popular-post">
 								<a href="<?php the_permalink(); ?>"><h4 class="text-center"><?php the_title(); ?></h4></a>
 								<p class="text-center"><i><?php the_time( 'F d, Y'); ?></i></p>
-							    <img src="<?php the_post_thumbnail(); ?>" class="human-img" />
+							    <?php if ($url) { ?>
+							    	<img src="<?php echo $url; ?>" class="human-img" />
+								<?php } ?>
 							</div>
 							<?php
 							endwhile; endif;
-							wp_reset_query();
+							wp_reset_postdata();
 						?>
 					</div><!-- end of fragment-human -->
 				</div><!-- end of col-xs-12 col-sm-3 -->
