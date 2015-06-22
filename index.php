@@ -71,15 +71,6 @@
 							</ul>
 						</div>
 					<?php endwhile; ?>
-					<div class="list-pagination">
-						<!-- <ul class="pagination pagination-lg">
-							<li><a href="<?php get_previous_posts_link( ); ?>">&laquo;</a></li>
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><?php echo next_posts_link( '&raquo;' ); ?></li>
-						</ul> -->
-					</div><!-- end of list-pagination -->
 					<div class="list-pagination text-center">
 						<ul class="pagination pagination-lg">
 						<?php numeric_posts_nav(); ?>
@@ -121,14 +112,14 @@
 						<div class="archives">
 							<p>
 							<?php wp_get_archives( array(
-								'type'            => 'monthly',
-								'limit'           => '',
-								'format'          => 'custom',
-								'before'          => '',
-								'after'           => '<br>',
-								'show_post_count' => true,
-								'echo'            => 1,
-								'order'           => 'DESC'
+								'type'				=> 'monthly',
+								'limit'				=> '',
+								'format'			=> 'custom',
+								'before'			=> '',
+								'after'				=> '<br>',
+								'show_post_count'	=> true,
+								'echo'				=> 1,
+								'order'				=> 'DESC'
 							)); ?>
 							</p>
 						</div>
@@ -151,31 +142,31 @@
 						?>
 					</div><!-- end of fragment-human -->
 					<div class="fragment-human">
-					    <div class="heading-subscribe">
-					        <h3 class="text-center"><span>S</span>ubscribe</h3>
-					    </div>
-					    <div class="subscribe">
-					        <h3><span>S</span>ubscribe now if you want to recieve updates and news via email.</h3>
-					        <div class="paper-plane">
-					            <h3><span>E</span>nter your email...</h3>
-					            <img src="<?php echo IMAGES; ?>/paper-plane.png" class="pull-right" />
-					        </div>
-					    </div>
+						<div class="heading-subscribe">
+							<h3 class="text-center"><span>S</span>ubscribe</h3>
+						</div>
+						<div class="subscribe">
+							<h3><span>S</span>ubscribe now if you want to recieve updates and news via email.</h3>
+							<div class="paper-plane">
+								<h3><span>E</span>nter your email...</h3>
+								<img src="<?php echo IMAGES; ?>/paper-plane.png" class="pull-right" />
+							</div>
+						</div>
 					</div><!-- end of fragment-human -->
 					<div class="fragment-human">
-					    <div class="heading-post">
-					        <h3 class="text-center"><span>P</span>opular <span>P</span>osts</h3>
-					    </div>
+						<div class="heading-post">
+							<h3 class="text-center"><span>P</span>opular <span>P</span>osts</h3>
+						</div>
 						<?php
-		                    $most_viewed_posts = new WP_Query( array('v_sortby' => 'views', 'v_orderby' => 'DESC', 'showposts' => 3) );
+							$most_viewed_posts = new WP_Query( array('v_sortby' => 'views', 'v_orderby' => 'DESC', 'showposts' => 3) );
 							if ($most_viewed_posts->have_posts()) : while ($most_viewed_posts->have_posts()) : $most_viewed_posts->the_post();
 							$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array(130,130) );
 							$url = $thumb['0']; ?>
 							<div class="popular-post">
 								<a href="<?php the_permalink(); ?>"><h4 class="text-center"><?php the_title(); ?></h4></a>
 								<p class="text-center"><i><?php the_time( 'F d, Y'); ?></i></p>
-							    <?php if ($url) { ?>
-							    	<img src="<?php echo $url; ?>" class="human-img" />
+								<?php if ($url) { ?>
+									<img src="<?php echo $url; ?>" class="human-img" />
 								<?php } ?>
 							</div>
 							<?php
