@@ -15,7 +15,7 @@ function add_main_points()
     $pageTemplate = get_post_meta( $post->ID, '_wp_page_template', true );
     if ($pageTemplate == 'company-template.php' || $pageTemplate == 'career-template.php' ) {
       add_meta_box(
-        'main_points',
+        'main_points_area',
         'Main Company & Career Points',
         'main_company_points_options',
         'page',
@@ -45,8 +45,8 @@ function main_company_points_options()
     for( $i = 0; $i < count( $main_points_data['point'] ); $i++ )
       { ?>
       <div class="main_point">
-        <label>Point <?php echo $i+1; ?></label>
-        <textarea name="main_points[point][]" cols="80" rows="2"><?php esc_html_e( $main_points_data['point'][$i] ); ?></textarea>
+        <label for="point-<?php echo $i+1 ?>">Point <?php echo $i+1; ?>:</label>
+        <textarea id="point-<?php echo $i+1 ?>" name="main_points[point][]" cols="30" rows="2"><?php esc_html_e( $main_points_data['point'][$i] ); ?></textarea>
         <input class="button" type="button" value="Remove Point" onclick="jQuery(this).closest('div').remove();" />
       </div>
     <?php } // endforeach
@@ -56,7 +56,7 @@ function main_company_points_options()
   <div id="main_points_row" style="clear:both; display:none">
       <div>
         <label>Point</label>
-        <textarea name="main_points[point][]" cols="80" rows="2"></textarea>
+        <textarea name="main_points[point][]" cols="30" rows="2"></textarea>
         <input class="button" type="button" value="Remove Point" onclick="jQuery(this).closest('div').remove();" />
       </div>
   </div>

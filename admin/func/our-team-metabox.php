@@ -76,7 +76,7 @@ function fractal_employee_options()
         </div>
         <div class="form_field">
           <label>About Employee</label>
-          <textarea class="meta_employee_about" cols="40" rows="5" name="team[employee_about][]"><?php esc_html_e( $employee_data['employee_about'][$i] ); ?></textarea>
+          <textarea class="meta_employee_about" cols="28" rows="5" name="team[employee_about][]"><?php esc_html_e( $employee_data['employee_about'][$i] ); ?></textarea>
         </div>
       </div>
 
@@ -114,7 +114,7 @@ function fractal_employee_options()
         </div>
       <div class="form_field">
           <label>About Employee</label>
-          <textarea class="meta_employee_about" cols="40" rows="5" name="team[employee_about][]"></textarea>
+          <textarea class="meta_employee_about" cols="28" rows="5" name="team[employee_about][]"></textarea>
         </div>
       </div>
       <div class="field_right image_wrap">
@@ -150,6 +150,7 @@ function print_scripts_team()
   <style type="text/css">
     .field_left {
     float:left;
+    width: 80%;
     }
 
     .field_right {
@@ -161,12 +162,12 @@ function print_scripts_team()
     clear:both;
     }
 
-    #dynamic_form {
-    width:580px;
-    }
+    /*#dynamic_form {
+    width:280px;
+    }*/
 
     #dynamic_form input[type=text] {
-    width:300px;
+    width:100%;
     }
 
     #dynamic_form .field_row {

@@ -130,6 +130,7 @@ function print_scripts()
   <style type="text/css">
     .field_left {
     float:left;
+    width: 80%;
     }
 
     .field_right {
@@ -141,12 +142,12 @@ function print_scripts()
     clear:both;
     }
 
-    #dynamic_form {
-    width:580px;
-    }
+    /*#dynamic_form {
+    width:280px;
+    }*/
 
     #dynamic_form input[type=text] {
-    width:300px;
+    width:100%;
     }
 
     #dynamic_form .field_row {

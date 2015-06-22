@@ -48,7 +48,7 @@ function why_fractal_options()
   </div>
   <div>
     <label>Reason</label>
-    <textarea name="why_fractal[reason][]" cols="40" rows="5"><?php if (isset($why_fractal_data['reason'][0])) echo $why_fractal_data['reason'][0]; else echo ''; ?></textarea>
+    <textarea name="why_fractal[reason][]" cols="30" rows="5"><?php if (isset($why_fractal_data['reason'][0])) echo $why_fractal_data['reason'][0]; else echo ''; ?></textarea>
   </div>
   <div id="point_wrap">
     <?php
