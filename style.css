@@ -625,7 +625,7 @@ footer li.current-menu-item a{
     margin-top: 21px;
 }
 .fragment-human .list-top {
-    width: 300px;
+    width: 240px;
     padding-top: 10px;
     margin: 10px auto;
 }
@@ -1061,5 +1061,5 @@ footer p {
     color: #ff7b00;
 }
 .list-pagination {
-    width: 420px;
+    width: 280px;
 }
