@@ -40,7 +40,7 @@ function fractal_employee_options()
   wp_nonce_field( plugin_basename( __FILE__ ), 'fractal_team_nonce' );
 ?>
 
-<div id="dynamic_form">
+<div id="team_dynamic_form">
   <div id="employee_wrap">
   <?php
   if ( isset( $employee_data['employee_image'] ) )
@@ -49,7 +49,7 @@ function fractal_employee_options()
     {
     ?>
     <div class="field_row">
-      <div class="field_left">
+      <div class="team_field_left">
         <div class="form_field">
           <label>Employee's photo</label>
           <input type="text"
@@ -80,16 +80,16 @@ function fractal_employee_options()
         </div>
       </div>
 
-      <div class="field_right image_wrap">
+      <div class="team_field_right image_wrap">
       <img src="<?php esc_html_e( $employee_data['employee_image'][$i] ); ?>" height="48" width="48" />
       </div>
 
-      <div class="field_right">
+      <div class="team_field_right">
       <input class="button" type="button" value="Choose File" onclick="add_employee_image(this)" /><br />
       <input class="button" type="button" value="Remove" onclick="remove_employee_field(this)" />
       </div>
 
-      <div class="clear" /></div>
+      <div class="team_clear" /></div>
     </div>
     <?php
     } // endforeach
@@ -99,7 +99,7 @@ function fractal_employee_options()
 
   <div style="display:none" id="employee-row">
     <div class="field_row">
-      <div class="field_left">
+      <div class="team_field_left">
         <div class="form_field">
           <label>Employee's photo</label>
           <input class="meta_employee_image" value="" type="text" name="team[employee_image][]" />
@@ -117,14 +117,14 @@ function fractal_employee_options()
           <textarea class="meta_employee_about" cols="28" rows="5" name="team[employee_about][]"></textarea>
         </div>
       </div>
-      <div class="field_right image_wrap">
+      <div class="team_field_right image_wrap">
       </div>
-      <div class="field_right">
+      <div class="team_field_right">
         <input type="button" class="button" value="Choose File" onclick="add_employee_image(this)" />
         <br />
         <input class="button" type="button" value="Remove" onclick="remove_employee_field(this)" />
       </div>
-      <div class="clear"></div>
+      <div class="team_clear"></div>
     </div>
   </div>
 
@@ -148,35 +148,35 @@ function print_scripts_team()
     return;
   ?>
   <style type="text/css">
-    .field_left {
+    .team_field_left {
     float:left;
     width: 80%;
     }
 
-    .field_right {
+    .team_field_right {
     float:left;
     margin-left:10px;
     }
 
-    .clear {
+    .team_clear {
     clear:both;
     }
 
-    /*#dynamic_form {
+    /*#team_dynamic_form {
     width:280px;
     }*/
 
-    #dynamic_form input[type=text] {
+    #team_dynamic_form input[type=text] {
     width:100%;
     }
 
-    #dynamic_form .field_row {
+    #team_dynamic_form .field_row {
     border:1px solid #999;
     margin-bottom:10px;
     padding:10px;
     }
 
-    #dynamic_form label {
+    #team_dynamic_form label {
     padding:0 6px;
     }
   </style>
