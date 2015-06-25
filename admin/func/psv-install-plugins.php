@@ -1,9 +1,9 @@
 <?php
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-if (!function_exists('mm_get_plugins')) {
+if (!function_exists('psv_get_plugins')) {
 
-    function mm_get_plugins()
+    function psv_get_plugins()
     {
         $plugins = array(
             array('name' => 'polylang', 'install' => 'polylang/polylang.php'),
@@ -17,12 +17,12 @@ if (!function_exists('mm_get_plugins')) {
 
         foreach($plugins as $plugin)
         {
-            mm_plugin_unpack($args, get_template_directory() . '/lib/plugins/' . $plugin['name'].'.zip');
-            mm_plugin_activate($plugin['install']);
+            psv_plugin_unpack($args, get_template_directory() . '/lib/plugins/' . $plugin['name'].'.zip');
+            psv_plugin_activate($plugin['install']);
         }
     }
 
-    function mm_plugin_unpack($args, $target)
+    function psv_plugin_unpack($args, $target)
     {
         $zip = new ZipArchive;
         if($zip->open($target) === TRUE)
@@ -35,7 +35,7 @@ if (!function_exists('mm_get_plugins')) {
                 unlink($target);
         }
     }
-    function mm_plugin_activate($installer)
+    function psv_plugin_activate($installer)
     {
         $current = get_option('active_plugins');
         $plugin = plugin_basename(trim($installer));
@@ -47,5 +47,5 @@ if (!function_exists('mm_get_plugins')) {
     }
 }
 
-add_action( 'after_switch_theme', 'mm_get_plugins' );
+add_action( 'after_switch_theme', 'psv_get_plugins' );
 ?>
