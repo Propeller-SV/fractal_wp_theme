@@ -1,476 +1,141 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Loco Gettext template
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Fractal Soft 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-20 12:20+0300\n"
-"PO-Revision-Date: 2015-05-20 13:49+0200\n"
-"Language: en_GB\n"
+"POT-Revision-Date: Thu Jun 25 2015 18:49:57 GMT+0300 (EEST)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: Fractal Soft\n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Last-Translator: \n"
-"Language-Team: Fractal Soft\n"
-"X-Generator: Poedit 1.7.6\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Loco - https://localise.biz/\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2"
 
-#: contactform.php:5
+#: ../contactform.php:5
 msgid "Contact Us"
 msgstr ""
 
-#: contactform.php:9
+#: ../contactform.php:9
 msgid "Your Name"
 msgstr ""
 
-#: contactform.php:12
+#: ../contactform.php:12
 msgid "Email"
 msgstr ""
 
-#: contactform.php:15
+#: ../contactform.php:15
 msgid "Phone"
 msgstr ""
 
-#: contactform.php:18
+#: ../contactform.php:18
 msgid "Your Message"
 msgstr ""
 
-#: contactform.php:21
+#: ../contactform.php:21
 msgid "SEND"
 msgstr ""
 
-#: content-page.php:21
+#: ../content-page.php:21
 msgid "Pages:"
 msgstr ""
 
-#: content-page.php:25
+#: ../content-page.php:25
 msgid "Page"
 msgstr ""
 
-#: content-page.php:30
+#: ../content-page.php:30
 msgid "Edit"
 msgstr ""
 
-#: footer.php:24 header.php:126
+#: ../footer.php:24 ../header.php:161
 msgid "Home"
 msgstr ""
 
-#: footer.php:31 header.php:133
+#: ../footer.php:31 ../header.php:168
 msgid "Software Engineering"
 msgstr ""
 
-#: footer.php:38 header.php:140
+#: ../footer.php:38 ../header.php:175
 msgid "Company"
 msgstr ""
 
-#: footer.php:45 header.php:147
+#: ../footer.php:45 ../header.php:182
 msgid "Career"
 msgstr ""
 
-#: footer.php:74
+#: ../footer.php:84
 msgid "All rights reserved"
 msgstr ""
 
-#: functions.php:75
+#: ../functions.php:100
 msgid "Right Widget Area"
 msgstr ""
 
-#: functions.php:77
+#: ../functions.php:102
 msgid "Add widgets here to appear in your sidebar."
 msgstr ""
 
-#: functions.php:85
-msgid "Footer Social Widget Area"
-msgstr ""
-
-#: functions.php:87
-msgid "Appears on the footer."
-msgstr ""
-
-#: functions.php:95
-msgid "Customers Widget Area"
-msgstr ""
-
-#: functions.php:97
-msgid "List of customers"
-msgstr ""
-
-#: functions.php:105
-msgid "Company Main Widget Area"
-msgstr ""
-
-#: functions.php:107
-msgid "List of articles"
-msgstr ""
-
-#: functions.php:115
-msgid "Company Team Widget Area"
-msgstr ""
-
-#: functions.php:117
-msgid "List of employees"
-msgstr ""
-
-#: functions.php:125
-msgid "Career Widget Area"
-msgstr ""
-
-#: functions.php:127
-msgid "Some information"
-msgstr ""
-
-#: home-template.php:62
+#: ../home-template.php:62
 msgid "About Us"
 msgstr ""
 
-#: home-template.php:73 home-template.php:88 home-template.php:103
+#: ../home-template.php:73 ../home-template.php:88 ../home-template.php:103
 msgid "Learn More"
 msgstr ""
 
-#: home-template.php:75 home-template.php:90 home-template.php:105
+#: ../home-template.php:75 ../home-template.php:90 ../home-template.php:105
 msgid "Sorry, this page does not exist."
 msgstr ""
 
-#: index.php:25 search.php:20
-msgid "Sorry, no posts found."
+#: ../index.php:104
+msgid "Sorry, no posts matched your criteria."
 msgstr ""
 
-#: search.php:12
+#: ../search.php:12
 msgid "Search results for: "
 msgstr ""
 
-#: searchform.php:9
+#: ../search.php:20
+msgid "Sorry, no posts found."
+msgstr ""
+
+#: ../searchform.php:9
 msgid "Search"
 msgstr ""
 
-#: admin/class-tgm-plugin-activation.php:161 admin/dependencies.php:89
-msgid "Install Required Plugins"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:162 admin/dependencies.php:90
-msgid "Install Plugins"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:163 admin/dependencies.php:91
-#, php-format
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:164
-msgid "Something went wrong."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:165 admin/dependencies.php:93
-#, php-format
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin/class-tgm-plugin-activation.php:166 admin/dependencies.php:94
-#, php-format
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin/class-tgm-plugin-activation.php:167 admin/dependencies.php:95
-#, php-format
-msgid ""
-"Sorry, but you do not have the correct permissions to install the %s plugin. "
-"Contact the administrator of this site for help on getting the plugin "
-"installed."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to install the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins installed."
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin/class-tgm-plugin-activation.php:168 admin/dependencies.php:96
-#, php-format
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin/class-tgm-plugin-activation.php:169 admin/dependencies.php:97
-#, php-format
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin/class-tgm-plugin-activation.php:170 admin/dependencies.php:98
-#, php-format
-msgid ""
-"Sorry, but you do not have the correct permissions to activate the %s "
-"plugin. Contact the administrator of this site for help on getting the "
-"plugin activated."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to activate the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins activated."
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin/class-tgm-plugin-activation.php:171 admin/dependencies.php:99
-#, php-format
-msgid ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgid_plural ""
-"The following plugins need to be updated to their latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin/class-tgm-plugin-activation.php:172 admin/dependencies.php:100
-#, php-format
-msgid ""
-"Sorry, but you do not have the correct permissions to update the %s plugin. "
-"Contact the administrator of this site for help on getting the plugin "
-"updated."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to update the %s plugins. "
-"Contact the administrator of this site for help on getting the plugins "
-"updated."
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin/class-tgm-plugin-activation.php:173 admin/dependencies.php:101
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin/class-tgm-plugin-activation.php:174 admin/dependencies.php:102
-msgid "Begin activating plugin"
-msgid_plural "Begin activating plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin/class-tgm-plugin-activation.php:175 admin/dependencies.php:103
-msgid "Return to Required Plugins Installer"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:176
-msgid "Return to the dashboard"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:177
-#: admin/class-tgm-plugin-activation.php:1956 admin/dependencies.php:104
-msgid "Plugin activated successfully."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:178
-#: admin/class-tgm-plugin-activation.php:1644
-msgid "The following plugin was activated successfully:"
-msgid_plural "The following plugins were activated successfully:"
-msgstr[0] ""
-msgstr[1] ""
-
-#: admin/class-tgm-plugin-activation.php:179
-#, php-format
-msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:180
-msgid "Dismiss this notice"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:532
-#: admin/class-tgm-plugin-activation.php:2173
-msgid "Return to the Dashboard"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1167
-#: admin/class-tgm-plugin-activation.php:1348
-msgid "Private Repository"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1170
-#: admin/class-tgm-plugin-activation.php:1351
-msgid "Pre-Packaged"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1175
-msgid "WordPress Repository"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1178
-msgid "Required"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1178
-msgid "Recommended"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1181
-msgid "Not Installed"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1183
-msgid "Installed But Not Activated"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1288
-#: admin/class-tgm-plugin-activation.php:1409
-msgid "Install"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1312
-#: admin/class-tgm-plugin-activation.php:1410
-msgid "Activate"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1372
-#, php-format
-msgid ""
-"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
-"Dashboard\">Return to the Dashboard</a>"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1388
-msgid "Plugin"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1389
-msgid "Source"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1390
-msgid "Type"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1391
-msgid "Status"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1939
-msgid "Install package not available."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1940
-#, php-format
-msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1941
-msgid "Unpacking the package&#8230;"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1942
-msgid "Installing the plugin&#8230;"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1943
-msgid "Plugin install failed."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1944
-msgid "Plugin installed successfully."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:1955
-msgid "Plugin activation failed."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2069
-msgid ""
-"The installation and activation process is starting. This process may take a "
-"while on some hosts, so please be patient."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2070
-#, php-format
-msgid "%1$s installed and activated successfully."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2070
-#: admin/class-tgm-plugin-activation.php:2079
-msgid "Show Details"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2070
-#: admin/class-tgm-plugin-activation.php:2079
-msgid "Hide Details"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2071
-msgid "All installations and activations have been completed."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2072
-#, php-format
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2076
-msgid ""
-"The installation process is starting. This process may take a while on some "
-"hosts, so please be patient."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2077
-#, php-format
-msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2078
-#, php-format
-msgid "The installation of %1$s failed."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2079
-#, php-format
-msgid "%1$s installed successfully."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2080
-msgid "All installations have been completed."
-msgstr ""
-
-#: admin/class-tgm-plugin-activation.php:2081
-#, php-format
-msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: admin/dependencies.php:92
-msgid "Something went wrong with the plugin API."
-msgstr ""
-
-#: admin/dependencies.php:105
-#, php-format
-msgid "All plugins installed and activated successfully. %s"
-msgstr ""
-
-#: admin/func/menus/default_footer_nav.php:2
+#: ../admin/func/menus/default_footer_nav.php:2
 msgid "Please, create the Footer fractal menu"
 msgstr ""
 
-#: admin/func/menus/default_primary_nav.php:2
+#: ../admin/func/menus/default_primary_nav.php:2
 msgid "Please, create the Primary fractal menu"
 msgstr ""
 
-#: admin/func/menus/default_top_nav.php:2
+#: ../admin/func/menus/default_top_nav.php:2
 msgid "Please, create the Top Menu"
 msgstr ""
 
-#: admin/func/menus/menus.php:5
+#: ../admin/func/menus/menus.php:5
 msgid "Top Menu"
 msgstr ""
 
-#: admin/func/menus/menus.php:6
+#: ../admin/func/menus/menus.php:6
 msgid "Primary Menu"
 msgstr ""
 
-#: admin/func/menus/menus.php:7
+#: ../admin/func/menus/menus.php:7
 msgid "Footer Menu"
 msgstr ""
