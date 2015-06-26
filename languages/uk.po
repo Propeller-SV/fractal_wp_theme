@@ -1,413 +1,140 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FractalSoft 1.0\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-13 15:56+0200\n"
-"PO-Revision-Date: 2015-05-13 16:08+0200\n"
-"Last-Translator: \n"
+"PO-Revision-Date: Thu Jun 25 2015 19:03:51 GMT+0300 (EEST)\n"
+"Last-Translator: Serhii Prokhorenko <grey.psv@gmail.com>\n"
 "Language-Team: FractalSoft <fractalsoft@gmail.com>\n"
-"Language: uk\n"
+"Language: Ukrainian\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
-"X-Poedit-Basepath: ../\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Loco-Target-Locale: uk_UA"
 
-#: admin/class-tgm-plugin-activation.php:161 admin/dependencies.php:88
-msgid "Install Required Plugins"
-msgstr "Встановіть необхідні плагіни."
-
-#: admin/class-tgm-plugin-activation.php:162 admin/dependencies.php:89
-msgid "Install Plugins"
-msgstr "Встановити плагіни"
-
-#: admin/class-tgm-plugin-activation.php:163 admin/dependencies.php:90
-#, php-format
-msgid "Installing Plugin: %s"
-msgstr "Встановлення плагіна: %s"
-
-#: admin/class-tgm-plugin-activation.php:164
-msgid "Something went wrong."
-msgstr "Щось пішло не так."
-
-#: admin/class-tgm-plugin-activation.php:175 admin/dependencies.php:102
-msgid "Return to Required Plugins Installer"
-msgstr "Повернутися до встановлення необхідних плагінів"
-
-#: admin/class-tgm-plugin-activation.php:176
-msgid "Return to the dashboard"
-msgstr "Повернутися до приладової панелі"
-
-#: admin/class-tgm-plugin-activation.php:177
-#: admin/class-tgm-plugin-activation.php:1956 admin/dependencies.php:103
-msgid "Plugin activated successfully."
-msgstr "Плагін успішно активовано."
-
-#: admin/class-tgm-plugin-activation.php:178
-msgid "The following plugin was activated successfully:"
-msgstr "Цей плагін був успішно активований: %s."
-
-#: admin/class-tgm-plugin-activation.php:179
-#, php-format
-msgid "All plugins installed and activated successfully. %1$s"
-msgstr "Усі плагіни успішно встановлено й активовано. %1$s"
-
-#: admin/class-tgm-plugin-activation.php:180
-msgid "Dismiss this notice"
-msgstr "Закрити це повідомлення"
-
-#: admin/class-tgm-plugin-activation.php:532
-#: admin/class-tgm-plugin-activation.php:2173
-msgid "Return to the Dashboard"
-msgstr "Повернутися до приладової панелі"
-
-#: admin/class-tgm-plugin-activation.php:1167
-#: admin/class-tgm-plugin-activation.php:1348
-msgid "Private Repository"
-msgstr "Приватний репозиторій"
-
-#: admin/class-tgm-plugin-activation.php:1170
-#: admin/class-tgm-plugin-activation.php:1351
-msgid "Pre-Packaged"
-msgstr "Попередньо упаковані"
-
-#: admin/class-tgm-plugin-activation.php:1175
-msgid "WordPress Repository"
-msgstr "WordPress репозиторій"
-
-#: admin/class-tgm-plugin-activation.php:1178
-msgid "Required"
-msgstr "Обов'язково"
-
-#: admin/class-tgm-plugin-activation.php:1178
-msgid "Recommended"
-msgstr "Рекомендовано"
-
-#: admin/class-tgm-plugin-activation.php:1181
-msgid "Not Installed"
-msgstr "Не встановлено"
-
-#: admin/class-tgm-plugin-activation.php:1183
-msgid "Installed But Not Activated"
-msgstr "Встановлений, але не активований"
-
-#: admin/class-tgm-plugin-activation.php:1288
-#: admin/class-tgm-plugin-activation.php:1409
-msgid "Install"
-msgstr "Інсталювати"
-
-#: admin/class-tgm-plugin-activation.php:1312
-#: admin/class-tgm-plugin-activation.php:1410
-msgid "Activate"
-msgstr "Активувати"
-
-#: admin/class-tgm-plugin-activation.php:1372
-#, php-format
-msgid ""
-"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
-"Dashboard\">Return to the Dashboard</a>"
-msgstr ""
-"Немає плагінів для встановлення чи активації. <a href=\"%1$s\" title="
-"\"Повернутися до Майстерні\">Повернутися до Майстерні</a>"
-
-#: admin/class-tgm-plugin-activation.php:1388
-msgid "Plugin"
-msgstr "Плагін"
-
-#: admin/class-tgm-plugin-activation.php:1389
-msgid "Source"
-msgstr "Джерело"
-
-#: admin/class-tgm-plugin-activation.php:1390
-msgid "Type"
-msgstr "Тип"
-
-#: admin/class-tgm-plugin-activation.php:1391
-msgid "Status"
-msgstr "Стан"
-
-#: admin/class-tgm-plugin-activation.php:1939
-msgid "Install package not available."
-msgstr "Встановлення не доступне"
-
-#: admin/class-tgm-plugin-activation.php:1940
-#, php-format
-msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
-msgstr ""
-"Завантажити пакет для встановлення з <span class=\"code\">%s</span>&#8230;"
-
-#: admin/class-tgm-plugin-activation.php:1941
-msgid "Unpacking the package&#8230;"
-msgstr "Розпакування пакету&#8230;"
-
-#: admin/class-tgm-plugin-activation.php:1942
-msgid "Installing the plugin&#8230;"
-msgstr "Установка плагіна&#8230;"
-
-#: admin/class-tgm-plugin-activation.php:1943
-msgid "Plugin install failed."
-msgstr "Встановлення плагіна не вдалося."
-
-#: admin/class-tgm-plugin-activation.php:1944
-msgid "Plugin installed successfully."
-msgstr "Плагін успішно встановлений."
-
-#: admin/class-tgm-plugin-activation.php:1955
-msgid "Plugin activation failed."
-msgstr "Активація плагіна не вдалася"
-
-#: admin/class-tgm-plugin-activation.php:2069
-msgid ""
-"The installation and activation process is starting. This process may take a "
-"while on some hosts, so please be patient."
-msgstr ""
-"Процес установки починається. Цей процес може зайняти деякий час, тому, будь "
-"ласка, будьте терплячі."
-
-#: admin/class-tgm-plugin-activation.php:2070
-#, php-format
-msgid "%1$s installed and activated successfully."
-msgstr "%1$s встановлений і активований успішно."
-
-#: admin/class-tgm-plugin-activation.php:2070
-#: admin/class-tgm-plugin-activation.php:2079
-msgid "Show Details"
-msgstr "Показати подробиці"
-
-#: admin/class-tgm-plugin-activation.php:2070
-#: admin/class-tgm-plugin-activation.php:2079
-msgid "Hide Details"
-msgstr "Приховати деталі"
-
-#: admin/class-tgm-plugin-activation.php:2071
-msgid "All installations and activations have been completed."
-msgstr "Всі установки і активації були завершені."
-
-#: admin/class-tgm-plugin-activation.php:2072
-#, php-format
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr "Встановлення і активація плагіна %1$s (%2$d/%3$d)"
-
-#: admin/class-tgm-plugin-activation.php:2076
-msgid ""
-"The installation process is starting. This process may take a while on some "
-"hosts, so please be patient."
-msgstr ""
-"Процес установки починається. Цей процес може зайняти деякий час, тому, будь "
-"ласка, будьте терплячі."
-
-#: admin/class-tgm-plugin-activation.php:2077
-#, php-format
-msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
-msgstr "Сталася помилка при установці %1$s: <strong>%2$s</strong>."
-
-#: admin/class-tgm-plugin-activation.php:2078
-#, php-format
-msgid "The installation of %1$s failed."
-msgstr "Установка %1$s не вдалася."
-
-#: admin/class-tgm-plugin-activation.php:2079
-#, php-format
-msgid "%1$s installed successfully."
-msgstr "%1$s успішно встановлений."
-
-#: admin/class-tgm-plugin-activation.php:2080
-msgid "All installations have been completed."
-msgstr "Всі установки були завершені."
-
-#: admin/class-tgm-plugin-activation.php:2081
-#, php-format
-msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr "Установка плагіна %1$s (%2$d/%3$d)"
-
-#: admin/dependencies.php:91
-msgid "Something went wrong with the plugin API."
-msgstr "Щось пішло не так з API плагіну."
-
-#: admin/dependencies.php:104
-#, php-format
-msgid "All plugins installed and activated successfully. %s"
-msgstr "Усі плагіни успішно встановлено й активовано. %s"
-
-#: admin/func/menus/default_footer_nav.php:2
-msgid "Please, create the Footer fractal menu"
-msgstr "Будь ласка, створіть Footer fractal меню"
-
-#: admin/func/menus/default_primary_nav.php:2
-msgid "Please, create the Primary fractal menu"
-msgstr "Будь ласка, створіть Primary fractal меню"
-
-#: admin/func/menus/default_top_nav.php:2
-msgid "Please, create the Top Menu"
-msgstr "Будь ласка, створіть Top меню"
-
-#: admin/func/menus/menus.php:5
-msgid "Top Menu"
-msgstr "Верхнє меню"
-
-#: admin/func/menus/menus.php:6
-msgid "Primary Menu"
-msgstr "Головне Меню"
-
-#: admin/func/menus/menus.php:7
-msgid "Footer Menu"
-msgstr "Нижнє меню"
-
-#: contactform.php:5
+#: ../contactform.php:5
 msgid "Contact Us"
 msgstr "Зв'язатися з нами"
 
-#: contactform.php:9
+#: ../contactform.php:9
 msgid "Your Name"
 msgstr "Ваше ім'я"
 
-#: contactform.php:12
+#: ../contactform.php:12
 msgid "Email"
 msgstr "E-mail"
 
-#: contactform.php:15
+#: ../contactform.php:15
 msgid "Phone"
 msgstr "Телефон"
 
-#: contactform.php:18
+#: ../contactform.php:18
 msgid "Your Message"
 msgstr "Ваше повідомлення"
 
-#: contactform.php:21
+#: ../contactform.php:21
 msgid "SEND"
 msgstr "Надіслати"
 
-#: content-page.php:21
+#: ../content-page.php:21
 msgid "Pages:"
 msgstr "Сторiнки:"
 
-#: content-page.php:25
+#: ../content-page.php:25
 msgid "Page"
 msgstr "Сторінка"
 
-#: content-page.php:30
+#: ../content-page.php:30
 msgid "Edit"
 msgstr "Редагувати"
 
-#: footer.php:24 header.php:85
+#: ../footer.php:24 ../header.php:161
 msgid "Home"
 msgstr "Головна"
 
-#: footer.php:31 header.php:92
+#: ../footer.php:31 ../header.php:168
 msgid "Software Engineering"
 msgstr "Програмна інженерія"
 
-#: footer.php:38 header.php:99
+#: ../footer.php:38 ../header.php:175
 msgid "Company"
 msgstr "Компанія"
 
-#: footer.php:45 header.php:106
+#: ../footer.php:45 ../header.php:182
 msgid "Career"
 msgstr "Кар'єра"
 
-#: footer.php:74
+#: ../footer.php:84
 msgid "All rights reserved"
 msgstr "Усі права захищено."
 
-#: functions.php:53
+#: ../functions.php:100
 msgid "Right Widget Area"
 msgstr "Головна права зона віджетів"
 
-#: functions.php:55
+#: ../functions.php:102
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Додайте віджет сюди аби він з'явився у вашому сайдбарі"
 
-#: functions.php:63
-msgid "Footer Social Widget Area"
-msgstr "Нижня соціальна зона віджетів"
-
-#: functions.php:65
-msgid "Appears on the footer."
-msgstr "З'являється у підвалі."
-
-#: functions.php:73
-msgid "Customers Widget Area"
-msgstr "Кліентська зона віджетів"
-
-#: functions.php:75
-msgid "List of customers"
-msgstr "Список клієнтів"
-
-#: functions.php:83
-msgid "Company Main Widget Area"
-msgstr "Компанія головна зона віджетів"
-
-#: functions.php:85
-msgid "List of articles"
-msgstr "Перелік статей"
-
-#: functions.php:93
-msgid "Company Team Widget Area"
-msgstr "Компанія (команда) зона віджетів"
-
-#: functions.php:95
-msgid "List of employees"
-msgstr "Перелік співробітників"
-
-#: functions.php:103
-msgid "Career Widget Area"
-msgstr "Кар'єра зона віджетів"
-
-#: functions.php:105
-msgid "Some information"
-msgstr "Деяка інформація"
-
-#: home-template.php:62
+#: ../home-template.php:62
 msgid "About Us"
 msgstr "Про нас"
 
-#: home-template.php:73 home-template.php:88 home-template.php:103
+#: ../home-template.php:73 ../home-template.php:88 ../home-template.php:103
 msgid "Learn More"
 msgstr "Дізнатися більше."
 
-#: home-template.php:75 home-template.php:90 home-template.php:105 page.php:21
+#: ../home-template.php:75 ../home-template.php:90 ../home-template.php:105
 msgid "Sorry, this page does not exist."
 msgstr "На жаль, ця сторінка не існує."
 
-#: index.php:25 search.php:20
-msgid "Sorry, no posts found."
-msgstr "На жаль, повiдомлення не знайдені."
+#: ../index.php:104
+msgid "Sorry, no posts matched your criteria."
+msgstr ""
 
-#: search.php:12
+#: ../search.php:12
 msgid "Search results for: "
 msgstr "Результати пошуку для:"
 
-#: searchform.php:6
+#: ../search.php:20
+msgid "Sorry, no posts found."
+msgstr "На жаль, повiдомлення не знайдені."
+
+#: ../searchform.php:9
 msgid "Search"
 msgstr "Пошук"
 
-#~ msgid "Follow us:"
-#~ msgstr "Давайте дружити:"
+#: ../admin/func/menus/default_footer_nav.php:2
+msgid "Please, create the Footer fractal menu"
+msgstr "Будь ласка, створіть Footer fractal меню"
 
-#~ msgid "Social Links Menu"
-#~ msgstr "Меню соціальних посиланнь"
+#: ../admin/func/menus/default_primary_nav.php:2
+msgid "Please, create the Primary fractal menu"
+msgstr "Будь ласка, створіть Primary fractal меню"
 
-#~ msgid "Main Right Widget Area"
-#~ msgstr "Головна права зона віджетів"
+#: ../admin/func/menus/default_top_nav.php:2
+msgid "Please, create the Top Menu"
+msgstr "Будь ласка, створіть Top меню"
 
-#~ msgid "Team Widget Area"
-#~ msgstr "Командна зона віджетів"
+#: ../admin/func/menus/menus.php:5
+msgid "Top Menu"
+msgstr "Верхнє меню"
 
-#~ msgid "CUSTOMERS"
-#~ msgstr "КЛІЄНТИ"
+#: ../admin/func/menus/menus.php:6
+msgid "Primary Menu"
+msgstr "Головне Меню"
 
-#~ msgid "Get Help"
-#~ msgstr "Отримати допомогу"
-
-#~ msgid "Blog"
-#~ msgstr "Блог"
-
-#~ msgid "English"
-#~ msgstr "Англійська"
-
-#~ msgid "German"
-#~ msgstr "Німецька"
+#: ../admin/func/menus/menus.php:7
+msgid "Footer Menu"
+msgstr "Нижнє меню"
