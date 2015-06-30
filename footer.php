@@ -72,10 +72,11 @@
                 </div>
                 <div class="col-sm-8 col-md-6">
                     <ul class="nav nav-pills">
-                        <li><a href="#"><img src="<?php echo IMAGES; ?>/facebook.png"></a></li>
-                        <li><a href="#"><img src="<?php echo IMAGES; ?>/twitter.png"></a></li>
-                        <li><a href="#"><img src="<?php echo IMAGES; ?>/linkedin.png"></a></li>
-                        <li><a href="#"><img src="<?php echo IMAGES; ?>/google.png"></a></li>
+                        <?php $options = (array)get_option('social_links'); ?>
+                        <li><a href="<?php echo esc_url($options['facebook']); ?>"><img src="<?php echo IMAGES; ?>/facebook.png"></a></li>
+                        <li><a href="<?php echo esc_url($options['twitter']); ?>"><img src="<?php echo IMAGES; ?>/twitter.png"></a></li>
+                        <li><a href="<?php echo esc_url($options['linked_in']); ?>"><img src="<?php echo IMAGES; ?>/linkedin.png"></a></li>
+                        <li><a href="<?php echo esc_url($options['google_plus']); ?>"><img src="<?php echo IMAGES; ?>/google.png"></a></li>
                     </ul>
                 </div>
             </div>

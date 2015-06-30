@@ -305,4 +305,64 @@ function is_blog () {
 	$posttype = get_post_type($post);
 	return ( ((is_archive()) || (is_author()) || (is_category()) || (is_home()) || (is_single()) || (is_tag())) && ( $posttype == 'post')  ) ? true : false ;
 }
-?>
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Footer social menu links
+ * ----------------------------------------------------------------------------------------
+ */
+function social_links() {
+	add_menu_page( 'Social Media Links', 'Social Media Links', 'manage_options', 'fractal_links_page', 'display_fractal_links_page', 'dashicons-facebook' );
+}
+function display_fractal_links_page() {
+	?>
+	<div class="wrap">
+		<h2>Social media options.</h2>
+		<form method="post" action="options.php">
+			<?php settings_fields( 'fractal_links_page' ); ?>
+			<?php do_settings_sections( __FILE__ ); ?>
+			<?php submit_button(); ?>
+		</form>
+	</div>
+	<?php
+}
+
+function initialize_fractal_options() {
+
+	$profiles = ['facebook', 'twitter', 'linked_in', 'google_plus'];
+
+	add_settings_section( 'main_social_section', 'Social Media Settings', function() {}, __FILE__ );
+
+	foreach ($profiles as $profile) {
+		add_settings_field( $profile . '_link', $profile . ' profile: ', $profile . '_cb', __FILE__, 'main_social_section' );
+	}
+	register_setting( 'fractal_links_page', 'social_links', 'url_validate' );
+
+	function facebook_cb() {
+		$options = (array)get_option( 'social_links' );
+		?><input type="text" name="social_links[facebook]" value="<?php echo $options['facebook']; ?>"><?php
+	}
+
+	function twitter_cb() {
+		$options = (array)get_option( 'social_links' );
+		?><input type="text" name="social_links[twitter]" value="<?php echo $options['twitter']; ?>"><?php
+	}
+
+	function linked_in_cb() {
+		$options = (array)get_option( 'social_links' );
+		?><input type="text" name="social_links[linked_in]" value="<?php echo $options['linked_in']; ?>"><?php
+	}
+
+	function google_plus_cb() {
+		$options = (array)get_option( 'social_links' );
+		?><input type="text" name="social_links[google_plus]" value="<?php echo $options['google_plus']; ?>"><?php
+	}
+}
+
+function url_validate($url) {
+	// $url=esc_url_raw( $url );
+	return $url;
+}
+
+add_action( 'admin_menu', 'social_links' );
+add_action( 'admin_init', 'initialize_fractal_options' );
