@@ -115,7 +115,7 @@
                                     if ( is_plugin_active( 'polylang/polylang.php' ) ) { ?>
                                     <li class="hidden-xs dropdown">
                                         <?php $switcher = pll_the_languages(array('raw'=>1));
-                                            $lang = [];
+                                            $lang = array();
                                             for ($i=0; $i<count($switcher); $i++) {
                                                 $lang[]=$switcher[$i]['classes'];
                                                 if (in_array('current-lang', $lang[$i])) { ?>
