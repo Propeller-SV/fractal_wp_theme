@@ -312,12 +312,12 @@ function is_blog () {
  * ----------------------------------------------------------------------------------------
  */
 function social_links() {
-	add_menu_page( 'Social Media Links', 'Social Media Links', 'manage_options', 'fractal_links_page', 'display_fractal_links_page', 'dashicons-facebook' );
+	add_menu_page( __('Social Media Links', 'fractal'), __('Social Media Links', 'fractal'), 'manage_options', 'fractal_links_page', 'display_fractal_links_page', 'dashicons-facebook' );
 }
 function display_fractal_links_page() {
 	?>
 	<div class="wrap">
-		<h2>Social media options.</h2>
+		<h2><?php _e('Social media options', 'fractal'); ?></h2>
 		<form method="post" action="options.php">
 			<?php settings_fields( 'fractal_links_page' ); ?>
 			<?php do_settings_sections( __FILE__ ); ?>
@@ -331,7 +331,7 @@ function initialize_fractal_options() {
 
 	$profiles = ['facebook', 'twitter', 'linked_in', 'google_plus'];
 
-	add_settings_section( 'main_social_section', 'Social Media Settings', function() {}, __FILE__ );
+	add_settings_section( 'main_social_section', __('Social Media Settings', 'fractal'), function() {}, __FILE__ );
 
 	foreach ($profiles as $profile) {
 		add_settings_field( $profile . '_link', $profile . ' profile: ', $profile . '_cb', __FILE__, 'main_social_section' );
@@ -359,9 +359,13 @@ function initialize_fractal_options() {
 	}
 }
 
+// Sanitize URLs to add to database
 function url_validate($url) {
-	// $url=esc_url_raw( $url );
-	return $url;
+	$links = [];
+	foreach ($url as $key => $link) {
+		$links[$key] = esc_url_raw($link);
+	}
+	return $links;
 }
 
 add_action( 'admin_menu', 'social_links' );
