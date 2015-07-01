@@ -3,35 +3,36 @@ require_once ABSPATH . 'wp-admin/includes/template.php';
 
 if ( !function_exists('add_languages_polylang') ) {
 	function add_languages_polylang() {
-		$options = get_option('polylang');
+		if ( is_plugin_active( 'polylang/polylang.php' ) ) {
+			$options = get_option('polylang');
 
-		// redirect the language page to the homepage
-		$options['redirect_lang'] = 1;
+			// redirect the language page to the homepage
+			$options['redirect_lang'] = 1;
 
-		// remove URL language information for default language
-		$options['hide_default'] = 1;
-		update_option('polylang', $options);
+			// remove URL language information for default language
+			$options['hide_default'] = 1;
+			update_option('polylang', $options);
 
-		$model = new PLL_Admin_Model($options);
+			$model = new PLL_Admin_Model($options);
 
-		$languages = array(
-			array( 'name' => 'English', 'slug' => 'en', 'locale' => 'en_GB', 'rtl' => 0, 'term_group' => 1),
-			array( 'name' => 'Deutsch', 'slug' => 'de', 'locale' => 'de_DE', 'rtl' => 0, 'term_group' => 2),
-		);
-		foreach ($languages as $language) {
-			$language_installed = pll_is_language_installed($language['slug']);
-			// echo('<script>alert(' . (int)$language_installed . ');</script>');
-			if (!$language_installed) {
-				$model->add_language($language);
-				// print_r($language);
+			$languages = array(
+				array( 'name' => 'English', 'slug' => 'en', 'locale' => 'en_GB', 'rtl' => 0, 'term_group' => 1),
+				array( 'name' => 'Deutsch', 'slug' => 'de', 'locale' => 'de_DE', 'rtl' => 0, 'term_group' => 2),
+			);
+			foreach ($languages as $language) {
+				$language_installed = pll_is_language_installed($language['slug']);
+				// echo('<script>alert(' . (int)$language_installed . ');</script>');
+				if (!$language_installed) {
+					$model->add_language($language);
+				}
 			}
+			// fills existing posts & terms with default language
+			$nolang = $model->get_objects_with_no_lang();
+			if (!empty($nolang['posts']))
+				$model->set_language_in_mass('post', $nolang['posts'], $options['default_lang']);
+			if (!empty($nolang['terms']))
+				$model->set_language_in_mass('term', $nolang['terms'], $options['default_lang']);
 		}
-		// fills existing posts & terms with default language
-		$nolang = $model->get_objects_with_no_lang();
-		if (!empty($nolang['posts']))
-			$model->set_language_in_mass('post', $nolang['posts'], $options['default_lang']);
-		if (!empty($nolang['terms']))
-			$model->set_language_in_mass('term', $nolang['terms'], $options['default_lang']);
 
 	}
 }
