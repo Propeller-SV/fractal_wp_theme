@@ -56,36 +56,6 @@
                     </div><!-- end of col-xs-12 -->
                     <div class="col-xs-12 col-sm-4">
                         <div id="navbar-1" class="navbar-collapse collapse">
-                            <?php
-                            // Check if the menu exists
-                            // $menu_exists = wp_get_nav_menu_object( 'Top Menu' );
-
-                            // If it doesn't exist, let's create it.
-                            // if( !$menu_exists ){
-                            //     $menu_id = wp_create_nav_menu( 'Top Menu' );
-
-                            //     wp_update_nav_menu_item($menu_id, 0, array(
-                            //         'menu-item-title'   =>  __('Get help', 'fractal'),
-                            //         'menu-item-classes' => 'get-help',
-                            //         'menu-item-url'     => home_url( '/get-help/' ),
-                            //         'menu-item-status'  => 'publish'
-                            //     ));
-
-                            //     wp_update_nav_menu_item($menu_id, 0, array(
-                            //         'menu-item-title'   =>  __('Blog', 'fractal'),
-                            //         'menu-item-classes' => 'blog',
-                            //         'menu-item-url'     => home_url( '/blog/' ),
-                            //         'menu-item-status'  => 'publish'
-                            //     ));
-                            // };
-
-                            // wp_nav_menu( array(
-                            //    'theme_location' => 'top',
-                            //    'menu'           => 'Top Menu',
-                            //    'container'      => '',
-                            //    'menu_class'     => 'nav navbar-nav navbar-right',
-                            //    'fallback_cb'    => 'default_top_nav'
-                            // )); ?>
                             <div class="col-sm-12">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a href="<?php echo esc_url( home_url( '/get-help/' ) ); ?>">Get Help</a></li>
@@ -96,20 +66,7 @@
                                     ?>"
                                     <?php if (is_blog()) echo 'class="custom-active"'; ?>
                                     >Blog</a></li>
-                                    <!-- <li class="hidden-xs dropdown">
-                                        <ul>
-                                            <?php
-                                                // include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-                                                // check for plugin using plugin name
-                                                // if ( is_plugin_active( 'polylang/polylang.php' ) ) {
-                                                  //plugin is activated
-                                                  // pll_the_languages(array('show_flags'=>1,'show_names'=>1, 'hide_current'=>1));
-                                                // } else {
-                                                    // echo "<a href='" . home_url() . "/wp-admin/plugins.php'>{Activate Polylang Plugin}</a>";
-                                                // }
-                                            ?>
-                                        </ul>
-                                    </li> -->
+                                    <!-- Language switcher -->
                                     <?php
                                     // check for plugin using plugin name
                                     if ( is_plugin_active( 'polylang/polylang.php' ) ) { ?>
