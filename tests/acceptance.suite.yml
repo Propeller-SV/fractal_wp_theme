@@ -6,9 +6,16 @@
 
 class_name: AcceptanceTester
 modules:
+    # enabled:
+    #     - PhpBrowser
+    #     - AcceptanceHelper
+    # config:
+    #     PhpBrowser:
+    #         url: 'http://localhost/'
     enabled:
-        - PhpBrowser
+        - WebDriver
         - AcceptanceHelper
     config:
-        PhpBrowser:
+        WebDriver:
             url: 'http://localhost/'
+            browser: firefox
