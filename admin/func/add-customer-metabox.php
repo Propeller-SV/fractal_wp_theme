@@ -34,7 +34,7 @@ function add_fractal_customer()
 function fractal_customers_options()
 {
   global $post;
-  $gallery_data = get_post_meta( $post->ID, 'gallery_data', true );
+  $our_customers_data = get_post_meta( $post->ID, 'our_customers_data', true );
 
   // Use nonce for verification
   wp_nonce_field( plugin_basename( __FILE__ ), 'fractal_customers_nonce' );
@@ -43,9 +43,9 @@ function fractal_customers_options()
 <div id="dynamic_form">
   <div id="field_wrap">
   <?php
-  if ( isset( $gallery_data['image_url'] ) )
+  if ( isset( $our_customers_data['image_url'] ) )
   {
-    for( $i = 0; $i < count( $gallery_data['image_url'] ); $i++ )
+    for( $i = 0; $i < count( $our_customers_data['image_url'] ); $i++ )
     {
     ?>
     <div class="field_row">
@@ -55,21 +55,21 @@ function fractal_customers_options()
           <input type="text"
              class="meta_image_url"
              name="gallery[image_url][]"
-             value="<?php esc_html_e( $gallery_data['image_url'][$i] ); ?>"
+             value="<?php esc_html_e( $our_customers_data['image_url'][$i] ); ?>"
           />
         </div>
         <div class="form_field">
           <label>Link</label>
           <input type="text"
              class="meta_image_desc"
-             name="gallery[image_desc][]"
-             value="<?php esc_html_e( $gallery_data['image_desc'][$i] ); ?>"
+             name="gallery[hyperlink][]"
+             value="<?php esc_html_e( $our_customers_data['hyperlink'][$i] ); ?>"
           />
         </div>
       </div>
 
       <div class="field_right image_wrap">
-      <img src="<?php esc_html_e( $gallery_data['image_url'][$i] ); ?>" height="48" width="48" />
+      <img src="<?php esc_html_e( $our_customers_data['image_url'][$i] ); ?>" height="48" width="48" />
       </div>
 
       <div class="field_right">
@@ -94,7 +94,7 @@ function fractal_customers_options()
         </div>
         <div class="form_field">
           <label>Link</label>
-          <input class="meta_image_desc" value="" type="text" name="gallery[image_desc][]" />
+          <input class="meta_image_desc" value="" type="text" name="gallery[hyperlink][]" />
         </div>
       </div>
       <div class="field_right image_wrap">
@@ -229,25 +229,25 @@ function update_post_gallery( $post_id, $post_object )
   if ( $_POST['gallery'] )
   {
     // Build array for saving post meta
-    $gallery_data = array();
+    $our_customers_data = array();
     for ($i = 0; $i < count( $_POST['gallery']['image_url'] ); $i++ )
     {
       if ( '' != $_POST['gallery']['image_url'][ $i ] )
       {
-        $gallery_data['image_url'][]  = esc_url($_POST['gallery']['image_url'][ $i ]);
-        $gallery_data['image_desc'][] = esc_url($_POST['gallery']['image_desc'][ $i ]);
+        $our_customers_data['image_url'][]  = esc_url($_POST['gallery']['image_url'][ $i ]);
+        $our_customers_data['hyperlink'][] = esc_url($_POST['gallery']['hyperlink'][ $i ]);
       }
     }
 
-    if ( $gallery_data )
-      update_post_meta( $post_id, 'gallery_data', $gallery_data );
+    if ( $our_customers_data )
+      update_post_meta( $post_id, 'our_customers_data', $our_customers_data );
     else
-      delete_post_meta( $post_id, 'gallery_data' );
+      delete_post_meta( $post_id, 'our_customers_data' );
   }
   // Nothing received, all fields are empty, delete option
   else
   {
-    delete_post_meta( $post_id, 'gallery_data' );
+    delete_post_meta( $post_id, 'our_customers_data' );
   }
 }
 ?>
