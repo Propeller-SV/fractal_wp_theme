@@ -66,10 +66,11 @@
                                     ?>"
                                     <?php if (is_blog()) echo 'class="custom-active"'; ?>
                                     >Blog</a></li>
-                                    <!-- Language switcher -->
+                                    <!-- Polylang language switcher -->
                                     <?php
-                                    // check for plugin using plugin name
-                                    if ( is_plugin_active( 'polylang/polylang.php' ) ) { ?>
+                                    // check if plugin is active and languages added
+                                    global $polylang;
+                                    if ( is_plugin_active( 'polylang/polylang.php' && $polylang ) ) { ?>
                                     <li class="hidden-xs dropdown">
                                         <?php $switcher = pll_the_languages(array('raw'=>1));
                                             $lang = array();
@@ -93,7 +94,7 @@
                                             <?php } ?>
                                         </ul>
                                     </li>
-                                    <?php } ?>
+                                    <?php } ?> <!-- End of language switcher -->
                                 </ul>
                             </div>
                             <?php get_search_form(); ?>
@@ -158,17 +159,17 @@
                            'fallback_cb'       => 'default_primary_nav'
                         ));
                     endif; ?>
-                       <?php
-                           // check for plugin using plugin name
-                           if ( is_plugin_active( 'polylang/polylang.php' ) ) {
-                             //plugin is activated
-                             ?>
-                             <ul class='colour hidden-sm hidden-md hidden-lg'>
-                                <?php pll_the_languages(array('show_flags'=>1,'show_names'=>0))?>
-                             </ul>
-                             <?php
-                           };
-                       ?>
+                   <?php
+                       // check for plugin using plugin name
+                       if ( is_plugin_active( 'polylang/polylang.php' ) ) {
+                         //plugin is activated
+                         ?>
+                         <ul class='colour hidden-sm hidden-md hidden-lg'>
+                            <?php pll_the_languages(array('show_flags'=>1,'show_names'=>0))?>
+                         </ul>
+                         <?php
+                       };
+                   ?>
                 </div><!-- end of navbar-collapse -->
             </div><!-- end of header-line -->
         </div><!-- end of navbar-fixed-top -->
