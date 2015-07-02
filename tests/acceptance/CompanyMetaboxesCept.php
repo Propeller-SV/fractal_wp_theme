@@ -1,0 +1,45 @@
+<?php 
+$I = new AcceptanceTester($scenario);
+$I->wantTo('Edit the CompanyPage');
+
+// local homepage url
+$homepage = "/PSV-WP/";
+$I->amOnpage($homepage . "wp-admin");
+$I->fillField('Username', 'admin');
+$I->fillField('Password', '072534');
+$I->click('Log In');
+$I->seeCurrentUrlEquals($homepage . "wp-admin/");
+$I->see('Pages');
+$I->click('Pages');
+$I->click(['link' => 'Company']);
+$I->fillField(['name' => 'why_fractal[heading][]'], 'Why codeception?');
+$I->fillField(['name' => 'why_fractal[reason][]'], 'Codeception is very helpful');
+$I->fillField(['name' => 'why_fractal[point][]'], 'point number 1');
+$I->click('Add Field');
+$I->fillField(['name' => 'team[employee_image][]'], 'http://localhost/PSV-WP/wp-content/uploads/2015/05/foto.png');
+$I->fillField(['name' => 'team[employee_name][]'], 'Employee 1');
+$I->fillField(['name' => 'team[employee_position][]'], 'Position 1');
+$I->fillField(['name' => 'team[employee_about][]'], 'Some description');
+$I->click('Add Point', '#main_points_area');
+$I->fillField(['name' => 'main_points[point][]'], 'main company point number one');
+$I->click(['id' => 'publish']);
+$I->see('Page Updated', 'p');
+$I->click('View page');
+$I->see('Why codeception?');
+$I->see('Codeception is very helpful');
+$I->see('point number 1');
+$I->seeInPageSource('http://localhost/PSV-WP/wp-content/uploads/2015/05/foto.png');
+$I->see('Employee 1');
+$I->see('Position 1');
+$I->see('Some description');
+$I->see('main company point number one', 'p');
+$I->click('Edit Page');
+$I->fillField(['name' => 'why_fractal[heading][]'], '');
+$I->click('Remove', '#employee_wrap');
+$I->click('Remove Point', '#main_points');
+$I->click(['id' => 'publish']);
+$I->see('Page Updated', 'p');
+$I->click('View page');
+$I->dontSee('Why codeception?');
+$I->dontSee('Employee 1');
+$I->dontSee('main company point number one', 'p');
