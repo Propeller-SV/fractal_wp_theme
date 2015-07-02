@@ -8,9 +8,9 @@
 
     <section class="banner">
         <div class="container text-uppercase">
-            <ol>
+            <ul>
               <li><?php the_title(); ?></li>
-            </ol>
+            </ul>
         </div>
     </section>
 
@@ -30,6 +30,7 @@
                     </div><!-- end of text-top -->
                 </div><!-- end of col-sm-8 -->
 
+                <!-- if "why_fractal" heading is set - display this -->
                 <?php
                 if (get_post_meta(get_the_id(), 'why_fractal_data', true)) {
                     $why_fractal_data = get_post_meta(get_the_id(), 'why_fractal_data', true);
@@ -57,6 +58,7 @@
                         </div><!-- end of text-top -->
                     </div><!-- end of col-sm-4 -->
                 <?php } else { ?>
+                <!-- if "why_fractal" heading is NOT set - display this -->
                     <div class="col-sm-4">
                         <div class="text-top">
                             <h3 class="text-center">WHY FRACTAL SOFT?</h3>
@@ -70,75 +72,43 @@
                                 <li><i class="glyphicon glyphicon-ok-sign"></i> Developed by the "eleven brave</li>
                                 <li><i class="glyphicon glyphicon-ok-sign"></i> Going to introduce you to Avocode</li>
                                 <li><i class="glyphicon glyphicon-ok-sign"></i> Allows yoy to work with</li>
-                               <li><i class="glyphicon glyphicon-ok-sign"></i> Loday's tutorial I'm going to</li>
+                                <li><i class="glyphicon glyphicon-ok-sign"></i> Loday's tutorial I'm going to</li>
                             </ul>
                         </div><!-- end of text-top -->
                     </div><!-- end of col-sm-4 -->
                 <?php } ?>
 
+                <!-- Main Company Points -->
                 <div class="text-bottom col-sm-8">
-                    <div class="col-sm-12">
-                        <div class="col-sm-1">
-                            <i class="fa fa-briefcase"></i>
-                        </div>
-                        <div class="col-sm-11">
-                            <p>
-                                <?php
-                                $main_points_data = get_post_meta( get_the_id(), 'main_points_data', true );
-                                if (isset($main_points_data['point'][0])) {
-                                    echo($main_points_data['point'][0]);
-                                } else {
-                                    echo "In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.";
-                                }
-                                ?>
-                            </p>
-                        </div>
-                    </div><!-- end of col-xs-12 -->
-                    <div class="company col-sm-12">
-                        <div class="col-sm-1">
-                            <i class="fa fa-th-large"></i>
-                        </div>
-                        <div class="col-sm-11">
-                            <p>
-                                <?php if (isset($main_points_data['point'][1])) {
-                                    echo($main_points_data['point'][1]);
-                                } else {
-                                    echo "In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.";
-                                } ?>
-                            </p>
-                        </div>
-                    </div><!-- end of col-xs-12 -->
-                    <div class="company col-sm-12">
-                        <div class="col-sm-1">
-                            <i class="fa fa-truck"></i>
-                        </div>
-                        <div class="col-sm-11">
-                            <p>
-                                <?php if (isset($main_points_data['point'][2])) {
-                                    echo($main_points_data['point'][2]);
-                                } else {
-                                    echo "In today's tutorial I'am going to introduce you to Avocode, developed.";
-                                } ?>
-                            </p>
-                        </div>
-                    </div><!-- end of col-xs-12 -->
-                    <div class="company col-sm-12">
-                        <div class="col-sm-1">
-                            <i class="fa fa-trophy"></i>
-                        </div>
-                        <div class="col-sm-11">
-                            <p>
-                                <?php if (isset($main_points_data['point'][3])) {
-                                    echo($main_points_data['point'][3]);
-                                } else {
-                                    echo "In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.";
-                                } ?>
-                            </p>
-                        </div>
-                    </div><!-- end of col-xs-12 -->
-                </div><!-- end of text-bottom -->
+                    <?php
+                    $icons = ['fa fa-briefcase', 'fa fa-th-large', 'fa fa-truck', 'fa fa-trophy'];
+                    $main_points_data = get_post_meta( get_the_id(), 'main_points_data', true );
+                    $count = isset($main_points_data['point']) ? count($main_points_data['point']) : count($icons);
+                    for ($i=0; $i < $count ; $i++) {
+                        ?>
+                        <div class="col-sm-12">
+                            <div class="col-sm-1">
+                                <i class="<?php echo($icons[$i]); ?>"></i>
+                            </div>
+                            <div class="col-sm-11">
+                                <p>
+                                    <?php
+                                    if (isset($main_points_data['point'][$i])) {
+                                        echo($main_points_data['point'][$i]);
+                                    } else {
+                                        echo "In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.In today's tutorial I'am going to introduce you to Avocode, developed by the eleven brave men and onebrave.";
+                                    }
+                                    ?>
+                                </p>
+                            </div>
+                        </div><!-- end of col-xs-12 -->
+                        <?php
+                    }
+                    ?>
+                </div><!-- end of Main Company Points -->
 
-                <div class="text-bottom col-sm-4 pull-right">
+                <!-- Map Widget -->
+                <div class="text-bottom col-sm-4">
                     <div class="text-bottom-tabs">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#">Ukraine</a></li>
@@ -157,17 +127,17 @@
                         </div> <!-- end of info -->
                         <div id="map_canvas" style="width:100%; min-height: 200px"></div>
                     </div>
-                </div><!-- end of text-bottom -->
+                </div><!-- end of Map Widget -->
             </div><!-- end of row -->
         </div><!-- end of container -->
     </section><!-- end of about-us -->
 
+    <!-- Insert "Our team" section if at least one member is set -->
     <?php
-    // insert "team" section if exists
     if (get_post_meta(get_the_id(), 'employee_data', true)) {
         $employee_data = get_post_meta(get_the_id(), 'employee_data', true);
     }
-    if ( $employee_data['employee_image'] ) {
+    if ( isset($employee_data['employee_image']) ) {
         $count = count($employee_data['employee_image']);
     ?>
         <section class="team">
@@ -200,6 +170,8 @@
                 </div><!-- end of row -->
             </div><!-- end of container -->
         </section><!-- end of team -->
+
+    <!-- Insert DEFAULT "Our team" section if NO MEMBERS -->
     <?php } else { ?>
         <section class="team">
             <div class="container">
@@ -228,6 +200,5 @@
         </section><!-- end of team -->
     <?php } ?>
 
-    <?php get_template_part( 'contactform' ); ?>
-
+<?php get_template_part( 'contactform' ); ?>
 <?php get_footer();?>
