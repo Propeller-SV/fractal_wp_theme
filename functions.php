@@ -193,7 +193,7 @@ function deliver_mail() {
         // sanitize form values
         $name    = sanitize_text_field( $_POST["cf-name"] );
         $email   = sanitize_email( $_POST["cf-email"] );
-        $phone	 = sanitize_text_field( $_POST["cf-phone"] );
+        $phone	 = preg_replace('/[^0-9]/', '', $_POST["cf-phone"] );
         $subject = 'Fractal Soft response';
         $message = esc_textarea( $_POST["cf-message"] );
 
