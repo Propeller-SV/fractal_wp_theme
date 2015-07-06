@@ -71,20 +71,8 @@
 							</ul>
 						</div>
 					<?php endwhile; ?>
+					<!-- Pagination -->
 					<div class="list-pagination text-center">
-						<ul class="pagination pagination-lg">
-						<?php numeric_posts_nav(); ?>
-						</ul>
-					</div>
-					<!-- <div class="text-center" style="font-size:200%"> --> <!-- default WP pagination -->
-						<!-- the_posts_pagination( array( -->
-							<!-- 'mid_size'			=> '2',
-							'prev_text' 		=> '&larr;',
-							'next_text' 		=> '&rarr;',
-							'screen_reader_text'=> ' ' -->
-						<!-- ) ); -->
-					<!-- </div> -->
-					<div class="list-pagination text-center" style="font-size:200%">
 						<ul class="pagination pagination-lg">
 							<?php
 							$args = array(
