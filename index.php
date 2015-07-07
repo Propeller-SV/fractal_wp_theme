@@ -95,7 +95,7 @@
 				<div class="col-xs-12 col-sm-3">
 					<div class="fragment-human">
 						<div class="heading">
-							<h3 class="text-center"><span>A</span>rchives</h3>
+							<h3 class="text-center"><?php _e('Archives', 'fractal'); ?></h3>
 						</div>
 						<div class="archives">
 							<p>
@@ -114,7 +114,7 @@
 					</div><!-- end of fragment-human -->
 					<div class="fragment-human">
 						<div class="heading-post">
-							<h3 class="text-center"><span>R</span>ecent <span>P</span>osts</h3>
+							<h3 class="text-center"><?php _e('Recent Posts', 'fractal'); ?></h3>
 						</div>
 						<?php
 							$args = array( 'numberposts' => '3' );
@@ -131,7 +131,7 @@
 					</div><!-- end of fragment-human -->
 					<div class="fragment-human">
 						<div class="heading-subscribe">
-							<h3 class="text-center"><span>S</span>ubscribe</h3>
+							<h3 class="text-center"><?php _e('Subscribe', 'fractal'); ?></h3>
 						</div>
 						<div class="subscribe">
 							<h3><span>S</span>ubscribe now if you want to recieve updates and news via email.</h3>
@@ -143,7 +143,7 @@
 					</div><!-- end of fragment-human -->
 					<div class="fragment-human">
 						<div class="heading-post">
-							<h3 class="text-center"><span>P</span>opular <span>P</span>osts</h3>
+							<h3 class="text-center"><?php _e('Popular Posts', 'fractal'); ?></h3>
 						</div>
 						<?php
 							$most_viewed_posts = new WP_Query( array('v_sortby' => 'views', 'v_orderby' => 'DESC', 'showposts' => 3) );
