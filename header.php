@@ -107,42 +107,51 @@
                     <?php
                     $currentlang = get_bloginfo('language');
                     if ($currentlang !== "de-DE") :
-                            // Check if the menu exists
-                            $menu_exists = wp_get_nav_menu_object( 'Primary fractal menu' );
+                        // Check if the menu exists
+                        $menu_exists = wp_get_nav_menu_object( 'Primary fractal menu' );
 
-                            // If it doesn't exist, let's create it.
-                            if( !$menu_exists ){
-                                $menu_id = wp_create_nav_menu( 'Primary fractal menu' );
+                        // If it doesn't exist, let's create it.
+                        if( !$menu_exists ){
+                            $menu_id = wp_create_nav_menu( 'Primary fractal menu' );
+                            // Set up default menu items
 
-                                // Set up default menu items
+                            $pages = ['home', 'software engineering', 'company', 'career'];
+                            for ($i=0; $i<count($pages); $i++) {
                                 wp_update_nav_menu_item($menu_id, 0, array(
-                                    'menu-item-title'       =>  __('Home', 'fractal'),
-                                    'menu-item-object'      => 'page',
-                                    'menu-item-object-id'   => get_page_by_title('home')->ID,
-                                    'menu-item-type'        => 'post_type',
-                                    'menu-item-status'      => 'publish'));
+                                'menu-item-title'       => $pages[$i],
+                                'menu-item-object'      => 'page',
+                                'menu-item-object-id'   => get_page_by_title($pages[$i])->ID,
+                                'menu-item-type'        => 'post_type',
+                                'menu-item-status'      => 'publish'));
+                            }
+                            // wp_update_nav_menu_item($menu_id, 0, array(
+                            //     'menu-item-title'       =>  __('Home', 'fractal'),
+                            //     'menu-item-object'      => 'page',
+                            //     'menu-item-object-id'   => get_page_by_title('home')->ID,
+                            //     'menu-item-type'        => 'post_type',
+                            //     'menu-item-status'      => 'publish'));
 
-                                wp_update_nav_menu_item($menu_id, 0, array(
-                                    'menu-item-title'       =>  __('Software Engineering', 'fractal'),
-                                    'menu-item-object'      => 'page',
-                                    'menu-item-object-id'   => get_page_by_title('Software Engineering')->ID,
-                                    'menu-item-type'        => 'post_type',
-                                    'menu-item-status'      => 'publish'));
+                            // wp_update_nav_menu_item($menu_id, 0, array(
+                            //     'menu-item-title'       =>  __('Software Engineering', 'fractal'),
+                            //     'menu-item-object'      => 'page',
+                            //     'menu-item-object-id'   => get_page_by_title('Software Engineering')->ID,
+                            //     'menu-item-type'        => 'post_type',
+                            //     'menu-item-status'      => 'publish'));
 
-                                wp_update_nav_menu_item($menu_id, 0, array(
-                                    'menu-item-title'       =>  __('Company', 'fractal'),
-                                    'menu-item-object'      => 'page',
-                                    'menu-item-object-id'   => get_page_by_title('company')->ID,
-                                    'menu-item-type'        => 'post_type',
-                                    'menu-item-status'      => 'publish'));
+                            // wp_update_nav_menu_item($menu_id, 0, array(
+                            //     'menu-item-title'       =>  __('Company', 'fractal'),
+                            //     'menu-item-object'      => 'page',
+                            //     'menu-item-object-id'   => get_page_by_title('company')->ID,
+                            //     'menu-item-type'        => 'post_type',
+                            //     'menu-item-status'      => 'publish'));
 
-                                wp_update_nav_menu_item($menu_id, 0, array(
-                                    'menu-item-title'       =>  __('Career', 'fractal'),
-                                    'menu-item-object'      => 'page',
-                                    'menu-item-object-id'   => get_page_by_title('career')->ID,
-                                    'menu-item-type'        => 'post_type',
-                                    'menu-item-status'      => 'publish'));
-                            };
+                            // wp_update_nav_menu_item($menu_id, 0, array(
+                            //     'menu-item-title'       =>  __('Career', 'fractal'),
+                            //     'menu-item-object'      => 'page',
+                            //     'menu-item-object-id'   => get_page_by_title('career')->ID,
+                            //     'menu-item-type'        => 'post_type',
+                            //     'menu-item-status'      => 'publish'));
+                        };
                         wp_nav_menu( array(
                            'theme_location'    => 'primary',
                            'menu'              => 'Primary fractal menu',
