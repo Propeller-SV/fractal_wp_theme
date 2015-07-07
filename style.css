@@ -697,11 +697,13 @@ footer li.current-menu-item a{
     border-bottom: none;
     margin-top: 30px;
 }
-.heading-post h3 span,
-.heading-subscribe span,
-.fragment-human .heading span,
-.subscribe span {
+.heading-post h3,
+.heading-subscribe h3,
+.fragment-human .heading h3,
+.subscribe h3 {
     font-size: 20px;
+    font-variant: small-caps;
+    text-transform: capitalize;
 }
 .heading-post h3 {
     width: 140px;
