@@ -49,22 +49,24 @@ function initialize() {
 // Add icons to mobile menu
 $(function() {
     var aTags = document.getElementById('navbar').getElementsByTagName('a');
-    var searchText = ["home", "software engineering", "company", "career"];
+    var searchText = ['home', 'software engineering', 'company', 'career'];
+    var icons = ['glyphicon-home', 'glyphicon-cog', 'glyphicon-list-alt', 'glyphicon-user'];
     var found;
 
     for (var i = 0; i < aTags.length; i++) {
-      if (aTags[i].textContent.toLowerCase() == searchText[0]) {
+      if (aTags[i].textContent.toLowerCase() == searchText[i]) {
         found = aTags[i];
-        found.innerHTML = "<i class='hidden-sm hidden-md hidden-lg glyphicon glyphicon-home'></i> Home";
-      } else if (aTags[i].textContent.toLowerCase() == searchText[1]){
-        found = aTags[i];
-        found.innerHTML = "<i class='hidden-sm hidden-md hidden-lg glyphicon glyphicon-cog'></i> Software Engineering"
-      } else if (aTags[i].textContent.toLowerCase() == searchText[2]){
-        found = aTags[i];
-        found.innerHTML = "<i class='hidden-sm hidden-md hidden-lg glyphicon glyphicon-list-alt'></i> Company"
-      } else if (aTags[i].textContent.toLowerCase() == searchText[3]){
-        found = aTags[i];
-        found.innerHTML = "<i class='hidden-sm hidden-md hidden-lg glyphicon glyphicon-user'></i> Career"
-      }
+        found.innerHTML = "<i class='hidden-sm hidden-md hidden-lg glyphicon " + icons[i] + "'></i> " + searchText[i];
+        }
+      // } else if (aTags[i].textContent.toLowerCase() == searchText[1]){
+      //   found = aTags[i];
+      //   found.innerHTML = "<i class='hidden-sm hidden-md hidden-lg glyphicon glyphicon-cog'></i> Software Engineering"
+      // } else if (aTags[i].textContent.toLowerCase() == searchText[2]){
+      //   found = aTags[i];
+      //   found.innerHTML = "<i class='hidden-sm hidden-md hidden-lg glyphicon glyphicon-list-alt'></i> Company"
+      // } else if (aTags[i].textContent.toLowerCase() == searchText[3]){
+      //   found = aTags[i];
+      //   found.innerHTML = "<i class='hidden-sm hidden-md hidden-lg glyphicon glyphicon-user'></i> Career"
+      // }
     }
 });
