@@ -61,25 +61,19 @@
 				<h1 class="text-center"><?php _e('About Us', 'fractal'); ?><br>&#8212;&#8212;</h1>
 			</div>
 			<div class="row">
-				<?php
-				$pages = ['software-engineering', 'company', 'career'];
-				foreach ($pages as $page) { ?>
+				<?php $currentlang = substr(get_bloginfo('language'), 0, 2); ?>
+				<?php $loop = new WP_Query(array('post_type' => 'page', 'lang' => $currentlang, 'posts_per_page' => 3, 'orderby' => 'menu_order', 'order'=>'ASC')); ?>
+				<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 					<div class="col-sm-4">
 						<div class="about">
-							<?php
-							$query = new WP_Query('pagename=' . $page);
-							if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post();?>
-								<?php the_post_thumbnail(); ?>
-								<h2><?php the_title(); ?></h2>
-								<p><?php the_excerpt(); ?></p>
-								<p class="learn-more-link"><a href="<?php the_permalink(); ?>"><?php _e('Learn More', 'fractal'); ?></a></p>
-								<?php endwhile; else: ?>
-								<h2><?php _e('Sorry, this page does not exist.', 'fractal'); ?></h2>
-							<?php endif; ?>
-							<?php wp_reset_postdata(); ?>
+							<?php the_post_thumbnail(); ?>
+							<h2><?php the_title(); ?></h2>
+							<?php the_excerpt(); ?>
+							<p class="learn-more-link"><a href="<?php the_permalink(); ?>"><?php _e('Learn More', 'fractal'); ?></a></p>
 						</div><!-- end of about -->
 					</div><!-- end of col-sm-4 -->
-				<?php } ?>
+				<?php endwhile; ?>
+				<?php wp_reset_postdata(); ?>
 			</div><!-- end of row -->
 		</div><!-- end of container -->
 	</section><!-- end of fragment -->
