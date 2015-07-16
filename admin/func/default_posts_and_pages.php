@@ -11,7 +11,8 @@ function addThisPage() {
 		'post_title'	=> 'Home',
 		'post_status'	=> 'publish',
 		'post_type'		=> 'page',
-		'post_content'	=> 'Some default content'
+		'post_content'	=> 'Some default content',
+		'menu_order'	=> 4
 		);
 	$page_home_exists = get_page_by_title( $page_home['post_title'] );
 
@@ -33,7 +34,8 @@ function addThisPage() {
 		'post_title'	=> 'Blog',
 		'post_status'	=> 'publish',
 		'post_type'		=> 'page',
-		'post_content'	=> ''
+		'post_content'	=> '',
+		'menu_order'	=> 5
 		);
 	$page_blog_exists = get_page_by_title( $page_blog['post_title'] );
 
@@ -47,7 +49,7 @@ function addThisPage() {
 		}
 	}
 
-	// add blog post 1
+	// add blog posts
 	$post_1 = array(
 		'post_title'	=> 'Where\'s The Human',
 		'post_status'	=> 'publish',
@@ -66,17 +68,17 @@ function addThisPage() {
 				$image_data = file_get_contents($image_url);
 				$filename = basename($image_url);
 				if(wp_mkdir_p($upload_dir['path']))
-				    $file = $upload_dir['path'] . '/' . $filename;
+					$file = $upload_dir['path'] . '/' . $filename;
 				else
-				    $file = $upload_dir['basedir'] . '/' . $filename;
+					$file = $upload_dir['basedir'] . '/' . $filename;
 				file_put_contents($file, $image_data);
 
 				$wp_filetype = wp_check_filetype($filename, null );
 				$attachment = array(
-				    'post_mime_type' => $wp_filetype['type'],
-				    'post_title' => sanitize_file_name($filename),
-				    'post_content' => '',
-				    'post_status' => 'inherit'
+					'post_mime_type' => $wp_filetype['type'],
+					'post_title' => sanitize_file_name($filename),
+					'post_content' => '',
+					'post_status' => 'inherit'
 				);
 				$attach_id = wp_insert_attachment( $attachment, $file, $post_id );
 				require_once(ABSPATH . 'wp-admin/includes/image.php');
@@ -93,7 +95,8 @@ function addThisPage() {
 		'post_title'	=> 'Software Engineering',
 		'post_status'	=> 'publish',
 		'post_type'		=> 'page',
-		'post_content'	=> 'Some default content'
+		'post_content'	=> 'Some default content',
+		'menu_order'	=> 1
 		);
 	$page_softEngin_exists = get_page_by_title( $page_softEngin['post_title'] );
 
@@ -108,17 +111,17 @@ function addThisPage() {
 			$image_data = file_get_contents($image_url);
 			$filename = basename($image_url);
 			if(wp_mkdir_p($upload_dir['path']))
-			    $file = $upload_dir['path'] . '/' . $filename;
+				$file = $upload_dir['path'] . '/' . $filename;
 			else
-			    $file = $upload_dir['basedir'] . '/' . $filename;
+				$file = $upload_dir['basedir'] . '/' . $filename;
 			file_put_contents($file, $image_data);
 
 			$wp_filetype = wp_check_filetype($filename, null );
 			$attachment = array(
-			    'post_mime_type' => $wp_filetype['type'],
-			    'post_title' => sanitize_file_name($filename),
-			    'post_content' => '',
-			    'post_status' => 'inherit'
+				'post_mime_type' => $wp_filetype['type'],
+				'post_title' => sanitize_file_name($filename),
+				'post_content' => '',
+				'post_status' => 'inherit'
 			);
 			$attach_id = wp_insert_attachment( $attachment, $file, $insert_softEngin_id );
 			require_once(ABSPATH . 'wp-admin/includes/image.php');
@@ -135,15 +138,16 @@ function addThisPage() {
 		'post_status'	=> 'publish',
 		'post_type'		=> 'page',
 		'post_content'	=> '<h4 class="text-center">
-                                In today\'s tutorial I\'am going to introduce you to Avocode, developed by the<br>
-                                "eleven brave men and onebrave woman".
-                            </h4>
-                            <p>
-                                In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
-                            </p>
-                            <p>
-                                In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
-                            </p>'
+								In today\'s tutorial I\'am going to introduce you to Avocode, developed by the<br>
+								"eleven brave men and onebrave woman".
+							</h4>
+							<p>
+								In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
+							</p>
+							<p>
+								In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
+							</p>',
+		'menu_order'	=> 2
 		);
 	$page_company_exists = get_page_by_title( $page_company['post_title'] );
 
@@ -158,17 +162,17 @@ function addThisPage() {
 			$image_data = file_get_contents($image_url);
 			$filename = basename($image_url);
 			if(wp_mkdir_p($upload_dir['path']))
-			    $file = $upload_dir['path'] . '/' . $filename;
+				$file = $upload_dir['path'] . '/' . $filename;
 			else
-			    $file = $upload_dir['basedir'] . '/' . $filename;
+				$file = $upload_dir['basedir'] . '/' . $filename;
 			file_put_contents($file, $image_data);
 
 			$wp_filetype = wp_check_filetype($filename, null );
 			$attachment = array(
-			    'post_mime_type' => $wp_filetype['type'],
-			    'post_title' => sanitize_file_name($filename),
-			    'post_content' => '',
-			    'post_status' => 'inherit'
+				'post_mime_type' => $wp_filetype['type'],
+				'post_title' => sanitize_file_name($filename),
+				'post_content' => '',
+				'post_status' => 'inherit'
 			);
 			$attach_id = wp_insert_attachment( $attachment, $file, $insert_company_id );
 			require_once(ABSPATH . 'wp-admin/includes/image.php');
@@ -184,7 +188,8 @@ function addThisPage() {
 		'post_title'	=> 'Career',
 		'post_status'	=> 'publish',
 		'post_type'		=> 'page',
-		'post_content'	=> 'Some default content'
+		'post_content'	=> 'Some default content',
+		'menu_order'	=> 3
 		);
 	$page_career_exists = get_page_by_title( $page_career['post_title'] );
 
@@ -199,17 +204,17 @@ function addThisPage() {
 			$image_data = file_get_contents($image_url);
 			$filename = basename($image_url);
 			if(wp_mkdir_p($upload_dir['path']))
-			    $file = $upload_dir['path'] . '/' . $filename;
+				$file = $upload_dir['path'] . '/' . $filename;
 			else
-			    $file = $upload_dir['basedir'] . '/' . $filename;
+				$file = $upload_dir['basedir'] . '/' . $filename;
 			file_put_contents($file, $image_data);
 
 			$wp_filetype = wp_check_filetype($filename, null );
 			$attachment = array(
-			    'post_mime_type' => $wp_filetype['type'],
-			    'post_title' => sanitize_file_name($filename),
-			    'post_content' => '',
-			    'post_status' => 'inherit'
+				'post_mime_type' => $wp_filetype['type'],
+				'post_title' => sanitize_file_name($filename),
+				'post_content' => '',
+				'post_status' => 'inherit'
 			);
 			$attach_id = wp_insert_attachment( $attachment, $file, $insert_career_id );
 			require_once(ABSPATH . 'wp-admin/includes/image.php');
