@@ -93,14 +93,14 @@ function update_post_main_points( $post_id, $post_object )
   }
 
   // Verify authenticity
-  if ( !wp_verify_nonce( $_POST['main_company_points_nonce'], basename( __FILE__ ) ) )
+  if ( isset($_POST['main_company_points_nonce']) && !wp_verify_nonce( $_POST['main_company_points_nonce'], basename( __FILE__ ) ) )
     return;
 
   // Correct post type
   if ( 'page' != $_POST['post_type'] )
     return;
 
-  if ( $_POST['main_points'] )
+  if ( isset($_POST['main_points']) && $_POST['main_points'] )
   {
     // Build array for saving post meta
     $main_points_data = array();

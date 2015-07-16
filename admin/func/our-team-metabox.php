@@ -239,14 +239,14 @@ function update_post_team( $post_id, $post_object )
     }
 
   // Verify authenticity
-  if ( !wp_verify_nonce( $_POST['fractal_team_nonce'], plugin_basename( __FILE__ ) ) )
+  if ( isset($_POST['fractal_team_nonce']) && !wp_verify_nonce( $_POST['fractal_team_nonce'], plugin_basename( __FILE__ ) ) )
     return;
 
   // Correct post type
   if ( 'page' != $_POST['post_type'] )
     return;
 
-  if ( $_POST['team'] )
+  if ( isset($_POST['team']) && $_POST['team'] )
   {
     // Build array for saving post meta
     $employee_data = array();

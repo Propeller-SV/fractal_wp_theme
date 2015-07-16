@@ -106,14 +106,14 @@ function update_post_why_fractal( $post_id, $post_object )
   }
 
   // Verify authenticity
-  if ( !wp_verify_nonce( $_POST['why_fractal_nonce'], basename( __FILE__ ) ) )
+  if ( isset($_POST['why_fractal_nonce']) && !wp_verify_nonce( $_POST['why_fractal_nonce'], basename( __FILE__ ) ) )
     return;
 
   // Correct post type
   if ( 'page' != $_POST['post_type'] )
     return;
 
-  if ( $_POST['why_fractal'] )
+  if ( isset($_POST['why_fractal']) && $_POST['why_fractal'] )
   {
     // Build array for saving post meta
     $why_fractal_data = array();

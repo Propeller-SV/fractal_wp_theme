@@ -219,14 +219,14 @@ function update_post_gallery( $post_id, $post_object )
   }
 
   // Verify authenticity
-  if ( !wp_verify_nonce( $_POST['fractal_customers_nonce'], plugin_basename( __FILE__ ) ) )
+  if ( isset($_POST['fractal_customers_nonce']) && !wp_verify_nonce( $_POST['fractal_customers_nonce'], plugin_basename( __FILE__ ) ) )
     return;
 
   // Correct post type
   if ( 'page' != $_POST['post_type'] )
     return;
 
-  if ( $_POST['gallery'] )
+  if ( isset($_POST['gallery']) && $_POST['gallery'] )
   {
     // Build array for saving post meta
     $our_customers_data = array();
