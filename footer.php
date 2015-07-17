@@ -13,14 +13,14 @@
 				$currentlang = get_bloginfo('language');
 				if ($currentlang !== "de-DE") :
 					// Check if the menu exists
-					$menu_exists = wp_get_nav_menu_object( 'Footer fractal menu' );
+					$menu_exists = wp_get_nav_menu_object( 'Footer menu EN' );
 
 					// If it doesn't exist, let's create it.
 					if( !$menu_exists){
-						$menu_id = wp_create_nav_menu( 'Footer fractal menu' );
+						$menu_id = wp_create_nav_menu( 'Footer menu EN' );
 
 						// Set up default menu items
-						$pages = ['home', 'software engineering', 'company', 'career'];
+						$pages = ['Home', 'Software engineering', 'Company', 'Career'];
 						for ($i=0; $i<count($pages); $i++) {
 							wp_update_nav_menu_item($menu_id, 0, array(
 							'menu-item-title'		=> $pages[$i],
@@ -33,19 +33,27 @@
 
 					wp_nav_menu( array(
 						'theme_location'=> 'footer',
-						'menu'			=> 'Footer fractal menu',
+						'menu'			=> 'Footer menu EN',
 						'container'		=> '',
 						'menu_class'	=> 'nav nav-pills pull-left',
 						'fallback_cb'	=> 'default_footer_nav'
 				));
 				elseif ($currentlang == "de-DE") :
-					wp_nav_menu( array(
-						'theme_location'=> 'footer',
-						'menu'			=> 'Footer fractal menu D',
-						'container'		=> '',
-						'menu_class'	=> 'nav nav-pills pull-left',
-						'fallback_cb'	=> 'default_footer_nav'
-					));
+					// Check if the menu exists
+						$menu_exists = wp_get_nav_menu_object( 'Footer menu DE' );
+
+						// If it doesn't exist, let's create it.
+						if( !$menu_exists ){
+							$menu_id = wp_create_nav_menu( 'Footer menu DE' );
+						};
+
+						wp_nav_menu( array(
+							'theme_location'	=> 'footer',
+							'menu'				=> 'Footer menu DE',
+							'container'			=> '',
+							'menu_class'		=> 'nav nav-pills pull-left',
+							'fallback_cb'		=> 'default_footer_nav'
+						));
 				endif; ?>
 			</nav>
 			<div class="menu col-sm-5">
