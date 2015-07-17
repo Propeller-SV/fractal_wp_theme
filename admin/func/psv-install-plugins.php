@@ -7,7 +7,7 @@ if (!function_exists('psv_get_plugins')) {
 		$plugins = array(
 			array('name' => 'polylang', 'install' => 'polylang/polylang.php'),
 			array('name' => 'loco-translate', 'install' => 'loco-translate/loco.php'),
-			array('name' => 'display-widgets', 'install' => 'display-widgets/display-widgets.php'),
+			// array('name' => 'display-widgets', 'install' => 'display-widgets/display-widgets.php'),
 		);
 
 		$args = array(
@@ -38,8 +38,6 @@ if (!function_exists('psv_get_plugins')) {
 	function psv_plugin_activate($installer) {
 		$current = get_option('active_plugins');
 		$plugin = plugin_basename(trim($installer));
-		print_r($current);
-		echo $plugin . '<br>';
 
 		if(!in_array($plugin, $current))
 		{
