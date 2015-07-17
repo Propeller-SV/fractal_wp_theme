@@ -8,10 +8,6 @@ function register_my_menus() {
 }
 add_action( 'after_setup_theme', 'register_my_menus' );
 
-function default_top_nav() { // link to the default menu markup
-	require_once (THEMEFUNC . '/menus/default_top_nav.php');
-}
-
 function default_primary_nav() {
 	require_once (THEMEFUNC . '/menus/default_primary_nav.php');
 }
