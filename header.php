@@ -110,11 +110,11 @@
 					$currentlang = get_bloginfo('language');
 					if ($currentlang !== "de-DE") :
 						// Check if the menu exists
-						$menu_exists = wp_get_nav_menu_object( 'Primary fractal menu' );
+						$menu_exists = wp_get_nav_menu_object( 'Top menu EN' );
 
 						// If it doesn't exist, let's create it.
 						if( !$menu_exists ){
-							$menu_id = wp_create_nav_menu( 'Primary fractal menu' );
+							$menu_id = wp_create_nav_menu( 'Top menu EN' );
 							// Set up default menu items
 
 							$pages = ['home', 'software engineering', 'company', 'career'];
@@ -129,15 +129,23 @@
 						};
 						wp_nav_menu( array(
 							'theme_location'	=> 'primary',
-							'menu'				=> 'Primary fractal menu',
+							'menu'				=> 'Top menu EN',
 							'container'			=> '',
 							'menu_class'		=> 'navbar-main nav text-uppercase',
 							'fallback_cb'		=> 'default_primary_nav'
 						));
 					elseif ($currentlang == "de-DE") :
+						// Check if the menu exists
+						$menu_exists = wp_get_nav_menu_object( 'Top menu DE' );
+
+						// If it doesn't exist, let's create it.
+						if( !$menu_exists ){
+							$menu_id = wp_create_nav_menu( 'Top menu DE' );
+						};
+
 						wp_nav_menu( array(
 							'theme_location'	=> 'primary',
-							'menu'				=> 'Primary fractal menu D',
+							'menu'				=> 'Top menu DE',
 							'container'			=> '',
 							'menu_class'		=> 'navbar-main nav text-uppercase',
 							'fallback_cb'		=> 'default_primary_nav'
