@@ -105,56 +105,6 @@ if ( ! function_exists( 'fractal_widgets_init' ) ) {
 			'before_title'	=> '<h3 class="text-center text-uppercase">',
 			'after_title'	=> '</h3>',
 			) );
-
-		// register_sidebar( array(
-		// 	'name' 			=> __( 'Footer Social Widget Area', 'fractal' ),
-		// 	'id' 			=> 'sidebar-2',
-		// 	'description' 	=> __( 'Add the list of social links to appear on the footer.', 'fractal' ),
-		// 	'before_widget' => '<div class="col-sm-4 col-md-6">',
-		// 	'after_widget' 	=> '</ul></div>',
-		// 	'before_title' 	=> '<h3>',
-		// 	'after_title' 	=> '</h3></div><div class="col-sm-8 col-md-6"><ul class="nav nav-pills">',
-		// 	) );
-
-		// register_sidebar( array(
-		// 	'name' 			=> __( 'Customers Widget Area', 'fractal' ),
-		// 	'id' 			=> 'sidebar-3',
-		// 	'description' 	=> __( 'List of customers', 'fractal' ),
-		// 	'before_widget' => '<section class="customer"><div class="heading"><div class="container">',
-		// 	'after_widget' 	=> '</ul></div><!-- end of row --></div><!-- end of container --></section>',
-		// 	'before_title' 	=> '<h2 class="text-center text-uppercase">',
-		// 	'after_title' 	=> '<br><span>&#9830;</span></h2></div></div><div class="container"><div class="row"><ul class="list-unstyled">',
-		// 	) );
-
-		// register_sidebar( array(
-		// 	'name' 			=> __( 'Company Main Widget Area', 'fractal' ),
-		// 	'id' 			=> 'sidebar-4',
-		// 	'description' 	=> __( 'List of articles', 'fractal' ),
-		// 	'before_widget' => '',
-		// 	'after_widget' 	=> '',
-		// 	'before_title'  => '<h3 class="text-center text-uppercase">',
-		// 	'after_title'   => '</h3>'
-		// 	) );
-
-		// register_sidebar( array(
-		// 	'name' 			=> __( 'Company Team Widget Area', 'fractal' ),
-		// 	'id' 			=> 'sidebar-5',
-		// 	'description' 	=> __( 'List of employees', 'fractal' ),
-		// 	'before_widget' => '',
-		// 	'after_widget' 	=> '',
-		// 	'before_title' 	=> '<h1 class="text-center">',
-		// 	'after_title' 	=> '</h1>',
-		// 	) );
-
-		// register_sidebar( array(
-		// 	'name' 			=> __( 'Career Widget Area', 'fractal' ),
-		// 	'id' 			=> 'sidebar-6',
-		// 	'description' 	=> __( 'Some information', 'fractal' ),
-		// 	'before_widget' => '',
-		// 	'after_widget' 	=> '',
-		// 	'before_title'  => '<h3 class="text-center text-uppercase">',
-		// 	'after_title'   => '</h3>'
-		// 	) );
 	}
 	add_action( 'widgets_init', 'fractal_widgets_init' );
 }
