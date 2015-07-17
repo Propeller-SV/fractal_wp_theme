@@ -90,140 +90,190 @@ function addThisPage() {
 		}
 	}
 
-	// add software egineering page
-	$page_softEngin = array(
-		'post_title'	=> 'Software Engineering',
-		'post_status'	=> 'publish',
-		'post_type'		=> 'page',
-		'post_content'	=> 'Some default content',
-		'menu_order'	=> 1
-		);
-	$page_softEngin_exists = get_page_by_title( $page_softEngin['post_title'] );
+	// add main pages
+	$titles = ['Software Engineering', 'Company', 'Career'];
+	$templates = ['softEngin-template.php', 'company-template.php', 'career-template.php'];
+	$page_thumbnails = ['/software.png', '/company.png', '/career.png'];
 
-	if( !$page_softEngin_exists ) {
-		$insert_softEngin_id = wp_insert_post( $page_softEngin );
-		if( $insert_softEngin_id ) {
-			update_post_meta( $insert_softEngin_id, '_wp_page_template', 'softEngin-template.php' );
-
-			// upload and set up the post thumbnail
-			$image_url = IMAGES . '/software.png';
-			$upload_dir = wp_upload_dir();
-			$image_data = file_get_contents($image_url);
-			$filename = basename($image_url);
-			if(wp_mkdir_p($upload_dir['path']))
-				$file = $upload_dir['path'] . '/' . $filename;
-			else
-				$file = $upload_dir['basedir'] . '/' . $filename;
-			file_put_contents($file, $image_data);
-
-			$wp_filetype = wp_check_filetype($filename, null );
-			$attachment = array(
-				'post_mime_type' => $wp_filetype['type'],
-				'post_title' => sanitize_file_name($filename),
-				'post_content' => '',
-				'post_status' => 'inherit'
+	for ($i=0; $i<count($titles); $i++) {
+		$new_page = array(
+			'post_title'	=> $titles[$i],
+			'post_status'	=> 'publish',
+			'post_type'		=> 'page',
+			'post_content'	=> '<h4 class="text-center">In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman".</h4>
+								<p>In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.</p>
+								<p>In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.</p>',
+			'menu_order'	=> ($i+1)
 			);
-			$attach_id = wp_insert_attachment( $attachment, $file, $insert_softEngin_id );
-			require_once(ABSPATH . 'wp-admin/includes/image.php');
-			$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
-			wp_update_attachment_metadata( $attach_id, $attach_data );
+		$page_exists = get_page_by_title( $new_page['post_title'] );
 
-			set_post_thumbnail( $insert_softEngin_id, $attach_id );
+		if ( !$page_exists ) {
+			$new_page_id = wp_insert_post( $new_page );
+			if ($new_page_id) {
+				update_post_meta( $new_page_id, '_wp_page_template', $templates[$i] );
+
+				// upload and set up the post thumbnail
+				$image_url = IMAGES . $page_thumbnails[$i];
+				$upload_dir = wp_upload_dir();
+				$image_data = file_get_contents($image_url);
+				$filename = basename($image_url);
+				if(wp_mkdir_p($upload_dir['path']))
+					$file = $upload_dir['path'] . '/' . $filename;
+				else
+					$file = $upload_dir['basedir'] . '/' . $filename;
+				file_put_contents($file, $image_data);
+
+				$wp_filetype = wp_check_filetype($filename, null );
+				$attachment = array(
+					'post_mime_type' => $wp_filetype['type'],
+					'post_title' => sanitize_file_name($filename),
+					'post_content' => '',
+					'post_status' => 'inherit'
+				);
+				$attach_id = wp_insert_attachment( $attachment, $file, $new_page_id );
+				require_once(ABSPATH . 'wp-admin/includes/image.php');
+				$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
+				wp_update_attachment_metadata( $attach_id, $attach_data );
+
+				set_post_thumbnail( $new_page_id, $attach_id );
+			}
 		}
 	}
 
-	// add company page
-	$page_company = array(
-		'post_title'	=> 'Company',
-		'post_status'	=> 'publish',
-		'post_type'		=> 'page',
-		'post_content'	=> '<h4 class="text-center">
-								In today\'s tutorial I\'am going to introduce you to Avocode, developed by the<br>
-								"eleven brave men and onebrave woman".
-							</h4>
-							<p>
-								In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
-							</p>
-							<p>
-								In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
-							</p>',
-		'menu_order'	=> 2
-		);
-	$page_company_exists = get_page_by_title( $page_company['post_title'] );
+	// // add software egineering page
+	// $page_softEngin = array(
+	// 	'post_title'	=> 'Software Engineering',
+	// 	'post_status'	=> 'publish',
+	// 	'post_type'		=> 'page',
+	// 	'post_content'	=> 'Some default content',
+	// 	'menu_order'	=> 1
+	// 	);
+	// $page_softEngin_exists = get_page_by_title( $page_softEngin['post_title'] );
 
-	if( !$page_company_exists ) {
-		$insert_company_id = wp_insert_post( $page_company );
-		if( $insert_company_id ) {
-			update_post_meta( $insert_company_id, '_wp_page_template', 'company-template.php' );
+	// if( !$page_softEngin_exists ) {
+	// 	$insert_softEngin_id = wp_insert_post( $page_softEngin );
+	// 	if( $insert_softEngin_id ) {
+	// 		update_post_meta( $insert_softEngin_id, '_wp_page_template', 'softEngin-template.php' );
 
-			// upload and set up the post thumbnail
-			$image_url = IMAGES . '/company.png';
-			$upload_dir = wp_upload_dir();
-			$image_data = file_get_contents($image_url);
-			$filename = basename($image_url);
-			if(wp_mkdir_p($upload_dir['path']))
-				$file = $upload_dir['path'] . '/' . $filename;
-			else
-				$file = $upload_dir['basedir'] . '/' . $filename;
-			file_put_contents($file, $image_data);
+	// 		// upload and set up the post thumbnail
+	// 		$image_url = IMAGES . '/software.png';
+	// 		$upload_dir = wp_upload_dir();
+	// 		$image_data = file_get_contents($image_url);
+	// 		$filename = basename($image_url);
+	// 		if(wp_mkdir_p($upload_dir['path']))
+	// 			$file = $upload_dir['path'] . '/' . $filename;
+	// 		else
+	// 			$file = $upload_dir['basedir'] . '/' . $filename;
+	// 		file_put_contents($file, $image_data);
 
-			$wp_filetype = wp_check_filetype($filename, null );
-			$attachment = array(
-				'post_mime_type' => $wp_filetype['type'],
-				'post_title' => sanitize_file_name($filename),
-				'post_content' => '',
-				'post_status' => 'inherit'
-			);
-			$attach_id = wp_insert_attachment( $attachment, $file, $insert_company_id );
-			require_once(ABSPATH . 'wp-admin/includes/image.php');
-			$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
-			wp_update_attachment_metadata( $attach_id, $attach_data );
+	// 		$wp_filetype = wp_check_filetype($filename, null );
+	// 		$attachment = array(
+	// 			'post_mime_type' => $wp_filetype['type'],
+	// 			'post_title' => sanitize_file_name($filename),
+	// 			'post_content' => '',
+	// 			'post_status' => 'inherit'
+	// 		);
+	// 		$attach_id = wp_insert_attachment( $attachment, $file, $insert_softEngin_id );
+	// 		require_once(ABSPATH . 'wp-admin/includes/image.php');
+	// 		$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
+	// 		wp_update_attachment_metadata( $attach_id, $attach_data );
 
-			set_post_thumbnail( $insert_company_id, $attach_id );
-		}
-	}
+	// 		set_post_thumbnail( $insert_softEngin_id, $attach_id );
+	// 	}
+	// }
 
-	// add career page
-	$page_career = array(
-		'post_title'	=> 'Career',
-		'post_status'	=> 'publish',
-		'post_type'		=> 'page',
-		'post_content'	=> 'Some default content',
-		'menu_order'	=> 3
-		);
-	$page_career_exists = get_page_by_title( $page_career['post_title'] );
+	// // add company page
+	// $page_company = array(
+	// 	'post_title'	=> 'Company',
+	// 	'post_status'	=> 'publish',
+	// 	'post_type'		=> 'page',
+	// 	'post_content'	=> '<h4 class="text-center">
+	// 							In today\'s tutorial I\'am going to introduce you to Avocode, developed by the<br>
+	// 							"eleven brave men and onebrave woman".
+	// 						</h4>
+	// 						<p>
+	// 							In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
+	// 						</p>
+	// 						<p>
+	// 							In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and In today\'s tutorial I\'am going to introduce you to Avocode, developed by the "eleven brave men and onebrave woman" of Source and recently released in the form of version 1.0.Avocode is an application which allows you to work with.psd and code, whithout even opening Photoshop.
+	// 						</p>',
+	// 	'menu_order'	=> 2
+	// 	);
+	// $page_company_exists = get_page_by_title( $page_company['post_title'] );
 
-	if( !$page_career_exists ) {
-		$insert_career_id = wp_insert_post( $page_career );
-		if( $insert_career_id ) {
-			update_post_meta( $insert_career_id, '_wp_page_template', 'career-template.php' );
+	// if( !$page_company_exists ) {
+	// 	$insert_company_id = wp_insert_post( $page_company );
+	// 	if( $insert_company_id ) {
+	// 		update_post_meta( $insert_company_id, '_wp_page_template', 'company-template.php' );
 
-			// upload and set up the post thumbnail
-			$image_url = IMAGES . '/career.png';
-			$upload_dir = wp_upload_dir();
-			$image_data = file_get_contents($image_url);
-			$filename = basename($image_url);
-			if(wp_mkdir_p($upload_dir['path']))
-				$file = $upload_dir['path'] . '/' . $filename;
-			else
-				$file = $upload_dir['basedir'] . '/' . $filename;
-			file_put_contents($file, $image_data);
+	// 		// upload and set up the post thumbnail
+	// 		$image_url = IMAGES . '/company.png';
+	// 		$upload_dir = wp_upload_dir();
+	// 		$image_data = file_get_contents($image_url);
+	// 		$filename = basename($image_url);
+	// 		if(wp_mkdir_p($upload_dir['path']))
+	// 			$file = $upload_dir['path'] . '/' . $filename;
+	// 		else
+	// 			$file = $upload_dir['basedir'] . '/' . $filename;
+	// 		file_put_contents($file, $image_data);
 
-			$wp_filetype = wp_check_filetype($filename, null );
-			$attachment = array(
-				'post_mime_type' => $wp_filetype['type'],
-				'post_title' => sanitize_file_name($filename),
-				'post_content' => '',
-				'post_status' => 'inherit'
-			);
-			$attach_id = wp_insert_attachment( $attachment, $file, $insert_career_id );
-			require_once(ABSPATH . 'wp-admin/includes/image.php');
-			$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
-			wp_update_attachment_metadata( $attach_id, $attach_data );
+	// 		$wp_filetype = wp_check_filetype($filename, null );
+	// 		$attachment = array(
+	// 			'post_mime_type' => $wp_filetype['type'],
+	// 			'post_title' => sanitize_file_name($filename),
+	// 			'post_content' => '',
+	// 			'post_status' => 'inherit'
+	// 		);
+	// 		$attach_id = wp_insert_attachment( $attachment, $file, $insert_company_id );
+	// 		require_once(ABSPATH . 'wp-admin/includes/image.php');
+	// 		$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
+	// 		wp_update_attachment_metadata( $attach_id, $attach_data );
 
-			set_post_thumbnail( $insert_career_id, $attach_id );
-		}
-	}
+	// 		set_post_thumbnail( $insert_company_id, $attach_id );
+	// 	}
+	// }
+
+	// // add career page
+	// $page_career = array(
+	// 	'post_title'	=> 'Career',
+	// 	'post_status'	=> 'publish',
+	// 	'post_type'		=> 'page',
+	// 	'post_content'	=> 'Some default content',
+	// 	'menu_order'	=> 3
+	// 	);
+	// $page_career_exists = get_page_by_title( $page_career['post_title'] );
+
+	// if( !$page_career_exists ) {
+	// 	$insert_career_id = wp_insert_post( $page_career );
+	// 	if( $insert_career_id ) {
+	// 		update_post_meta( $insert_career_id, '_wp_page_template', 'career-template.php' );
+
+	// 		// upload and set up the post thumbnail
+	// 		$image_url = IMAGES . '/career.png';
+	// 		$upload_dir = wp_upload_dir();
+	// 		$image_data = file_get_contents($image_url);
+	// 		$filename = basename($image_url);
+	// 		if(wp_mkdir_p($upload_dir['path']))
+	// 			$file = $upload_dir['path'] . '/' . $filename;
+	// 		else
+	// 			$file = $upload_dir['basedir'] . '/' . $filename;
+	// 		file_put_contents($file, $image_data);
+
+	// 		$wp_filetype = wp_check_filetype($filename, null );
+	// 		$attachment = array(
+	// 			'post_mime_type' => $wp_filetype['type'],
+	// 			'post_title' => sanitize_file_name($filename),
+	// 			'post_content' => '',
+	// 			'post_status' => 'inherit'
+	// 		);
+	// 		$attach_id = wp_insert_attachment( $attachment, $file, $insert_career_id );
+	// 		require_once(ABSPATH . 'wp-admin/includes/image.php');
+	// 		$attach_data = wp_generate_attachment_metadata( $attach_id, $file );
+	// 		wp_update_attachment_metadata( $attach_id, $attach_data );
+
+	// 		set_post_thumbnail( $insert_career_id, $attach_id );
+	// 	}
+	// }
 }
 
 add_action( 'after_switch_theme', 'addThisPage' );
