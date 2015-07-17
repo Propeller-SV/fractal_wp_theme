@@ -23,7 +23,7 @@ require_once(THEMEFUNC . '/menus/menus.php');
 
 /**
  * ----------------------------------------------------------------------------------------
- * Load custom menu locations
+ * Create default pages and posts
  * ----------------------------------------------------------------------------------------
  */
 require_once(THEMEFUNC . '/default_posts_and_pages.php');
@@ -97,13 +97,13 @@ add_action( 'after_setup_theme', 'fractalsoft_theme_setup' );
 if ( ! function_exists( 'fractal_widgets_init' ) ) {
 	function fractal_widgets_init() {
 		register_sidebar( array(
-			'name'          => __( 'Right Widget Area', 'fractal' ),
-			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here to appear in your sidebar.', 'fractal' ),
-			'before_widget' => '',
-			'after_widget'  => '',
-			'before_title'  => '<h3 class="text-center text-uppercase">',
-			'after_title'   => '</h3>',
+			'name'			=> __( 'Right Widget Area', 'fractal' ),
+			'id'			=> 'sidebar-1',
+			'description'	=> __( 'Add widgets here to appear in your sidebar.', 'fractal' ),
+			'before_widget'	=> '',
+			'after_widget'	=> '',
+			'before_title'	=> '<h3 class="text-center text-uppercase">',
+			'after_title'	=> '</h3>',
 			) );
 
 		// register_sidebar( array(
@@ -187,30 +187,30 @@ add_action( 'wp_enqueue_scripts', 'current_theme_resources' );
  */
 function deliver_mail() {
 
-    // if the submit button is clicked, send the email
-    if ( isset( $_POST['cf-submitted'] ) ) {
+	// if the submit button is clicked, send the email
+	if ( isset( $_POST['cf-submitted'] ) ) {
 
-        // sanitize form values
-        $name    = sanitize_text_field( $_POST["cf-name"] );
-        $email   = sanitize_email( $_POST["cf-email"] );
-        $phone	 = preg_replace('/[^0-9]/', '', $_POST["cf-phone"] );
-        $subject = 'Fractal Soft response';
-        $message = esc_textarea( $_POST["cf-message"] );
+		// sanitize form values
+		$name		= sanitize_text_field( $_POST["cf-name"] );
+		$email		= sanitize_email( $_POST["cf-email"] );
+		$phone		= preg_replace('/[^0-9]/', '', $_POST["cf-phone"] );
+		$subject	= 'Fractal Soft response';
+		$message	= esc_textarea( $_POST["cf-message"] );
 
-        // get the blog administrator's email address
-        $to = get_option( 'admin_email' );
+		// get the blog administrator's email address
+		$to = get_option( 'admin_email' );
 
-        $headers = "From: $name <$email>, $phone" . "\r\n";
+		$headers = "From: $name <$email>, $phone" . "\r\n";
 
-        // If email has been process for sending, display a success message
-        if ( wp_mail( $to, $subject, $message, $headers ) ) {
+		// If email has been process for sending, display a success message
+		if ( wp_mail( $to, $subject, $message, $headers ) ) {
 
-            echo "<script type='text/javascript'>alert('Thanks for contacting us, expect a response soon.')</script>";
+			echo "<script type='text/javascript'>alert('Thanks for contacting us, expect a response soon.')</script>";
 
-        } else {
-            echo "<script type='text/javascript'>alert('An unexpected error occurred.')</script>";
-        }
-    }
+		} else {
+			echo "<script type='text/javascript'>alert('An unexpected error occurred.')</script>";
+		}
+	}
 }
 
 add_action( 'after_setup_theme', 'deliver_mail' );
