@@ -50,7 +50,7 @@
 			</nav>
 			<div class="menu col-sm-5">
 				<div class="col-sm-4 col-md-6">
-					<h3>Follow us:</h3>
+					<h3><?php _e('Follow us:', 'fractal'); ?></h3>
 				</div>
 				<div class="col-sm-8 col-md-6">
 					<ul class="nav nav-pills">
