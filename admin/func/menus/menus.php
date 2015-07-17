@@ -2,7 +2,6 @@
 // Add Your Menu Locations
 function register_my_menus() {
 	register_nav_menus( array(
-		'top'     => __( 'Top Menu', 'fractal' ),
 		'primary' => __( 'Primary Menu', 'fractal' ),
 		'footer'  => __( 'Footer Menu', 'fractal' )
 	));
