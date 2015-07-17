@@ -243,7 +243,7 @@ function update_post_team( $post_id, $post_object )
     return;
 
   // Correct post type
-  if ( 'page' != $_POST['post_type'] )
+  if ( isset($_POST['post_type']) && 'page' != $_POST['post_type'] )
     return;
 
   if ( isset($_POST['team']) && $_POST['team'] )

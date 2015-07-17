@@ -110,7 +110,7 @@ function update_post_why_fractal( $post_id, $post_object )
     return;
 
   // Correct post type
-  if ( 'page' != $_POST['post_type'] )
+  if ( isset($_POST['post_type']) && 'page' != $_POST['post_type'] )
     return;
 
   if ( isset($_POST['why_fractal']) && $_POST['why_fractal'] )

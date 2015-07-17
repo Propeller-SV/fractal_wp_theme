@@ -97,7 +97,7 @@ function update_post_main_points( $post_id, $post_object )
     return;
 
   // Correct post type
-  if ( 'page' != $_POST['post_type'] )
+  if ( isset($_POST['post_type']) && 'page' != $_POST['post_type'] )
     return;
 
   if ( isset($_POST['main_points']) && $_POST['main_points'] )
