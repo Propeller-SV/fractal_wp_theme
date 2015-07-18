@@ -56,8 +56,7 @@ function action_wp_create_top_nav_menu() {
 			'theme_location'	=> 'primary',
 			'menu'				=> 'Top menu DE',
 			'container'			=> '',
-			'menu_class'		=> 'navbar-main nav text-uppercase',
-			'fallback_cb'		=> 'default_primary_nav'
+			'menu_class'		=> 'navbar-main nav text-uppercase'
 		));
 	endif;
 };
@@ -112,8 +111,7 @@ function action_wp_create_footer_nav_menu() {
 				'theme_location'	=> 'footer',
 				'menu'				=> 'Footer menu DE',
 				'container'			=> '',
-				'menu_class'		=> 'nav nav-pills pull-left',
-				'fallback_cb'		=> 'default_footer_nav'
+				'menu_class'		=> 'nav nav-pills pull-left'
 			));
 	endif;
 };
