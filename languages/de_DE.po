@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fractal Soft\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-17 12:54+0200\n"
-"PO-Revision-Date: 2015-07-17 12:57+0200\n"
+"POT-Creation-Date: 2015-07-18 12:34+0200\n"
+"PO-Revision-Date: 2015-07-18 12:35+0200\n"
 "Last-Translator: Serhii Prokhorenko <grey.psv@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -33,21 +33,21 @@ msgstr "Bitte, das Fußzeile-Fraktal-Menü Erstellen"
 msgid "Please, create the Primary fractal menu"
 msgstr "Bitte, das primären Fraktal-Menü Erstellen"
 
-#: admin/func/menus/default_top_nav.php:2
-msgid "Please, create the Top Menu"
-msgstr "Bitte, dem Top-Menü Erstellen"
-
 #: admin/func/menus/menus.php:5
-msgid "Top Menu"
-msgstr "Hauptmenü oben"
-
-#: admin/func/menus/menus.php:6
 msgid "Primary Menu"
 msgstr "Hauptmenü"
 
-#: admin/func/menus/menus.php:7
+#: admin/func/menus/menus.php:6
 msgid "Footer Menu"
 msgstr "Fußzeilenmenü"
+
+#: admin/func/menus/menus.php:49
+msgid "Add menu items to Top menu DE here"
+msgstr "In Menüpunkte auf Top-Menü DE hier"
+
+#: admin/func/menus/menus.php:108
+msgid "Add menu items to Footer menu DE here"
+msgstr "In Menüpunkte auf Footer menu DE hier"
 
 #: contactform.php:5
 msgid "Contact Us"
@@ -85,11 +85,11 @@ msgstr "Seite"
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: footer.php:53
+#: footer.php:19
 msgid "Follow us:"
 msgstr "Folgen Sie uns:"
 
-#: footer.php:74
+#: footer.php:40
 msgid "All rights reserved"
 msgstr "Alle Rechte vorbehalten"
 
@@ -101,17 +101,21 @@ msgstr "Wichtigsten rechts Widget-Bereich"
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Widgets Fügen Sie hier in Ihrer Seitenleiste angezeigt."
 
-#: functions.php:256
+#: functions.php:221
 msgid "Social Media Links"
 msgstr "Social Media Links"
 
-#: functions.php:261
+#: functions.php:226
 msgid "Social media options"
 msgstr "Social Media Optionen"
 
-#: functions.php:275
+#: functions.php:240
 msgid "Social Media Settings"
 msgstr "Social Media-Einstellungen"
+
+#: header.php:67
+msgid "Blog"
+msgstr "Aktuelles"
 
 #: home-template.php:61
 msgid "About Us"
@@ -152,6 +156,12 @@ msgstr "Sorry, keine Beiträge gefunden."
 #: searchform.php:9
 msgid "Search"
 msgstr "Suche"
+
+#~ msgid "Please, create the Top Menu"
+#~ msgstr "Bitte, dem Top-Menü Erstellen"
+
+#~ msgid "Top Menu"
+#~ msgstr "Hauptmenü oben"
 
 #~ msgid "SEND"
 #~ msgstr "ABSENDEN"
