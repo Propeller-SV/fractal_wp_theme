@@ -106,54 +106,12 @@
 			</div><!-- end of container -->
 			<div class="header-line">
 				<div id="navbar" class="navbar-collapse collapse">
-					<?php
-					$currentlang = get_bloginfo('language');
-					if ($currentlang !== "de-DE") :
-						// Check if the menu exists
-						$menu_exists = wp_get_nav_menu_object( 'Top menu EN' );
 
-						// If it doesn't exist, let's create it.
-						if( !$menu_exists ){
-							$menu_id = wp_create_nav_menu( 'Top menu EN' );
-							// Set up default menu items
+					<!-- Create Top Nav Menu -->
+					<?php do_action( 'wp_create_top_nav_menu' ); ?>
 
-							$pages = ['home', 'software engineering', 'company', 'career'];
-							for ($i=0; $i<count($pages); $i++) {
-								wp_update_nav_menu_item($menu_id, 0, array(
-								'menu-item-title'		=> $pages[$i],
-								'menu-item-object'		=> 'page',
-								'menu-item-object-id'	=> get_page_by_title($pages[$i])->ID,
-								'menu-item-type'		=> 'post_type',
-								'menu-item-status'		=> 'publish'));
-							}
-						};
-						wp_nav_menu( array(
-							'theme_location'	=> 'primary',
-							'menu'				=> 'Top menu EN',
-							'container'			=> '',
-							'menu_class'		=> 'navbar-main nav text-uppercase',
-							'fallback_cb'		=> 'default_primary_nav'
-						));
-					elseif ($currentlang == "de-DE") :
-						// Check if the menu exists
-						$menu_exists = wp_get_nav_menu_object( 'Top menu DE' );
-
-						// If it doesn't exist, let's create it.
-						if( !$menu_exists ){
-							$menu_id = wp_create_nav_menu( 'Top menu DE' );
-						};
-
-						wp_nav_menu( array(
-							'theme_location'	=> 'primary',
-							'menu'				=> 'Top menu DE',
-							'container'			=> '',
-							'menu_class'		=> 'navbar-main nav text-uppercase',
-							'fallback_cb'		=> 'default_primary_nav'
-						));
-					endif; ?>
-					<?php
-						// check for plugin using plugin name
-						if ( is_plugin_active( 'polylang/polylang.php' ) ) {
+					<!-- Mobile language switcher -->
+					<?php if ( is_plugin_active( 'polylang/polylang.php' ) ) {
 						//plugin is activated
 						?>
 						<ul class='colour hidden-sm hidden-md hidden-lg'>

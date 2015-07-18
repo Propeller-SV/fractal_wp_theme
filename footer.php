@@ -9,52 +9,10 @@
 	<div class="container">
 		<div class="row">
 			<nav class="hidden-xs footer-navigation col-sm-7">
-				<?php
-				$currentlang = get_bloginfo('language');
-				if ($currentlang !== "de-DE") :
-					// Check if the menu exists
-					$menu_exists = wp_get_nav_menu_object( 'Footer menu EN' );
 
-					// If it doesn't exist, let's create it.
-					if( !$menu_exists){
-						$menu_id = wp_create_nav_menu( 'Footer menu EN' );
+				<!-- Create Footer Nav Menu -->
+				<?php do_action( 'wp_create_footer_nav_menu' ); ?>
 
-						// Set up default menu items
-						$pages = ['Home', 'Software engineering', 'Company', 'Career'];
-						for ($i=0; $i<count($pages); $i++) {
-							wp_update_nav_menu_item($menu_id, 0, array(
-							'menu-item-title'		=> $pages[$i],
-							'menu-item-object'		=> 'page',
-							'menu-item-object-id'	=> get_page_by_title($pages[$i])->ID,
-							'menu-item-type'		=> 'post_type',
-							'menu-item-status'		=> 'publish'));
-						}
-					};
-
-					wp_nav_menu( array(
-						'theme_location'=> 'footer',
-						'menu'			=> 'Footer menu EN',
-						'container'		=> '',
-						'menu_class'	=> 'nav nav-pills pull-left',
-						'fallback_cb'	=> 'default_footer_nav'
-				));
-				elseif ($currentlang == "de-DE") :
-					// Check if the menu exists
-						$menu_exists = wp_get_nav_menu_object( 'Footer menu DE' );
-
-						// If it doesn't exist, let's create it.
-						if( !$menu_exists ){
-							$menu_id = wp_create_nav_menu( 'Footer menu DE' );
-						};
-
-						wp_nav_menu( array(
-							'theme_location'	=> 'footer',
-							'menu'				=> 'Footer menu DE',
-							'container'			=> '',
-							'menu_class'		=> 'nav nav-pills pull-left',
-							'fallback_cb'		=> 'default_footer_nav'
-						));
-				endif; ?>
 			</nav>
 			<div class="menu col-sm-5">
 				<div class="col-sm-4 col-md-6">
