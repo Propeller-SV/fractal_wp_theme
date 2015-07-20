@@ -88,7 +88,7 @@
 						?>
 						<div class="col-sm-12">
 							<div class="col-sm-1">
-								<i class="<?php echo($icons[$i]); ?>"></i>
+								<i class="<?php echo($icons[$i % 4]); ?>"></i>
 							</div>
 							<div class="col-sm-11">
 								<p>
@@ -116,13 +116,13 @@
 						</ul>
 						<div class="info">
 							<p>
-								Phone: +38 (050) 353 88 42
+								<?php _e('Phone', 'fractal'); ?>: +38 (050) 353 88 42
 							</p>
 							<p>
-								Email: <a href="mailto:fractalsoft@gmail.com">fractalsoft@gmail.com</a>
+								<?php _e('Email', 'fractal'); ?>: <a href="mailto:fractalsoft@gmail.com">fractalsoft@gmail.com</a>
 							</p>
 							<p class="paragraph">
-								Address: <span>Ukraine, Kyiv, Yasna, 5 St.</span>
+								<?php _e('Address', 'fractal'); ?>: <span>Ukraine, Kyiv, Yasna, 5 St.</span>
 							</p>
 						</div> <!-- end of info -->
 						<div id="map_canvas" style="width:100%; min-height: 200px"></div>
