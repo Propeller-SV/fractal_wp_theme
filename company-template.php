@@ -88,7 +88,13 @@
 						?>
 						<div class="col-sm-12">
 							<div class="col-sm-1">
-								<i class="<?php echo($icons[$i % 4]); ?>"></i>
+								<?php
+								if (isset($main_points_data['icon'][$i]) && $main_points_data['icon'][$i]) {
+									echo '<img src="' . esc_url( $main_points_data['icon'][$i] ) . '" alt="">';
+								} else {
+									echo '<i class="' . $icons[$i % 4] . '"></i>';
+								}
+								?>
 							</div>
 							<div class="col-sm-11">
 								<p>
