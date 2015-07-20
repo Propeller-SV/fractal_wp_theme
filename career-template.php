@@ -7,70 +7,45 @@
 <?php get_header(); ?>
 
 	<section class="banner">
-        <div class="container text-uppercase">
-            <ol>
-              <li><?php the_title(); ?></li>
-            </ol>
-        </div>
-    </section>
+		<div class="container text-uppercase">
+			<ol>
+			  <li><?php the_title(); ?></li>
+			</ol>
+		</div>
+	</section>
 
-    <section class="career-growth">
-        <div class="container">
-            <div class="career">
-                <div class="row">
-                    <div class="blurb col-xs-12 col-sm-3">
-                        <div class="blurb-text">
-                            <div class="center">
-                                <i class="glyphicon glyphicon-camera"></i>
-                            </div>
-                            <p class="text-center">
-                                <?php
-                                $main_points_data = get_post_meta(get_the_id(), 'main_points_data', true);
-                                if (isset($main_points_data['point'][0])) {
-                                    echo($main_points_data['point'][0]);
-                                } else {
-                                    echo "Print this page to PDF for the complete set of vectors.  Or to use on the desktop, install FontAwesome.otf, set it as the font in your application, and copy and paste the icons (notthe unicode) directly from this page into your designs.";
-                                }
-                                ?>
-                            </p>
-                        </div>
-                    </div><!-- end of blurb -->
-                    <div class="blurb col-xs-12 col-sm-3">
-                        <div class="blurb-text">
-                            <div class="center">
-                                <i class="glyphicon glyphicon-bullhorn"></i>
-                            </div>
-                            <p class="text-center">
-                                <?php if (isset($main_points_data['point'][1])) {
-                                    echo($main_points_data['point'][1]);
-                                } else {
-                                    echo "Print this page to PDF for the complete set of vectors.  Or to use on the desktop, install FontAwesome.otf, set it as the font in your application, and copy and paste the icons (notthe unicode) directly from this page into your designs.";
-                                } ?>
-                            </p>
-                        </div>
-                    </div><!-- end of blurb -->
-                    <div class="blurb col-xs-12 col-sm-3">
-                        <div class="blurb-text">
-                            <div class="center">
-                                <i class="fa fa-gavel"></i>
-                            </div>
-                            <p class="text-center">
-                                <?php if (isset($main_points_data['point'][2])) {
-                                    echo($main_points_data['point'][2]);
-                                } else {
-                                    echo "Print this page to PDF for the complete set of vectors.  Or to use on the desktop, install FontAwesome.otf, set it as the font in your application, and copy and paste the icons (notthe unicode) directly from this page into your designs.";
-                                } ?>
-                            </p>
-                        </div>
-                    </div><!-- end of blurb -->
-                    <div class="photofit col-xs-12 col-sm-3">
-                        <img src="<?php echo IMAGES; ?>/banner-foto.png"/>
-                    </div>
-                </div><!-- end of row -->
-                <img src="<?php echo IMAGES; ?>/banner-background-top.png" class="banner-background-top"/>
-            </div><!-- end of career -->
-        </div><!-- end of container -->
-    </section><!-- end of growth -->
-    <?php get_template_part( 'contactform' ); ?>
+	<section class="career-growth">
+		<div class="container">
+			<div class="career">
+				<div class="row">
+					<div class="col-md-9">
+						<?php $icons = ['glyphicon glyphicon-camera', 'glyphicon glyphicon-bullhorn', 'fa fa-gavel'] ?>
+						<?php
+						$main_points_data = get_post_meta(get_the_id(), 'main_points_data', true);
+						if (isset($main_points_data['point'])) {
+							for ($i=0; $i<count($main_points_data['point']); $i++) {
+								?>
+								<div class="blurb col-xs-12 col-sm-4">
+									<div class="blurb-text">
+										<div class="center">
+											<i class="<?php echo $icons[$i % 3]; ?>"></i>
+										</div>
+										<p class="text-center">
+										<?php echo($main_points_data['point'][$i]); ?>
+										</p>
+									</div>
+								</div><!-- end of blurb -->
+							<?php }
+						} ?>
+					</div>
+					<div class="photofit col-xs-12 col-sm-3">
+						<img src="<?php echo IMAGES; ?>/banner-foto.png"/>
+					</div>
+				</div><!-- end of row -->
+				<img src="<?php echo IMAGES; ?>/banner-background-top.png" class="banner-background-top"/>
+			</div><!-- end of career -->
+		</div><!-- end of container -->
+	</section><!-- end of growth -->
+	<?php get_template_part( 'contactform' ); ?>
 
 <?php get_footer();?>
