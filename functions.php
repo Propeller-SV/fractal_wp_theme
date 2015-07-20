@@ -145,7 +145,7 @@ function deliver_mail() {
 		$email		= sanitize_email( $_POST["cf-email"] );
 		$phone		= preg_replace('/[^0-9]/', '', $_POST["cf-phone"] );
 		$subject	= 'Fractal Soft response';
-		$message	= esc_textarea( $_POST["cf-message"] );
+		$message	= "From: $name <$email>, $phone" . "\r\n" . esc_textarea( $_POST["cf-message"] );
 
 		// get the blog administrator's email address
 		$to = get_option( 'admin_email' );
@@ -165,7 +165,11 @@ function deliver_mail() {
 
 add_action( 'after_setup_theme', 'deliver_mail' );
 
-// Remove […] string for post excerpts
+/**
+ * ----------------------------------------------------------------------------------------
+ * Remove […] string for post excerpts
+ * ----------------------------------------------------------------------------------------
+ */
 function new_excerpt_more( $more ) {
 	return '';
 }
@@ -188,7 +192,7 @@ function is_blog () {
  * ----------------------------------------------------------------------------------------
  */
 function social_links() {
-	add_menu_page( __('Social Media Links', 'fractal'), __('Social Media Links', 'fractal'), 'manage_options', 'fractal_links_page', 'display_fractal_links_page', 'dashicons-facebook' );
+	add_menu_page( __('Fractal Options', 'fractal'), __('Fractal Options', 'fractal'), 'manage_options', 'fractal_links_page', 'display_fractal_links_page', 'dashicons-facebook' );
 }
 function display_fractal_links_page() {
 	?>
@@ -246,3 +250,24 @@ function url_validate($url) {
 
 add_action( 'admin_menu', 'social_links' );
 add_action( 'admin_init', 'initialize_fractal_options' );
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Add custom resolution to image uploader
+ * ----------------------------------------------------------------------------------------
+ */
+
+if ( function_exists( 'add_image_size' ) ) {
+add_image_size( 'new-size', 250, 280, true ); //(cropped)
+add_image_size( 'new-size2', 16, 16, true ); //(cropped)
+}
+
+add_filter('image_size_names_choose', 'my_image_sizes');
+function my_image_sizes($sizes) {
+$addsizes = array(
+"new-size"	=> __( "Our team photo size", 'fractal'),
+"new-size2"	=> __( "Points icon size", 'fractal')
+);
+$newsizes = array_merge($sizes, $addsizes);
+return $newsizes;
+}
