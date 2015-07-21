@@ -20,18 +20,14 @@
 				</div>
 				<div class="col-sm-8 col-md-6">
 					<ul class="nav nav-pills">
-						<?php $options = (array)get_option('social_links');
+						<?php $options = (array)get_option('fractal_options');
 						$icons = ['/facebook.png', '/twitter.png', '/linkedin.png', '/google.png'];
 						for ($i=0; $i<count($icons); $i++) {
 							?>
-							<li><a href="<?php if ($options) echo esc_url(array_values($options)[$i]); else echo '#'; ?>"><img src="<?php echo IMAGES . $icons[$i]; ?>"></a></li>
+							<li><a href="<?php echo isset(array_values($options)[$i]) ? esc_url(array_values($options)[$i]) : ''; ?>"><img src="<?php echo IMAGES . $icons[$i]; ?>"></a></li>
 							<?php
 						}
 						?>
-						<!-- <li><a href="<?php echo esc_url($options['facebook']); ?>"><img src="<?php echo IMAGES; ?>/facebook.png"></a></li>
-						<li><a href="<?php echo esc_url($options['twitter']); ?>"><img src="<?php echo IMAGES; ?>/twitter.png"></a></li>
-						<li><a href="<?php echo esc_url($options['linked_in']); ?>"><img src="<?php echo IMAGES; ?>/linkedin.png"></a></li>
-						<li><a href="<?php echo esc_url($options['google_plus']); ?>"><img src="<?php echo IMAGES; ?>/google.png"></a></li> -->
 					</ul>
 				</div>
 			</div>
@@ -41,7 +37,7 @@
 		</div>
 	</div><!-- end of container -->
 </footer>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 <?php wp_footer(); ?>
 </body>
 </html>
