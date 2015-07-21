@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fractal Soft\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-18 12:34+0200\n"
-"PO-Revision-Date: 2015-07-18 12:35+0200\n"
+"POT-Creation-Date: 2015-07-21 12:41+0200\n"
+"PO-Revision-Date: 2015-07-21 12:43+0200\n"
 "Last-Translator: Serhii Prokhorenko <grey.psv@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -25,13 +25,13 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 
-#: admin/func/menus/default_footer_nav.php:2
-msgid "Please, create the Footer fractal menu"
-msgstr "Bitte, das Fußzeile-Fraktal-Menü Erstellen"
+#: admin/func/company-career-main-metabox.php:47
+msgid "Select icon"
+msgstr "Icon auswählen"
 
-#: admin/func/menus/default_primary_nav.php:2
-msgid "Please, create the Primary fractal menu"
-msgstr "Bitte, das primären Fraktal-Menü Erstellen"
+#: admin/func/company-career-main-metabox.php:48
+msgid "Add icon"
+msgstr "Icon hinzufügen"
 
 #: admin/func/menus/menus.php:5
 msgid "Primary Menu"
@@ -45,9 +45,21 @@ msgstr "Fußzeilenmenü"
 msgid "Add menu items to Top menu DE here"
 msgstr "In Menüpunkte auf Top-Menü DE hier"
 
-#: admin/func/menus/menus.php:108
+#: admin/func/menus/menus.php:104
 msgid "Add menu items to Footer menu DE here"
 msgstr "In Menüpunkte auf Footer menu DE hier"
+
+#: company-template.php:127 functions.php:246
+msgid "Phone: "
+msgstr "Telefon: "
+
+#: company-template.php:131 functions.php:249
+msgid "Email: "
+msgstr "Email: "
+
+#: company-template.php:135 functions.php:252
+msgid "Address: "
+msgstr "Adresse:"
 
 #: contactform.php:5
 msgid "Contact Us"
@@ -89,7 +101,7 @@ msgstr "Bearbeiten"
 msgid "Follow us:"
 msgstr "Folgen Sie uns:"
 
-#: footer.php:40
+#: footer.php:36
 msgid "All rights reserved"
 msgstr "Alle Rechte vorbehalten"
 
@@ -101,17 +113,49 @@ msgstr "Wichtigsten rechts Widget-Bereich"
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Widgets Fügen Sie hier in Ihrer Seitenleiste angezeigt."
 
-#: functions.php:221
-msgid "Social Media Links"
-msgstr "Social Media Links"
+#: functions.php:209
+msgid "Fractal Options"
+msgstr "Fractal Optionen"
 
-#: functions.php:226
-msgid "Social media options"
-msgstr "Social Media Optionen"
+#: functions.php:214
+msgid "Fractal options"
+msgstr "Fractal Optionen"
 
-#: functions.php:240
+#: functions.php:227
 msgid "Social Media Settings"
 msgstr "Social Media-Einstellungen"
+
+#: functions.php:228
+msgid "Contact Data"
+msgstr "Konatktdaten"
+
+#: functions.php:233
+msgid "Facebook profile: "
+msgstr "Facebook profil: "
+
+#: functions.php:236
+msgid "Twitter profile: "
+msgstr "Twitter profil: "
+
+#: functions.php:239
+msgid "LinkedIn profile: "
+msgstr "LinkedIn profil: "
+
+#: functions.php:242
+msgid "Google+ profile: "
+msgstr "Google+ profil: "
+
+#: functions.php:255
+msgid "How to get: "
+msgstr "Wie kommt man hin: "
+
+#: functions.php:290
+msgid "Our team photo size"
+msgstr "Unser Team Fotoformat"
+
+#: functions.php:291
+msgid "Points icon size"
+msgstr "Punkte Icon-Größe"
 
 #: header.php:67
 msgid "Blog"
@@ -156,6 +200,21 @@ msgstr "Sorry, keine Beiträge gefunden."
 #: searchform.php:9
 msgid "Search"
 msgstr "Suche"
+
+#~ msgid "Address"
+#~ msgstr "Address"
+
+#~ msgid "Social media options"
+#~ msgstr "Social Media Optionen"
+
+#~ msgid "Please, create the Footer fractal menu"
+#~ msgstr "Bitte, das Fußzeile-Fraktal-Menü Erstellen"
+
+#~ msgid "Please, create the Primary fractal menu"
+#~ msgstr "Bitte, das primären Fraktal-Menü Erstellen"
+
+#~ msgid "Social Media Links"
+#~ msgstr "Social Media Links"
 
 #~ msgid "Please, create the Top Menu"
 #~ msgstr "Bitte, dem Top-Menü Erstellen"
