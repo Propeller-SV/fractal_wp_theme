@@ -122,13 +122,18 @@
 						</ul>
 						<div class="info">
 							<p>
-								<?php _e('Phone', 'fractal'); ?>: +38 (050) 353 88 42
+								<?php
+								$options = get_option('fractal_options');
+								echo _e('Phone: ', 'fractal') . isset($options['phone']) ? $options['phone'] : '' ;
+								?>
 							</p>
 							<p>
-								<?php _e('Email', 'fractal'); ?>: <a href="mailto:fractalsoft@gmail.com">fractalsoft@gmail.com</a>
+								<?php _e('Email: ', 'fractal'); ?>
+								<a href="mailto:<?php echo isset($options['email']) ? $options['email'] : '' ; ?>"><?php echo isset($options['email']) ? $options['email'] : '' ; ?></a>
 							</p>
 							<p class="paragraph">
-								<?php _e('Address', 'fractal'); ?>: <span>Ukraine, Kyiv, Yasna, 5 St.</span>
+								<?php _e('Address: ', 'fractal'); ?>
+								<span><?php echo isset($options['address']) ? $options['address'] : '' ; ?></span>
 							</p>
 						</div> <!-- end of info -->
 						<div id="map_canvas" style="width:100%; min-height: 200px"></div>
