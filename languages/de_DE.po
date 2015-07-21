@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fractal Soft\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-21 12:41+0200\n"
-"PO-Revision-Date: 2015-07-21 12:43+0200\n"
+"POT-Creation-Date: 2015-07-21 18:44+0200\n"
+"PO-Revision-Date: 2015-07-21 18:44+0200\n"
 "Last-Translator: Serhii Prokhorenko <grey.psv@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -49,15 +49,15 @@ msgstr "In Menüpunkte auf Top-Menü DE hier"
 msgid "Add menu items to Footer menu DE here"
 msgstr "In Menüpunkte auf Footer menu DE hier"
 
-#: company-template.php:127 functions.php:246
+#: company-template.php:127 functions.php:232
 msgid "Phone: "
 msgstr "Telefon: "
 
-#: company-template.php:131 functions.php:249
+#: company-template.php:131 functions.php:235
 msgid "Email: "
 msgstr "Email: "
 
-#: company-template.php:135 functions.php:252
+#: company-template.php:135 functions.php:238
 msgid "Address: "
 msgstr "Adresse:"
 
@@ -113,47 +113,47 @@ msgstr "Wichtigsten rechts Widget-Bereich"
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Widgets Fügen Sie hier in Ihrer Seitenleiste angezeigt."
 
-#: functions.php:209
+#: functions.php:196
 msgid "Fractal Options"
 msgstr "Fractal Optionen"
 
-#: functions.php:214
+#: functions.php:201
 msgid "Fractal options"
 msgstr "Fractal Optionen"
 
-#: functions.php:227
+#: functions.php:214
 msgid "Social Media Settings"
 msgstr "Social Media-Einstellungen"
 
-#: functions.php:228
+#: functions.php:215
 msgid "Contact Data"
 msgstr "Konatktdaten"
 
-#: functions.php:233
+#: functions.php:218
 msgid "Facebook profile: "
 msgstr "Facebook profil: "
 
-#: functions.php:236
+#: functions.php:221
 msgid "Twitter profile: "
 msgstr "Twitter profil: "
 
-#: functions.php:239
+#: functions.php:224
 msgid "LinkedIn profile: "
 msgstr "LinkedIn profil: "
 
-#: functions.php:242
+#: functions.php:227
 msgid "Google+ profile: "
 msgstr "Google+ profil: "
 
-#: functions.php:255
+#: functions.php:241
 msgid "How to get: "
 msgstr "Wie kommt man hin: "
 
-#: functions.php:290
+#: functions.php:276
 msgid "Our team photo size"
 msgstr "Unser Team Fotoformat"
 
-#: functions.php:291
+#: functions.php:277
 msgid "Points icon size"
 msgstr "Punkte Icon-Größe"
 
@@ -168,6 +168,10 @@ msgstr "Über uns"
 #: home-template.php:72
 msgid "Learn More"
 msgstr "Mehr Erfahren"
+
+#: home-template.php:105 home-template.php:126
+msgid "CUSTOMERS"
+msgstr "Kunden"
 
 #: index.php:92
 msgid "Sorry, no posts matched your criteria."
