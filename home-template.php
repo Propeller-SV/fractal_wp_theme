@@ -102,7 +102,7 @@
 		<section class="customer">
 			<div class="heading">
 				<div class="container">
-					<h2 class="text-center">CUSTOMERS<br><span>&#9830;</span></h2>
+					<h2 class="text-center"><?php _e('CUSTOMERS', 'fractal'); ?><br><span>&#9830;</span></h2>
 				</div>
 			</div>
 			<div class="container">
@@ -123,7 +123,7 @@
 		<section class="customer">
 			<div class="heading">
 				<div class="container">
-					<h2 class="text-center">CUSTOMERS<br><span>&#9830;</span></h2>
+					<h2 class="text-center"><?php _e('CUSTOMERS', 'fractal'); ?><br><span>&#9830;</span></h2>
 				</div>
 			</div>
 			<div class="container">
