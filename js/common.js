@@ -33,15 +33,9 @@ function initialize() {
 					content: contentString
 					});
 
-				var companyImage = new google.maps.MarkerImage(WPDATA.templateUrl + '/img/marker.png',
-					new google.maps.Size(50,73),
-					new google.maps.Point(0,0),
-					new google.maps.Point(50,50));
-
 				var marker = new google.maps.Marker({
 					position: results[0].geometry.location,
 					map: map,
-					icon: companyImage,
 					title:address,
 					zIndex: 3
 				});
