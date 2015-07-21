@@ -123,9 +123,10 @@ function current_theme_resources()
 	wp_enqueue_script( 'custom-script', SCRIPTS . '/bootstrap.min.js', array( 'jquery' ) );
 	wp_enqueue_script( 'bootstrap-jquery', SCRIPTS . '/jquery.min.js' );
 
-	wp_register_script( 'common-map', SCRIPTS . '/common.js' );
-	wp_localize_script( 'common-map', 'WPURLS', array( 'templateUrl' => get_bloginfo( 'template_url' ) ) );
-	wp_enqueue_script( 'common-map' );
+	wp_register_script( 'common-fractal', SCRIPTS . '/common.js' );
+	wp_localize_script( 'common-fractal', 'WPDATA', array( 'templateUrl' => get_bloginfo( 'template_url' ), 'address' => get_option('fractal_options')['address'], 'how_to_get' => get_option('fractal_options')['how_to_get'] ) );
+	wp_enqueue_script( 'common-fractal' );
+	wp_enqueue_script('google-maps', 'http://maps.google.com/maps/api/js?sensor=false', NULL, NULL);
 }
 
 add_action( 'wp_enqueue_scripts', 'current_theme_resources' );
@@ -191,15 +192,15 @@ function is_blog () {
  * Footer social menu links
  * ----------------------------------------------------------------------------------------
  */
-function social_links() {
-	add_menu_page( __('Fractal Options', 'fractal'), __('Fractal Options', 'fractal'), 'manage_options', 'fractal_links_page', 'display_fractal_links_page', 'dashicons-facebook' );
+function fractal_options() {
+	add_menu_page( __('Fractal Options', 'fractal'), __('Fractal Options', 'fractal'), 'manage_options', 'fractal_options_page', 'display_fractal_options_page', 'dashicons-admin-generic' );
 }
-function display_fractal_links_page() {
+function display_fractal_options_page() {
 	?>
 	<div class="wrap">
-		<h2><?php _e('Social media options', 'fractal'); ?></h2>
+		<h2><?php _e('Fractal options', 'fractal'); ?></h2>
 		<form method="post" action="options.php">
-			<?php settings_fields( 'fractal_links_page' ); ?>
+			<?php settings_fields( 'fractal_options_page' ); ?>
 			<?php do_settings_sections( __FILE__ ); ?>
 			<?php submit_button(); ?>
 		</form>
@@ -209,46 +210,53 @@ function display_fractal_links_page() {
 
 function initialize_fractal_options() {
 
-	$profiles = ['facebook', 'twitter', 'linked_in', 'google_plus'];
 
 	add_settings_section( 'main_social_section', __('Social Media Settings', 'fractal'), function() {}, __FILE__ );
+	add_settings_section( 'contact_data_section', __('Contact Data', 'fractal'), function() {}, __FILE__ );
 
-	foreach ($profiles as $profile) {
-		add_settings_field( $profile . '_link', $profile . ' profile: ', $profile . '_cb', __FILE__, 'main_social_section' );
-	}
-	register_setting( 'fractal_links_page', 'social_links', 'url_validate' );
 
-	function facebook_cb() {
-		$options = (array)get_option( 'social_links' );
-		?><input type="text" name="social_links[facebook]" value="<?php echo $options['facebook']; ?>"><?php
-	}
+	add_settings_field( 'facebook_link', __('Facebook profile: ', 'fractal'), function() { $options = get_option( 'fractal_options' );
+		?><input type="text" name="fractal_options[facebook]" value="<?php echo isset($options['facebook']) ? $options['facebook'] : ''; ?>" size="60"><?php
+	}, __FILE__, 'main_social_section' );
+	add_settings_field( 'twitter_link', __('Twitter profile: ', 'fractal'), function() { $options = get_option( 'fractal_options' );
+		?><input type="text" name="fractal_options[twitter]" value="<?php echo isset($options['twitter']) ? $options['twitter'] : ''; ?>" size="60"><?php
+	}, __FILE__, 'main_social_section' );
+	add_settings_field( 'linked_in_link', __('LinkedIn profile: ', 'fractal'), function() { $options = get_option( 'fractal_options' );
+		?><input type="text" name="fractal_options[linked_in]" value="<?php echo isset($options['linked_in']) ? $options['linked_in'] : ''; ?>" size="60"><?php
+	}, __FILE__, 'main_social_section' );
+	add_settings_field( 'google_plus_link', __('Google+ profile: ', 'fractal'), function() { $options = get_option( 'fractal_options' );
+		?><input type="text" name="fractal_options[google_plus]" value="<?php echo isset($options['google_plus']) ? $options['google_plus'] : ''; ?>" size="60"><?php
+	}, __FILE__, 'main_social_section' );
 
-	function twitter_cb() {
-		$options = (array)get_option( 'social_links' );
-		?><input type="text" name="social_links[twitter]" value="<?php echo $options['twitter']; ?>"><?php
-	}
 
-	function linked_in_cb() {
-		$options = (array)get_option( 'social_links' );
-		?><input type="text" name="social_links[linked_in]" value="<?php echo $options['linked_in']; ?>"><?php
-	}
+	add_settings_field( 'fractal_phone_data', __('Phone: ', 'fractal'), function() { $options = get_option( 'fractal_options' );
+		?><input type="text" name="fractal_options[phone]" value="<?php echo isset($options['phone']) ? $options['phone'] : ''; ?>" size="40"><?php
+	}, __FILE__, 'contact_data_section' );
+	add_settings_field( 'fractal_email_data', __('Email: ', 'fractal'), function() { $options = get_option( 'fractal_options' );
+		?><input type="text" name="fractal_options[email]" value="<?php echo isset($options['email']) ? $options['email'] : ''; ?>" size="40"><?php
+	}, __FILE__, 'contact_data_section' );
+	add_settings_field( 'fractal_address_data', __('Address: ', 'fractal'), function() { $options = get_option( 'fractal_options' );
+		?><input type="text" name="fractal_options[address]" value="<?php echo isset($options['address']) ? $options['address'] : ''; ?>" size="60"><?php
+	}, __FILE__, 'contact_data_section' );
+	add_settings_field( 'fractal_how_to_get_data', __('How to get: ', 'fractal'), function() { $options = get_option( 'fractal_options' );
+		?><textarea name="fractal_options[how_to_get]" cols="60"><?php echo isset($options['how_to_get']) ? $options['how_to_get'] : ''; ?></textarea><?php
+	}, __FILE__, 'contact_data_section' );
 
-	function google_plus_cb() {
-		$options = (array)get_option( 'social_links' );
-		?><input type="text" name="social_links[google_plus]" value="<?php echo $options['google_plus']; ?>"><?php
-	}
+	register_setting( 'fractal_options_page', 'fractal_options', 'url_validate' );
+
 }
 
 // Sanitize URLs to add to database
 function url_validate($url) {
-	$links = [];
-	foreach ($url as $key => $link) {
-		$links[$key] = esc_url_raw($link);
-	}
-	return $links;
+	// $links = [];
+	// foreach ($url as $key => $link) {
+	// 	$links[$key] = esc_url_raw($link);
+	// }
+	// return $links;
+	return $url;
 }
 
-add_action( 'admin_menu', 'social_links' );
+add_action( 'admin_menu', 'fractal_options' );
 add_action( 'admin_init', 'initialize_fractal_options' );
 
 /**
