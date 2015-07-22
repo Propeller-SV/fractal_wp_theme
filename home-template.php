@@ -78,18 +78,27 @@
 		</div><!-- end of container -->
 	</section><!-- end of fragment -->
 
-	<section class="content">
-		<div class="container">
-			<h3>SPECIAL OFFER!</h3>
-			<h2>SAVE 30% this week!</h2>
-			<p>
-				This is Photoshop's version of Lorem Ipsum.
-				Proin gravida nibn vel velit auctor aliquet. Aenean sollicitudin,
-				lorem quis.
-			</p>
-			<p><a href="" role="button">View</a></p>
-		</div><!-- end of container -->
-	</section><!-- end of content -->
+	<?php
+	if (isset(get_option('fractal_options')['special_offer'])) {
+		$special_offer = get_option('fractal_options')['special_offer'];
+		if ($special_offer) {
+			?>
+			<section class="content">
+				<div class="container">
+					<h3>SPECIAL OFFER!</h3>
+					<h2>SAVE 30% this week!</h2>
+					<p>
+						This is Photoshop's version of Lorem Ipsum.
+						Proin gravida nibn vel velit auctor aliquet. Aenean sollicitudin,
+						lorem quis.
+					</p>
+					<p><a href="" role="button">View</a></p>
+				</div><!-- end of container -->
+			</section><!-- end of content -->
+			<?php
+		}
+	}
+	?>
 
 	<!-- Insert "Our Customers" section if at least one member is set -->
 	<?php
@@ -97,7 +106,7 @@
 		$our_customers_data = get_post_meta(get_the_id(), 'our_customers_data', true);
 	}
 	if ( isset($our_customers_data['image_url']) ) {
-        $count = count($our_customers_data['image_url']);
+		$count = count($our_customers_data['image_url']);
 	?>
 		<section class="customer">
 			<div class="heading">
