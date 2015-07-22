@@ -1,4 +1,5 @@
-<section class="contact">
+<?php $background = get_option( 'fractal_options' )['contactform_background_image']; ?>
+<section class="contact" <?php echo (isset($background) && $background) ? 'style="background-image: url(' . $background . ')"' : ''; ?>>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12">
