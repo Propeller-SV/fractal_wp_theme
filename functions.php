@@ -199,7 +199,7 @@ function display_fractal_options_page() {
 	?>
 	<div class="wrap">
 		<h2><?php _e('Fractal options', 'fractal'); ?></h2>
-		<form method="post" action="options.php">
+		<form method="post" action="options.php" enctype="multipart/form-data">
 			<?php settings_fields( 'fractal_options_page' ); ?>
 			<?php do_settings_sections( __FILE__ ); ?>
 			<?php submit_button(); ?>
@@ -213,6 +213,7 @@ function initialize_fractal_options() {
 
 	add_settings_section( 'main_social_section', __('Social Media Settings', 'fractal'), function() {}, __FILE__ );
 	add_settings_section( 'contact_data_section', __('Contact Data', 'fractal'), function() {}, __FILE__ );
+	add_settings_section( 'fractal_theme_settings', __('Theme Settings', 'fractal'), function() {}, __FILE__ );
 
 
 	add_settings_field( 'facebook_link', __('Facebook profile: ', 'fractal'), function() { $options = get_option( 'fractal_options' );
@@ -242,18 +243,35 @@ function initialize_fractal_options() {
 		?><textarea name="fractal_options[how_to_get]" cols="60"><?php echo isset($options['how_to_get']) ? $options['how_to_get'] : ''; ?></textarea><?php
 	}, __FILE__, 'contact_data_section' );
 
-	register_setting( 'fractal_options_page', 'fractal_options', 'url_validate' );
+
+	add_settings_field( 'contactform_background_image', __('Contactform Background: ', 'fractal'), function() { $options = get_option( 'fractal_options' );
+		?><input type="file" id="contactform_background_image" name="contactform_background_image" size="25" /><br>
+		<input type="text" name="fractal_options[contactform_background_image]" value="<?php echo $options['contactform_background_image']; ?>" size="80"><br>
+		<img src="<?php echo $options['contactform_background_image']; ?>" alt='...' width="250"><?php
+	}, __FILE__, 'fractal_theme_settings' );
+	add_settings_field( 'special_offer_status', __('Enable Special Offer: ', 'fractal'), function() { $options = get_option( 'fractal_options' );
+		?><input type="checkbox" name="fractal_options[special_offer]" <?php echo (isset($options['special_offer']) && $options['special_offer']) ? 'checked' : ''; ?>><?php
+	}, __FILE__, 'fractal_theme_settings' );
+
+	register_setting( 'fractal_options_page', 'fractal_options', 'fractal_validate' );
 
 }
 
 // Sanitize URLs to add to database
-function url_validate($url) {
+function fractal_validate($options) {
 	// $links = [];
 	// foreach ($url as $key => $link) {
 	// 	$links[$key] = esc_url_raw($link);
 	// }
 	// return $links;
-	return $url;
+	if ( !empty($_FILES['contactform_background_image']['tmp_name']) ) {
+		$override = array('test_form' => false);
+		$file = wp_handle_upload($_FILES['contactform_background_image'], $override);
+		$options['contactform_background_image'] = $file['url'];
+	} else {
+		// $options['contactform_background_image'] = $options['contactform_background_image'];
+	}
+	return $options;
 }
 
 add_action( 'admin_menu', 'fractal_options' );
