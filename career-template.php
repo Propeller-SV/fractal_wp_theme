@@ -21,28 +21,21 @@
 					<div class="col-md-9">
 						<?php $icons = ['glyphicon glyphicon-camera', 'glyphicon glyphicon-bullhorn', 'fa fa-gavel'] ?>
 						<?php
-						?>
-						<?php
 						$main_points_data = get_post_meta(get_the_id(), 'main_points_data', true);
-						if (isset($main_points_data['point'])) {
-							for ($i=0; $i<count($main_points_data['point']); $i++) {
-								?>
-								<div class="blurb col-xs-12 col-sm-4">
-									<div class="blurb-text">
-										<?php
-										if (isset($main_points_data['icon'][$i]) && $main_points_data['icon'][$i]) {
-											echo '<div class="center"><img src="' . esc_url( $main_points_data['icon'][$i] ) . '" alt=""></div>';
-										} else {
-											echo '<div class="center"><i class="' . $icons[$i % 3] . '"></i></div>';
-										}
-										?>
-										<p class="text-center">
-										<?php echo($main_points_data['point'][$i]); ?>
-										</p>
+						$count = isset($main_points_data['point']) ? count($main_points_data['point']) : count($icons);
+						for ($i=0; $i<$count; $i++) {
+							?>
+							<div class="blurb col-xs-12 col-sm-4">
+								<div class="blurb-text">
+									<div class="center">
+										<?php echo (isset($main_points_data['icon'][$i]) && $main_points_data['icon'][$i]) ? '<img src="' . esc_url( $main_points_data['icon'][$i] ) . '" alt="">' : '<i class="' . $icons[$i % 3] . '"></i>'; ?>
 									</div>
-								</div><!-- end of blurb -->
-							<?php }
-						} ?>
+									<p class="text-center">
+										<?php echo isset($main_points_data['point'][$i]) ? $main_points_data['point'][$i] : 'Print this page to PDF for the complete set of vectors. Or to use on the desktop, install FontAwesome.otf, set it as the font in your application, and copy and paste the icons (notthe unicode) directly from this page into your designs.'; ?>
+									</p>
+								</div>
+							</div><!-- end of blurb -->
+						<?php }	?>
 					</div>
 					<div class="photofit col-xs-12 col-sm-3">
 						<img src="<?php echo IMAGES; ?>/banner-foto.png"/>
