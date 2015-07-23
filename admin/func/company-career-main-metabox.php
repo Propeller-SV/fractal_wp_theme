@@ -43,7 +43,7 @@ function main_company_points_options() {
 				<div class="main_point" style="border : 1px solid">
 					<label for="point-<?php echo $i+1 ?>">Point <?php echo $i+1; ?>:</label>
 					<textarea id="point-<?php echo $i+1 ?>" name="main_points[point][]" cols="30" rows="2"><?php esc_html_e( $main_points_data['point'][$i] ); ?></textarea>
-					<input class="button" type="button" value="Remove Point" onclick="jQuery(this).closest('div').remove();" />
+					<input class="button" type="button" value="<?php _e('Remove Point', 'fractal'); ?>" onclick="jQuery(this).closest('div').remove();" />
 					<input type="text" class="main_point_icon" name="main_points[icon][]" value="<?php echo isset($main_points_data['icon'][$i]) ? esc_url( $main_points_data['icon'][$i] ) : ''; ?>" placeholder="<?php _e('Select icon', 'fractal'); ?>" size="80" />
 					<input class="button" type="button" value="<?php _e('Add icon', 'fractal'); ?>" onclick="add_point_icon(this)" />
 					<div class="point_icon_wrap"><img src="<?php echo isset($main_points_data['icon'][$i]) ? esc_url( $main_points_data['icon'][$i] ) : ''; ?>" height="32" width="32" /></div>
@@ -53,15 +53,18 @@ function main_company_points_options() {
 		</div> <!-- end #main_points -->
 
 		<div id="main_points_row" style="clear:both; display:none">
-			<div>
-				<label>Point</label>
+			<div class="main_point" style="border : 1px solid">
+				<label><?php _e('Point', 'fractal'); ?></label>
 				<textarea name="main_points[point][]" cols="30" rows="2"></textarea>
-				<input class="button" type="button" value="Remove Point" onclick="jQuery(this).closest('div').remove();" />
+				<input class="button" type="button" value="<?php _e('Remove Point', 'fractal'); ?>" onclick="jQuery(this).closest('div').remove();" />
+				<input type="text" class="main_point_icon" name="main_points[icon][]" value="" placeholder="<?php _e('Select icon', 'fractal'); ?>" size="80" />
+				<input class="button" type="button" value="<?php _e('Add icon', 'fractal'); ?>" onclick="add_point_icon(this)" />
+				<div class="point_icon_wrap"></div>
 			</div>
 		</div>
 
 		<div>
-			<input class="button" type="button" value="Add Point" onclick="jQuery('#main_points').append(jQuery('#main_points_row').html());" />
+			<input class="button" type="button" value="<?php _e('Add Point', 'fractal'); ?>" onclick="jQuery('#main_points').append(jQuery('#main_points_row').html());" />
 		</div>
 	</div>
 
