@@ -20,8 +20,32 @@
 				</div>
 				<div class="pin col-xs-12 col-sm-12">
 					<p class="text-center">
-						<input class="text-uppercase" data-toggle="modal" data-target="#myModal" type="submit" name="cf-submitted" value="<?php _e('send', 'fractal');?>"/>
+						<input class="text-uppercase" type="submit" name="cf-submitted" value="<?php _e('send', 'fractal');?>"/>
 					</p>
+
+					<!-- Modal -->
+					<div>
+						<button type="button" class="btn btn-primary success hidden" data-toggle="modal" data-target=".bs-example-modal-md">Small modal</button>
+
+						<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+						  <div class="modal-dialog modal-sm">
+						    <div class="modal-content" style="color: black">
+						      Thanks for contacting us, expect a response soon.
+						    </div>
+						  </div>
+						</div>
+					</div>
+					<div>
+						<button type="button" class="btn btn-primary error hidden" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+
+						<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+						  <div class="modal-dialog modal-sm">
+						    <div class="modal-content" style="color: black">
+						      An unexpected error occurred.
+						    </div>
+						  </div>
+						</div>
+					</div>
 				</div>
 			</form>
 		</div><!-- end of row -->
