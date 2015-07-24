@@ -35,7 +35,8 @@ function action_wp_create_top_nav_menu() {
 			'theme_location'	=> 'primary',
 			'menu'				=> 'Top menu EN',
 			'container'			=> '',
-			'menu_class'		=> 'navbar-main nav text-uppercase'
+			'menu_class'		=> 'navbar-main nav text-uppercase',
+			'menu_id'			=> 'top-nav-menu'
 		));
 	elseif ($currentlang == "de-DE") :
 		// Check if the menu exists
@@ -56,7 +57,8 @@ function action_wp_create_top_nav_menu() {
 			'theme_location'	=> 'primary',
 			'menu'				=> 'Top menu DE',
 			'container'			=> '',
-			'menu_class'		=> 'navbar-main nav text-uppercase'
+			'menu_class'		=> 'navbar-main nav text-uppercase',
+			'menu_id'			=> 'top-nav-menu'
 		));
 	endif;
 };
