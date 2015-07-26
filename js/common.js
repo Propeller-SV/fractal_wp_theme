@@ -56,15 +56,16 @@ function initialize() {
 
 // Add icons to mobile menu
 $(function() {
-	var aTags = document.getElementById('navbar').getElementsByTagName('a');
-	var searchText = ['home', 'software engineering', 'company', 'career'];
-	var icons = ['glyphicon-home', 'glyphicon-cog', 'glyphicon-list-alt', 'glyphicon-user'];
+	var aTags = document.getElementById('top-nav-menu').getElementsByTagName('a');
+	// var searchText = ['home', 'software engineering', 'company', 'career'];
+	var icons = ['glyphicon glyphicon-home', 'glyphicon glyphicon-cog', 'glyphicon glyphicon-list-alt', 'glyphicon glyphicon-user'];
+	var custom_icons = jQuery.parseJSON(WPDATA.mobile_menu_icons);
 	var found;
 
 	for (var i = 0; i < aTags.length; i++) {
-	  if (aTags[i].textContent.toLowerCase() == searchText[i]) {
+	  // if (aTags[i].textContent.toLowerCase() == searchText[i]) {
 		found = aTags[i];
-		found.innerHTML = "<i class='hidden-sm hidden-md hidden-lg glyphicon " + icons[i] + "'></i> " + searchText[i];
-		}
+		found.innerHTML = "<i class='hidden-sm hidden-md hidden-lg " + (custom_icons[i] ? custom_icons[i] : icons[i % 4]) + "'></i> " + found.innerHTML;
+		// }
 	}
 });
