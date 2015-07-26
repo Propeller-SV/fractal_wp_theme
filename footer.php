@@ -20,11 +20,11 @@
 				</div>
 				<div class="col-sm-8 col-md-6">
 					<ul class="nav nav-pills">
-						<?php $options = (array)get_option('fractal_options');
-						$icons = ['/facebook.png', '/twitter.png', '/linkedin.png', '/google.png'];
-						for ($i=0; $i<count($icons); $i++) {
+						<?php $options = get_option( 'fractal_options' );
+						$accounts = ['facebook', 'twitter', 'linkedin', 'google'];
+						for ($i=0; $i<count($accounts); $i++) {
 							?>
-							<li><a href="<?php echo isset(array_values($options)[$i]) ? esc_url(array_values($options)[$i]) : ''; ?>"><img src="<?php echo IMAGES . $icons[$i]; ?>"></a></li>
+							<li><a href="<?php echo isset($options[$accounts[$i]]) ? esc_url($options[$accounts[$i]]) : ''; ?>"><img src="<?php echo (isset($options[$accounts[$i] . '_icon']) && $options[$accounts[$i] . '_icon']) ? esc_url($options[$accounts[$i] . '_icon']) : IMAGES . '/' . $accounts[$i] . '.png'; ?>"></a></li>
 							<?php
 						}
 						?>
