@@ -131,7 +131,12 @@ function current_theme_resources()
 	wp_enqueue_script( 'bootstrap-jquery', SCRIPTS . '/jquery.min.js' );
 
 	wp_register_script( 'common-fractal', SCRIPTS . '/common.js' );
-	wp_localize_script( 'common-fractal', 'WPDATA', array( 'templateUrl' => get_bloginfo( 'template_url' ), 'address' => get_option('fractal_options')['address'], 'how_to_get' => get_option('fractal_options')['how_to_get'] ) );
+	wp_localize_script( 'common-fractal', 'WPDATA', array(
+		'templateUrl'		=> get_bloginfo( 'template_url' ),
+		'address'			=> get_option('fractal_options')['address'],
+		'how_to_get'		=> get_option('fractal_options')['how_to_get'],
+		'mobile_menu_icons' => json_encode(get_option( 'fractal_options')['mobile_menu_icons'])
+		) );
 	wp_enqueue_script( 'common-fractal' );
 	wp_enqueue_script('google-maps', 'http://maps.google.com/maps/api/js?sensor=false', NULL, NULL);
 }
@@ -164,7 +169,7 @@ function deliver_mail() {
 		if ( wp_mail( $to, $subject, $message, $headers ) ) {
 
 			?>
-			<script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+			<script src="<?php echo SCRIPTS; ?>/jquery.min.js" type="text/javascript"></script>
 			<script>
 				$(document).ready(function() {
 				    $(".success").trigger('click');
@@ -174,7 +179,7 @@ function deliver_mail() {
 
 		} else {
 			?>
-			<script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+			<script src="<?php echo SCRIPTS; ?>/jquery.min.js" type="text/javascript"></script>
 			<script>
 				$(document).ready(function() {
 				    $(".error").trigger('click');
