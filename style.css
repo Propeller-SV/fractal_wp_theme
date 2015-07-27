@@ -436,6 +436,10 @@ footer li.current-menu-item a{
 .text-bottom-tabs .paragraph span {
 	color: #7a7979;
 }
+#map_canvas {
+	width: 100%;
+	min-height: 200px;
+}
 
 /*
 *=======================================================================================================
