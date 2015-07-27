@@ -19,29 +19,21 @@
 			<div class="row">
 				<div class="col-sm-8">
 					<div class="text-top">
-						<?php
-
-						while ( have_posts() ) : the_post();
-
+						<?php while ( have_posts() ) : the_post();
 							the_content();
-
-						endwhile;
-						?>
+						endwhile; ?>
 					</div><!-- end of text-top -->
 				</div><!-- end of col-sm-8 -->
 
 				<!-- if "why_fractal" heading is set - display this -->
 				<?php
-				if (get_post_meta(get_the_id(), 'why_fractal_data', true)) {
-					$why_fractal_data = get_post_meta(get_the_id(), 'why_fractal_data', true);
-				}
-				if (isset($why_fractal_data['heading'][0])) {
-					?>
+				$why_fractal_data = get_post_meta(get_the_id(), 'why_fractal_data', true);
+				if (isset($why_fractal_data['heading'][0]) && $why_fractal_data['heading'][0]): ?>
 					<div class="col-sm-4">
 						<div class="text-top">
-							<h3 class="text-center"><?php
-							echo(strtoupper($why_fractal_data['heading'][0]));
-							?></h3>
+							<h3 class="text-center">
+							<?php echo(strtoupper($why_fractal_data['heading'][0])); ?>
+							</h3>
 							<p>
 								<?php if (isset($why_fractal_data['reason'][0]))
 									echo($why_fractal_data['reason'][0]); ?>
@@ -57,7 +49,7 @@
 							</ul>
 						</div><!-- end of text-top -->
 					</div><!-- end of col-sm-4 -->
-				<?php } else { ?>
+				<?php else : ?>
 				<!-- if "why_fractal" heading is NOT set - display this -->
 					<div class="col-sm-4">
 						<div class="text-top">
@@ -76,7 +68,7 @@
 							</ul>
 						</div><!-- end of text-top -->
 					</div><!-- end of col-sm-4 -->
-				<?php } ?>
+				<?php endif; ?>
 
 				<!-- Main Company Points -->
 				<div class="text-bottom col-sm-8">
@@ -84,8 +76,7 @@
 					$icons = ['fa fa-briefcase', 'fa fa-th-large', 'fa fa-truck', 'fa fa-trophy'];
 					$main_points_data = get_post_meta( get_the_id(), 'main_points_data', true );
 					$count = isset($main_points_data['point']) ? count($main_points_data['point']) : count($icons);
-					for ($i=0; $i < $count ; $i++) {
-						?>
+					for ($i=0; $i < $count ; $i++):	?>
 						<div class="col-sm-12">
 							<div class="col-sm-1">
 								<?php
@@ -108,9 +99,7 @@
 								</p>
 							</div>
 						</div><!-- end of col-xs-12 -->
-						<?php
-					}
-					?>
+					<?php endfor; ?>
 				</div><!-- end of Main Company Points -->
 
 				<!-- Map Widget -->
@@ -136,7 +125,7 @@
 								<span><?php echo isset($options['address']) ? $options['address'] : '' ; ?></span>
 							</p>
 						</div> <!-- end of info -->
-						<div id="map_canvas" style="width:100%; min-height: 200px"></div>
+						<div id="map_canvas"></div>
 					</div>
 				</div><!-- end of Map Widget -->
 			</div><!-- end of row -->
@@ -145,53 +134,42 @@
 
 	<!-- Insert "Our team" section if at least one member is set -->
 	<?php
-	if (get_post_meta(get_the_id(), 'employee_data', true)) {
-		$employee_data = get_post_meta(get_the_id(), 'employee_data', true);
-	}
-	if ( isset($employee_data['employee_image']) ) {
-		$count = count($employee_data['employee_image']);
-	?>
+	$employee_data = get_post_meta(get_the_id(), 'employee_data', true);
+	if ( isset($employee_data['employee_image']) ):	?>
 		<section class="team">
 			<div class="container">
 				<div class="row">
-					<section class="team">
-						<div class="container">
-							<div class="row">
-								<h1 class="text-center">Our team</h1>
+					<h1 class="text-center"><?php _e('Our team', 'fractal'); ?></h1>
+				</div>
+				<div class="row">
+					<?php $count = count($employee_data['employee_image']); ?>
+					<?php for ($i = 0; $i < $count; $i++): ?>
+						<div class="post col-sm-6 col-md-6 col-lg-3">
+							<div class="text-center">
+								<img src="<?php echo $employee_data['employee_image'][$i]; ?>"/>
 							</div>
-							<div class="row">
-								<?php
-								for ($i = 0; $i < $count; $i++) { ?>
-									<div class="post col-sm-6 col-md-6 col-lg-3">
-										<div class="text-center">
-											<img src="<?php echo $employee_data['employee_image'][$i]; ?>"/>
-										</div>
-										<?php if ($employee_data['employee_name'][$i])
-											echo "<h2 class='text-center'>" . $employee_data['employee_name'][$i] . "</h2>" ; ?>
-										<?php if ($employee_data['employee_position'][$i])
-											echo "<p class='text-center'>" . $employee_data['employee_position'][$i] ."</p>" ; ?>
-										<?php if ($employee_data['employee_about'][$i])
-											echo "<div class='text-center resume'><p>" . $employee_data['employee_about'][$i] . "</p>" ; ?>
-										</div>
-									</div><!-- end of post -->
-								<?php } ?>
-							</div><!-- end of row -->
-						</div><!-- end of container -->
-					</section><!-- end of team -->
+							<?php if ($employee_data['employee_name'][$i])
+								echo "<h2 class='text-center'>" . $employee_data['employee_name'][$i] . "</h2>" ; ?>
+							<?php if ($employee_data['employee_position'][$i])
+								echo "<p class='text-center'>" . $employee_data['employee_position'][$i] ."</p>" ; ?>
+							<?php if ($employee_data['employee_about'][$i])
+								echo "<div class='text-center resume'><p>" . $employee_data['employee_about'][$i] . "</p>" ; ?>
+							</div>
+						</div><!-- end of post -->
+					<?php endfor; ?>
 				</div><!-- end of row -->
 			</div><!-- end of container -->
 		</section><!-- end of team -->
 
 	<!-- Insert DEFAULT "Our team" section if NO MEMBERS -->
-	<?php } else { ?>
+	<?php else : ?>
 		<section class="team">
 			<div class="container">
 				<div class="row">
-					<h1 class="text-center">Our team</h1>
+					<h1 class="text-center"><?php _e('Our team', 'fractal'); ?></h1>
 				</div>
 				<div class="row">
-					<?php for ($i=1; $i<5; $i++) {
-						?>
+					<?php for ($i=1; $i<5; $i++): ?>
 						<div class="post col-sm-6 col-md-6 col-lg-3">
 							<div class="center">
 								<img src="<?php echo IMAGES; ?>/foto.png"/>
@@ -204,12 +182,11 @@
 								</p>
 							</div>
 						</div><!-- end of post -->
-						<?php
-					} ?>
+					<?php endfor; ?>
 				</div><!-- end of row -->
 			</div><!-- end of container -->
 		</section><!-- end of team -->
-	<?php } ?>
+	<?php endif; ?>
 
 <?php get_template_part( 'contactform' ); ?>
 <?php get_footer();?>
