@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fractal Soft\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-21 18:44+0200\n"
-"PO-Revision-Date: 2015-07-21 18:44+0200\n"
+"POT-Creation-Date: 2015-07-28 10:16+0200\n"
+"PO-Revision-Date: 2015-07-28 10:19+0200\n"
 "Last-Translator: Serhii Prokhorenko <grey.psv@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -25,13 +25,126 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SearchPathExcluded-1: vendor\n"
 
+#: admin/func/add-customer-metabox.php:46
+#: admin/func/add-customer-metabox.php:84
+msgid "Logo URL"
+msgstr "Logo URL"
+
+#: admin/func/add-customer-metabox.php:54
+#: admin/func/add-customer-metabox.php:88
+msgid "Link"
+msgstr "Link"
+
+#: admin/func/add-customer-metabox.php:68
+#: admin/func/add-customer-metabox.php:95 admin/func/our-team-metabox.php:78
+#: admin/func/our-team-metabox.php:111
+msgid "Choose File"
+msgstr "Datei auswählen"
+
+#: admin/func/add-customer-metabox.php:69
+#: admin/func/add-customer-metabox.php:97
+msgid "Remove Field"
+msgstr "Feld entfernen"
+
+#: admin/func/add-customer-metabox.php:104
+#: admin/func/our-team-metabox.php:120
+msgid "Add Field"
+msgstr "Fedl hinzufügen"
+
+#: admin/func/company-career-main-metabox.php:46
+#: admin/func/company-career-main-metabox.php:59
+msgid "Remove Point"
+msgstr "Punkt entfernen"
+
 #: admin/func/company-career-main-metabox.php:47
+#: admin/func/company-career-main-metabox.php:60
 msgid "Select icon"
 msgstr "Icon auswählen"
 
 #: admin/func/company-career-main-metabox.php:48
+#: admin/func/company-career-main-metabox.php:61
 msgid "Add icon"
 msgstr "Icon hinzufügen"
+
+#: admin/func/company-career-main-metabox.php:57
+msgid "Point"
+msgstr "Punkt"
+
+#: admin/func/company-career-main-metabox.php:67
+msgid "Add Point"
+msgstr "Punkt hinzufügen"
+
+#: admin/func/fractal_theme_options.php:8
+msgid "Fractal Options"
+msgstr "Fractal Optionen"
+
+#: admin/func/fractal_theme_options.php:13
+msgid "Fractal options"
+msgstr "Fractal Optionen"
+
+#: admin/func/fractal_theme_options.php:26
+msgid "Social Media Settings"
+msgstr "Social Media-Einstellungen"
+
+#: admin/func/fractal_theme_options.php:27
+msgid "Contact Data"
+msgstr "Konatktdaten"
+
+#: admin/func/fractal_theme_options.php:28
+msgid "Theme Settings"
+msgstr "Theme-Einstellungen"
+
+#: admin/func/fractal_theme_options.php:31
+msgid "Facebook profile: "
+msgstr "Facebook profil: "
+
+#: admin/func/fractal_theme_options.php:40
+msgid "Twitter profile: "
+msgstr "Twitter profil: "
+
+#: admin/func/fractal_theme_options.php:47
+msgid "LinkedIn profile: "
+msgstr "LinkedIn profil: "
+
+#: admin/func/fractal_theme_options.php:54
+msgid "Google+ profile: "
+msgstr "Google+ profil: "
+
+#: admin/func/fractal_theme_options.php:63 company-template.php:116
+msgid "Phone: "
+msgstr "Telefon: "
+
+#: admin/func/fractal_theme_options.php:66 company-template.php:120
+msgid "Email: "
+msgstr "Email: "
+
+#: admin/func/fractal_theme_options.php:69 company-template.php:124
+msgid "Address: "
+msgstr "Adresse:"
+
+#: admin/func/fractal_theme_options.php:72
+msgid "How to get: "
+msgstr "Wie kommt man hin: "
+
+#: admin/func/fractal_theme_options.php:77
+msgid "Contactform Background: "
+msgstr "Kontaktformular Background:"
+
+#: admin/func/fractal_theme_options.php:83
+msgid "Enable Special Offer: "
+msgstr "Aktivieren Sonderangebot:"
+
+#: admin/func/fractal_theme_options.php:87
+msgid "Mobile menu icons: "
+msgstr "Mobile Menüsymbole:"
+
+#: admin/func/fractal_theme_options.php:92
+msgid "Menu item"
+msgstr "Menüpunkt"
+
+#: admin/func/fractal_theme_options.php:93
+msgid "fontawesome OR glyphicon code"
+msgstr "fontawesome OR glyphicon Code"
 
 #: admin/func/menus/menus.php:5
 msgid "Primary Menu"
@@ -41,49 +154,69 @@ msgstr "Hauptmenü"
 msgid "Footer Menu"
 msgstr "Fußzeilenmenü"
 
-#: admin/func/menus/menus.php:49
+#: admin/func/menus/menus.php:50
 msgid "Add menu items to Top menu DE here"
 msgstr "In Menüpunkte auf Top-Menü DE hier"
 
-#: admin/func/menus/menus.php:104
+#: admin/func/menus/menus.php:106
 msgid "Add menu items to Footer menu DE here"
 msgstr "In Menüpunkte auf Footer menu DE hier"
 
-#: company-template.php:127 functions.php:232
-msgid "Phone: "
-msgstr "Telefon: "
+#: admin/func/our-team-metabox.php:44 admin/func/our-team-metabox.php:92
+msgid "Employee's photo"
+msgstr "Mitarbeiter-Foto"
 
-#: company-template.php:131 functions.php:235
-msgid "Email: "
-msgstr "Email: "
+#: admin/func/our-team-metabox.php:52 admin/func/our-team-metabox.php:96
+msgid "Employee's Name"
+msgstr "Mitarbeiter-Namen"
 
-#: company-template.php:135 functions.php:238
-msgid "Address: "
-msgstr "Adresse:"
+#: admin/func/our-team-metabox.php:60 admin/func/our-team-metabox.php:100
+msgid "Employee's Position"
+msgstr "Mitarbeiter-Position"
 
-#: contactform.php:5
+#: admin/func/our-team-metabox.php:68 admin/func/our-team-metabox.php:104
+msgid "About Employee"
+msgstr "Über Mitarbeiter"
+
+#: admin/func/our-team-metabox.php:79 admin/func/our-team-metabox.php:113
+msgid "Remove"
+msgstr "Entfernen"
+
+#: company-template.php:142 company-template.php:169
+msgid "Our team"
+msgstr "Team"
+
+#: contactform.php:6
 msgid "Contact Us"
 msgstr "Kontakt"
 
-#: contactform.php:9
+#: contactform.php:10
 msgid "Your Name"
 msgstr "Ihr Name"
 
-#: contactform.php:12
+#: contactform.php:13
 msgid "Email"
 msgstr "E-Mail"
 
-#: contactform.php:15
+#: contactform.php:16
 msgid "Phone"
 msgstr "Telefon"
 
-#: contactform.php:18
+#: contactform.php:19
 msgid "Your Message"
 msgstr "Ihre Nachricht"
 
-#: contactform.php:22
+#: contactform.php:23
 msgid "send"
 msgstr "Absenden"
+
+#: contactform.php:33
+msgid "Thanks for contacting us, expect a response soon."
+msgstr "Vielen Dank für Ihre Kontaktaufnahme, erwarten eine Antwort bald."
+
+#: contactform.php:44
+msgid "An unexpected error occurred."
+msgstr "Es ist ein unerwarteter Fehler aufgetreten."
 
 #: content-page.php:21
 msgid "Pages:"
@@ -105,55 +238,19 @@ msgstr "Folgen Sie uns:"
 msgid "All rights reserved"
 msgstr "Alle Rechte vorbehalten"
 
-#: functions.php:100
+#: functions.php:107
 msgid "Right Widget Area"
 msgstr "Wichtigsten rechts Widget-Bereich"
 
-#: functions.php:102
+#: functions.php:109
 msgid "Add widgets here to appear in your sidebar."
 msgstr "Widgets Fügen Sie hier in Ihrer Seitenleiste angezeigt."
 
-#: functions.php:196
-msgid "Fractal Options"
-msgstr "Fractal Optionen"
-
-#: functions.php:201
-msgid "Fractal options"
-msgstr "Fractal Optionen"
-
-#: functions.php:214
-msgid "Social Media Settings"
-msgstr "Social Media-Einstellungen"
-
-#: functions.php:215
-msgid "Contact Data"
-msgstr "Konatktdaten"
-
-#: functions.php:218
-msgid "Facebook profile: "
-msgstr "Facebook profil: "
-
-#: functions.php:221
-msgid "Twitter profile: "
-msgstr "Twitter profil: "
-
-#: functions.php:224
-msgid "LinkedIn profile: "
-msgstr "LinkedIn profil: "
-
-#: functions.php:227
-msgid "Google+ profile: "
-msgstr "Google+ profil: "
-
-#: functions.php:241
-msgid "How to get: "
-msgstr "Wie kommt man hin: "
-
-#: functions.php:276
+#: functions.php:230
 msgid "Our team photo size"
 msgstr "Unser Team Fotoformat"
 
-#: functions.php:277
+#: functions.php:231
 msgid "Points icon size"
 msgstr "Punkte Icon-Größe"
 
@@ -169,7 +266,7 @@ msgstr "Über uns"
 msgid "Learn More"
 msgstr "Mehr Erfahren"
 
-#: home-template.php:105 home-template.php:126
+#: home-template.php:114 home-template.php:135
 msgid "CUSTOMERS"
 msgstr "Kunden"
 
