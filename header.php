@@ -26,7 +26,7 @@
 
 	<?php wp_head(); ?>
 </head>
-<body <?php if (is_page( 'company' ) || is_page( 'firma' )) echo 'onload="initialize()"'; ?> <?php body_class(); ?>>
+<body <?php if (get_post_meta( get_the_id(), '_wp_page_template', true ) == 'company-template.php') echo 'onload="initialize()"'; ?> <?php body_class(); ?>>
 
 	<header>
 		<div class="navbar navbar-inverse navbar-header-custom navbar-fixed-top" role="navigation">
