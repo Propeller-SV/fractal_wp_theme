@@ -36,77 +36,69 @@ function fractal_customers_options() {
 
 <div id="dynamic_form">
 	<div id="field_wrap">
-	<?php
-	if ( isset( $our_customers_data['image_url'] ) ) {
-		for( $i = 0; $i < count( $our_customers_data['image_url'] ); $i++ ) {
-		?>
-		<div class="field_row">
-			<div class="field_left">
-				<div class="form_field">
-					<label><?php _e('Logo URL', 'fractal'); ?></label>
-					<input type="text"
-						class="meta_image_url"
-						name="gallery[image_url][]"
-						value="<?php esc_html_e( $our_customers_data['image_url'][$i] ); ?>"
-					/>
+	<?php if ( isset( $our_customers_data['image_url'] ) ): ?>
+		<?php for( $i = 0; $i < count( $our_customers_data['image_url'] ); $i++ ): ?>
+			<div class="field_row">
+				<div>
+					<div class="form_field">
+						<label><?php _e('Logo URL', 'fractal'); ?></label>
+						<input type="text"
+							class="meta_image_url"
+							name="gallery[image_url][]"
+							value="<?php esc_html_e( $our_customers_data['image_url'][$i] ); ?>"
+							placeholder="<?php _e('Paste customers logo URL', 'fractal'); ?>"
+						/>
+					</div>
+					<div class="form_field">
+						<label><?php _e('Link', 'fractal'); ?></label>
+						<input type="text"
+							class="meta_image_desc"
+							name="gallery[hyperlink][]"
+							value="<?php esc_html_e( $our_customers_data['hyperlink'][$i] ); ?>"
+							placeholder="<?php _e('Paste customers URL', 'fractal'); ?>"
+						/>
+					</div>
 				</div>
-				<div class="form_field">
-					<label><?php _e('Link', 'fractal'); ?></label>
-					<input type="text"
-						class="meta_image_desc"
-						name="gallery[hyperlink][]"
-						value="<?php esc_html_e( $our_customers_data['hyperlink'][$i] ); ?>"
-					/>
+
+				<div class="image_wrap">
+					<img src="<?php esc_html_e( $our_customers_data['image_url'][$i] ); ?>" height="48" width="48">
+				</div>
+
+				<div style="clear:both">
+					<input class="button" type="button" value="<?php _e('Choose Logo', 'fractal'); ?>" onclick="add_customer_image(this)">
+					<input class="button" type="button" value="<?php _e('Remove Field', 'fractal'); ?>" onclick="remove_field(this)">
 				</div>
 			</div>
-
-			<div class="field_right image_wrap">
-				<img src="<?php esc_html_e( $our_customers_data['image_url'][$i] ); ?>" height="48" width="48" />
-			</div>
-
-			<div class="field_right">
-				<input class="button" type="button" value="<?php _e('Choose File', 'fractal'); ?>" onclick="add_customer_image(this)" /><br />
-				<input class="button" type="button" value="<?php _e('Remove Field', 'fractal'); ?>" onclick="remove_field(this)" />
-			</div>
-
-			<div class="clear" /></div>
-		</div>
-		<?php
-		} // endforeach
-	} // endif
-	?>
-	</div>
+		<?php endfor; ?>
+	<?php endif; ?>
+	</div> <!-- End of field_wrap -->
 
 	<div style="display:none" id="master-row">
 		<div class="field_row">
-			<div class="field_left">
+			<div>
 				<div class="form_field">
 					<label><?php _e('Logo URL', 'fractal'); ?></label>
-					<input class="meta_image_url" value="" type="text" name="gallery[image_url][]" />
+					<input class="meta_image_url" value="" type="text" name="gallery[image_url][]" placeholder="<?php _e('Paste customers logo URL', 'fractal'); ?>">
 				</div>
 				<div class="form_field">
 					<label><?php _e('Link', 'fractal'); ?></label>
-					<input class="meta_image_desc" value="" type="text" name="gallery[hyperlink][]" />
+					<input class="meta_image_desc" value="" type="text" name="gallery[hyperlink][]" placeholder="<?php _e('Paste customers URL', 'fractal'); ?>">
 				</div>
 			</div>
-			<div class="field_right image_wrap">
+			<div class="image_wrap"></div>
+			<div style="clear:both">
+				<input type="button" class="button" value="<?php _e('Choose Logo', 'fractal'); ?>" onclick="add_customer_image(this)">
+				<input class="button" type="button" value="<?php _e('Remove Field', 'fractal'); ?>" onclick="remove_field(this)">
 			</div>
-			<div class="field_right">
-				<input type="button" class="button" value="<?php _e('Choose File', 'fractal'); ?>" onclick="add_customer_image(this)" />
-				<br />
-				<input class="button" type="button" value="<?php _e('Remove Field', 'fractal'); ?>" onclick="remove_field(this)" />
-			</div>
-			<div class="clear"></div>
 		</div>
 	</div>
 
 	<div id="add_field_row">
-		<input class="button" type="button" value="<?php _e('Add Field', 'fractal'); ?>" onclick="add_field_row();" />
+		<input class="button" type="button" value="<?php _e('Add Field', 'fractal'); ?>" onclick="add_field_row();">
 	</div>
-
 </div>
 
-	<?php
+<?php
 }
 
 /**
@@ -119,20 +111,6 @@ function print_scripts() {
 		return;
 	?>
 	<style type="text/css">
-		.field_left {
-		float:left;
-		width: 80%;
-		}
-
-		.field_right {
-		float:left;
-		margin-left:10px;
-		}
-
-		.clear {
-		clear:both;
-		}
-
 		#dynamic_form input[type=text] {
 		width:100%;
 		}
@@ -160,7 +138,7 @@ function print_scripts() {
 				inputField.val(url);
 				jQuery(parent)
 				.find("div.image_wrap")
-				.html('<img src="'+url+'" height="48" width="48" />');
+				.html('<img src="'+url+'" height="48" width="48">');
 
 				tb_remove();
 			};
@@ -184,8 +162,7 @@ function print_scripts() {
 /**
  * Save post action, process fields
  */
-function update_post_gallery( $post_id, $post_object )
-{
+function update_post_gallery( $post_id, $post_object ) {
 	// Doing revision, exit earlier **can be removed**
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 		return;
