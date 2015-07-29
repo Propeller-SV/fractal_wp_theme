@@ -78,11 +78,9 @@
 		</div><!-- end of container -->
 	</section><!-- end of fragment -->
 
-	<?php
-	if (isset(get_option('fractal_options')['special_offer'])) {
-		$special_offer = get_option('fractal_options')['special_offer'];
-		if ($special_offer) {
-			?>
+	<?php if (isset(get_option('fractal_options')['special_offer'])): ?>
+		<?php $special_offer = get_option('fractal_options')['special_offer']; ?>
+		<?php if ($special_offer): ?>
 			<section class="content">
 				<div class="container">
 					<h3>SPECIAL OFFER!</h3>
@@ -92,22 +90,16 @@
 						Proin gravida nibn vel velit auctor aliquet. Aenean sollicitudin,
 						lorem quis.
 					</p>
-					<p><a href="" role="button">View</a></p>
+					<p><a href="" role="button"><?php _e('View', 'fractal'); ?></a></p>
 				</div><!-- end of container -->
 			</section><!-- end of content -->
-			<?php
-		}
-	}
-	?>
+		<?php endif; ?>
+	<?php endif; ?>
 
 	<!-- Insert "Our Customers" section if at least one member is set -->
-	<?php
-	if (get_post_meta(get_the_id(), 'our_customers_data', true)) {
-		$our_customers_data = get_post_meta(get_the_id(), 'our_customers_data', true);
-	}
-	if ( isset($our_customers_data['image_url']) ) {
-		$count = count($our_customers_data['image_url']);
-	?>
+	<?php $our_customers_data = get_post_meta(get_the_id(), 'our_customers_data', true); ?>
+	<?php if ( isset($our_customers_data['image_url']) ): ?>
+		<?php $count = count($our_customers_data['image_url']); ?>
 		<section class="customer">
 			<div class="heading">
 				<div class="container">
@@ -117,18 +109,16 @@
 			<div class="container">
 				<div class="row">
 					<ul class="list-unstyled">
-						<?php
-						for ($i = 0; $i < $count; $i++) {
-							echo "<li class='col-sm-6 col-md-3 text-center'><a href='" . esc_url($our_customers_data['hyperlink'][$i]) . "'><img src='" . esc_url($our_customers_data['image_url'][$i]) . "' alt='Customer'></a></li>";
-						}
-						?>
+						<?php for ($i = 0; $i < $count; $i++): ?>
+							<li class='col-sm-6 col-md-3 text-center'><a href='<?= esc_url($our_customers_data['hyperlink'][$i]); ?>'><img src='<?= esc_url($our_customers_data['image_url'][$i]); ?>' alt='Customer'></a></li>
+						<?php endfor; ?>
 					</ul>
 				</div><!-- end of row -->
 			</div><!-- end of container -->
-		</section><!-- end of content -->
+		</section><!-- end of customer -->
 
 	<!-- Insert DEFAULT "Our team" section if NO MEMBERS -->
-	<?php } else { ?>
+	<?php else : ?>
 		<section class="customer">
 			<div class="heading">
 				<div class="container">
@@ -138,14 +128,14 @@
 			<div class="container">
 				<div class="row">
 					<ul class="list-unstyled">
-						<?php for ($i=1; $i<5; $i++) {
-						echo "<li class='col-sm-6 col-md-3 text-center'><a href='#'><img src='" . IMAGES . "/layer-" . $i . ".png'></a></li>";
-						} ?>
+						<?php for ($i=1; $i<5; $i++): ?>
+							<li class='col-sm-6 col-md-3 text-center'><a href='#'><img src='<?= IMAGES . '/layer-' . $i . '.png' ?>'></a></li>
+						<?php endfor; ?>
 					</ul>
 				</div><!-- end of row -->
 			</div><!-- end of container -->
 		</section><!-- end of content -->
-	<?php } ?>
+	<?php endif; ?>
 
 <?php get_template_part( 'contactform' ); ?>
 <?php get_footer();?>
