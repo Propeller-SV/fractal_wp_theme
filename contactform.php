@@ -25,10 +25,10 @@
 
 					<!-- Modal -->
 					<div>
-						<button type="button" class="btn btn-primary success hidden" data-toggle="modal" data-target=".bs-example-modal-md">Small modal</button>
+						<button type="button" class="btn btn-primary success hidden" data-toggle="modal" data-target=".bs-example-modal-md">Success</button>
 
-						<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-							<div class="modal-dialog modal-sm">
+						<div class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myMediumModalLabel">
+							<div class="modal-dialog modal-md">
 								<div class="modal-content" style="color: black">
 									<p><?php _e('Thanks for contacting us, expect a response soon.', 'fractal'); ?></p>
 								</div>
@@ -36,7 +36,7 @@
 						</div>
 					</div>
 					<div>
-						<button type="button" class="btn btn-primary error hidden" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+						<button type="button" class="btn btn-primary error hidden" data-toggle="modal" data-target=".bs-example-modal-sm">Error</button>
 
 						<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 							<div class="modal-dialog modal-sm">
