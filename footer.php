@@ -9,10 +9,8 @@
 	<div class="container">
 		<div class="row">
 			<nav class="hidden-xs footer-navigation col-sm-7">
-
 				<!-- Create Footer Nav Menu -->
 				<?php do_action( 'wp_create_footer_nav_menu' ); ?>
-
 			</nav>
 			<div class="menu col-sm-5">
 				<div class="col-sm-4 col-md-6">
@@ -20,14 +18,11 @@
 				</div>
 				<div class="col-sm-8 col-md-6">
 					<ul class="nav nav-pills">
-						<?php $options = get_option( 'fractal_options' );
-						$accounts = ['facebook', 'twitter', 'linkedin', 'google'];
-						for ($i=0; $i<count($accounts); $i++) {
-							?>
-							<li><a href="<?php echo isset($options[$accounts[$i]]) ? esc_url($options[$accounts[$i]]) : ''; ?>"><img src="<?php echo (isset($options[$accounts[$i] . '_icon']) && $options[$accounts[$i] . '_icon']) ? esc_url($options[$accounts[$i] . '_icon']) : IMAGES . '/' . $accounts[$i] . '.png'; ?>"></a></li>
-							<?php
-						}
-						?>
+						<?php $options = get_option( 'fractal_options' ); ?>
+						<?php $accounts = ['facebook', 'twitter', 'linkedin', 'google']; ?>
+						<?php for ($i=0; $i<count($accounts); $i++): ?>
+							<li><a href="<?= isset($options[$accounts[$i]]) ? esc_url($options[$accounts[$i]]) : ''; ?>"><img src="<?= (isset($options[$accounts[$i] . '_icon']) && $options[$accounts[$i] . '_icon']) ? esc_url($options[$accounts[$i] . '_icon']) : IMAGES . '/' . $accounts[$i] . '.png'; ?>"></a></li>
+						<?php endfor; ?>
 					</ul>
 				</div>
 			</div>
@@ -37,7 +32,6 @@
 		</div>
 	</div><!-- end of container -->
 </footer>
-<!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 <?php wp_footer(); ?>
 </body>
 </html>
