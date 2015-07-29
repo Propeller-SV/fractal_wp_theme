@@ -36,20 +36,18 @@ function main_company_points_options() {
 
 	<div>
 		<div id="main_points">
-		<?php
-		if (isset($main_points_data['point'])) {
-			for( $i = 0; $i < count( $main_points_data['point'] ); $i++ )
-				{ ?>
-				<div class="main_point" style="border : 1px solid">
-					<label for="point-<?php echo $i+1 ?>">Point <?php echo $i+1; ?>:</label>
-					<textarea id="point-<?php echo $i+1 ?>" name="main_points[point][]" cols="30" rows="2"><?php esc_html_e( $main_points_data['point'][$i] ); ?></textarea>
-					<input class="button" type="button" value="<?php _e('Remove Point', 'fractal'); ?>" onclick="jQuery(this).closest('div').remove();" />
-					<input type="text" class="main_point_icon" name="main_points[icon][]" value="<?php echo isset($main_points_data['icon'][$i]) ? esc_url( $main_points_data['icon'][$i] ) : ''; ?>" placeholder="<?php _e('Select icon', 'fractal'); ?>" size="80" />
-					<input class="button" type="button" value="<?php _e('Add icon', 'fractal'); ?>" onclick="add_point_icon(this)" />
-					<div class="point_icon_wrap"><img src="<?php echo isset($main_points_data['icon'][$i]) ? esc_url( $main_points_data['icon'][$i] ) : ''; ?>" height="32" width="32" /></div>
-				</div>
-			<?php } // endforeach
-		} ?> <!-- endif -->
+			<?php if (isset($main_points_data['point'])): ?>
+				<?php for( $i = 0; $i < count( $main_points_data['point'] ); $i++ ): ?>
+					<div class="main_point" style="border : 1px solid">
+						<label for="point-<?= $i+1 ?>"><?php _e('Point ', 'fractal'); ?><?= $i+1; ?>:</label>
+						<textarea id="point-<?= $i+1 ?>" name="main_points[point][]" cols="30" rows="2"><?php esc_html_e( $main_points_data['point'][$i] ); ?></textarea>
+						<input class="button" type="button" value="<?php _e('Remove Point', 'fractal'); ?>" onclick="jQuery(this).closest('div').remove();" />
+						<input type="text" class="main_point_icon" name="main_points[icon][]" value="<?= isset($main_points_data['icon'][$i]) ? esc_url( $main_points_data['icon'][$i] ) : ''; ?>" placeholder="<?php _e('Select icon', 'fractal'); ?>" size="80" />
+						<input class="button" type="button" value="<?php _e('Add icon', 'fractal'); ?>" onclick="add_point_icon(this)" />
+						<div class="point_icon_wrap"><img src="<?= isset($main_points_data['icon'][$i]) ? esc_url( $main_points_data['icon'][$i] ) : ''; ?>" height="32" width="32" /></div>
+					</div>
+				<?php endfor; ?>
+			<?php endif; ?>
 		</div> <!-- end #main_points -->
 
 		<div id="main_points_row" style="clear:both; display:none">
@@ -94,7 +92,7 @@ if( 'page' != $post->post_type )
 			inputField.val(url);
 			jQuery(parent)
 			.find("div.point_icon_wrap")
-			.html('<img src="'+url+'" height="48" width="48" />');
+			.html('<img src="'+url+'" height="32" width="32" />');
 
 			tb_remove();
 		};
