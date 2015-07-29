@@ -21,7 +21,6 @@ if ( !function_exists('add_languages_polylang') ) {
 			);
 			foreach ($languages as $language) {
 				$language_installed = pll_is_language_installed($language['slug']);
-				// echo('<script>alert(' . (int)$language_installed . ');</script>');
 				if (!$language_installed) {
 					$model->add_language($language);
 				}
@@ -33,7 +32,6 @@ if ( !function_exists('add_languages_polylang') ) {
 			if (!empty($nolang['terms']))
 				$model->set_language_in_mass('term', $nolang['terms'], $options['default_lang']);
 		}
-
 	}
 }
 
@@ -49,4 +47,3 @@ function pll_is_language_installed($language_code) {
 }
 
 add_action( 'after_switch_theme', 'add_languages_polylang' );
-?>
