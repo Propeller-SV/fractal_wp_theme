@@ -15,8 +15,7 @@ if (!function_exists('psv_get_plugins')) {
 			'preserve_zip'	=> true
 		);
 
-		foreach($plugins as $plugin)
-		{
+		foreach($plugins as $plugin) {
 			psv_plugin_unpack($args, get_template_directory() . '/lib/plugins/' . $plugin['name'].'.zip');
 			psv_plugin_activate($plugin['install']);
 		}
@@ -24,13 +23,11 @@ if (!function_exists('psv_get_plugins')) {
 
 	function psv_plugin_unpack($args, $target) {
 		$zip = new ZipArchive;
-		if($zip->open($target) === TRUE)
-		{
+		if($zip->open($target) === TRUE) {
 			$zip->extractTo( $args['path'] );
 			$zip->close();
 		}
-		if($args['preserve_zip'] === false)
-		{
+		if($args['preserve_zip'] === false) {
 			unlink($target);
 		}
 	}
@@ -39,11 +36,9 @@ if (!function_exists('psv_get_plugins')) {
 		$current = get_option('active_plugins');
 		$plugin = plugin_basename(trim($installer));
 
-		if(!in_array($plugin, $current))
-		{
+		if(!in_array($plugin, $current)) {
 			activate_plugin($plugin);
 		}
 	}
 }
 add_action( 'after_switch_theme', 'psv_get_plugins' );
-?>
