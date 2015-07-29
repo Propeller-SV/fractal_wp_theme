@@ -1077,6 +1077,11 @@ footer p {
 .modal {
 	text-align: center;
 }
+.modal p {
+	font-size:20px;
+	text-transform: none;
+	text-align: center;
+}
 .modal:before {
 	display: inline-block;
 	vertical-align: middle;
