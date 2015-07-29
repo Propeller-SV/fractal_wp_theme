@@ -73,7 +73,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
-					<h1 class="text-center">You May Also Like</h1>
+					<h1 class="text-center"><?php _e('You May Also Like', 'fractal'); ?></h1>
 				</div>
 				<?php
 					$args = array( 'numberposts' => '3', 'exclude' => get_the_id() );
@@ -83,10 +83,10 @@
 					}
 				?>
 				<div class="teg col-xs-12">
-				    <h4>You may use these HTML tags and attributes:</h4>
-				    <p>
-				        &#60;a href=" " title=" "&#62; &#60;abbr title=" "&#62; &#60;acronym title=" "&#62; &#60;b&#62; &#60;blockquote cite=" "&#62; &#60;cite&#62; &#60;code&#62; &#60;del datetime=" "&#62; &#60;em&#62; &#60;i&#62; &#60;q cite=" "&#62; &#60;strike&#60; &#60;strong&#62;
-				    </p>
+					<h4><?php _e('You may use these HTML tags and attributes:', 'fractal'); ?></h4>
+					<p>
+						&#60;a href=" " title=" "&#62; &#60;abbr title=" "&#62; &#60;acronym title=" "&#62; &#60;b&#62; &#60;blockquote cite=" "&#62; &#60;cite&#62; &#60;code&#62; &#60;del datetime=" "&#62; &#60;em&#62; &#60;i&#62; &#60;q cite=" "&#62; &#60;strike&#60; &#60;strong&#62;
+					</p>
 				</div>
 			</div>
 		</div>
