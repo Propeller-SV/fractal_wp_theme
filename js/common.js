@@ -55,7 +55,7 @@ function initialize() {
 }
 
 // Add icons to mobile menu
-$(function() {
+jQuery(function($) {
 	var aTags = document.getElementById('top-nav-menu').getElementsByTagName('a');
 	// var searchText = ['home', 'software engineering', 'company', 'career'];
 	var icons = ['glyphicon glyphicon-home', 'glyphicon glyphicon-cog', 'glyphicon glyphicon-list-alt', 'glyphicon glyphicon-user'];
